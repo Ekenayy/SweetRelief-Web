@@ -9,16 +9,18 @@ function App() {
 
   const windowUrl = window.location.search
   const params = new URLSearchParams(windowUrl)
-  const baseUrl = 'http://localhost:3001'
+  const baseUrl = 'http://localhost:3000'
 
   const [orderId, setOrderId] = useState(window.orderId)
-  const [details, setDetails] = useState(null)
+  const [order, setOrder] = useState(null)
+
+  const idMissing = orderId === undefined
 
   useEffect(() => {
-    if (orderId == undefined) {
+    if (idMissing && window.orderId) {
       setOrderId(window.orderId)
     }
-  },[orderId == undefined])
+  },[idMissing])
 
   function createOrder(data, actions) {
     return(orderId)
@@ -26,13 +28,28 @@ function App() {
 
   async function onApprove(data, actions) {
     // Can I just send it the order and then call the .capture() method? 
-    console.log('order being captured')
-    console.log(actions.order)
-    let order = await actions.order.capture();
-    console.log(order);
+
+    // let order = await actions.order.capture();
+    // console.log(order);
+    const response = await fetch(`${baseUrl}/capture_order`, {
+      method: 'POST',
+      headers: {'Content-Type' : 'application/json'},
+      body: JSON.stringify({order_id: orderId})
+    })
+
+    const responseData = await response.json()
+    console.log(responseData)
+      // .then(r => r.json())
+      // .then(orderFromDb => {
+      //   console.log(orderFromDb)
+      //   setOrder(orderFromDb)
+      //   window.ReactNativeWebView &&
+      // window.ReactNativeWebView.postMessage(JSON.stringify(orderFromDb))
+      // })
+
     window.ReactNativeWebView &&
-      window.ReactNativeWebView.postMessage(JSON.stringify(order))
-    return order;
+      window.ReactNativeWebView.postMessage(JSON.stringify(responseData))
+    return responseData;
   }
 
   function onError(err) {
