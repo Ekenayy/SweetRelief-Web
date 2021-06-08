@@ -9,7 +9,7 @@ function App() {
 
   const windowUrl = window.location.search
   const params = new URLSearchParams(windowUrl)
-  const baseUrl = 'http://localhost:3000'
+  const baseUrl = 'http://127.0.0.1:3000'
 
   const [orderId, setOrderId] = useState(window.orderId)
   const [order, setOrder] = useState(null)
