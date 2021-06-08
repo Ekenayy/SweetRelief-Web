@@ -1,32 +1,33 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import ReactDOM from "react-dom";
 import logo from './logo.svg';
 import './App.css';
 
 const PayPalButton = window.paypal.Buttons.driver("react", { React, ReactDOM });
 
-// When the page opens up it should automatically be fetching from a rails route
-// This route will contain all the info that will ultimatey go into the create order function
-
 function App() {
 
   const windowUrl = window.location.search
   const params = new URLSearchParams(windowUrl)
+  const baseUrl = 'http://localhost:3001'
 
-  // Send information to this create order function
+  const [orderId, setOrderId] = useState(window.orderId)
+  const [details, setDetails] = useState(null)
+
+  useEffect(() => {
+    if (orderId == undefined) {
+      setOrderId(window.orderId)
+    }
+  },[orderId == undefined])
+
   function createOrder(data, actions) {
-    return actions.order.create({
-      purchase_units: [
-        {
-          amount: {
-            value: "1",
-          },
-        },
-      ],
-    });
+    return(orderId)
   }
 
   async function onApprove(data, actions) {
+    // Can I just send it the order and then call the .capture() method? 
+    console.log('order being captured')
+    console.log(actions.order)
     let order = await actions.order.capture();
     console.log(order);
     window.ReactNativeWebView &&
@@ -52,7 +53,7 @@ function App() {
         onError={(err) => onError(err)}
         onCancel={() => onError('Canceled')}
       />
-      <p>{params}</p>
+      <p>{orderId}</p>
     </div>
   );
 }
