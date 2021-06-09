@@ -32,7 +32,7 @@ function App() {
 
     // let order = await actions.order.capture();
     // console.log(order);
-    const response = await fetch(`${tunneledUrl}/capture_order`, {
+    const response = await fetch(`${baseUrl}/capture_order`, {
       method: 'POST',
       headers: {'Content-Type' : 'application/json'},
       body: JSON.stringify({order_id: orderId})
