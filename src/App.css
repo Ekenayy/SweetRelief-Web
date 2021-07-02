@@ -28,6 +28,23 @@
   color: #61dafb;
 }
 
+#header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: pink;
+}
+
+#navbar {
+  display: flex;
+  flex-direction: row;
+  padding-right: 30px;
+}
+
+.nav-item {
+  margin: 5px 10px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

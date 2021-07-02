@@ -4,6 +4,7 @@ import './App.css';
 import Pay from "./pages/Pay"
 import { Redirect, Route, Switch } from "react-router-dom";
 import Main from "./pages/Main"
+import Header from './components/Navbar'
 
 
 
