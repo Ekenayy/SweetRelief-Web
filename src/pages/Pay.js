@@ -34,7 +34,6 @@ function Pay () {
         })
 
         const responseData = await response.json()
-        console.log(responseData)
         // .then(r => r.json())
         // .then(orderFromDb => {
         //   console.log(orderFromDb)
@@ -59,7 +58,7 @@ function Pay () {
     }
 
     return (
-        <div className="Pay">
+        <div id="Pay">
             <PayPalButton
                 createOrder={(data, actions) => createOrder(data, actions)}
                 onApprove={(data, actions) => onApprove(data, actions)}

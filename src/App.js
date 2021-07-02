@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import './App.css';
 import Pay from "./pages/Pay"
 import { Redirect, Route, Switch } from "react-router-dom";
+import Main from "./pages/Main"
 
 
 
@@ -16,6 +17,9 @@ function App() {
         <Switch>
           <Route exact path='/pay'>
             <Pay/>
+          </Route>
+          <Route exact path='/'>
+            <Main/>
           </Route>
         </Switch>
       </div>
