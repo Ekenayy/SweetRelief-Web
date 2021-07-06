@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import About from '../components/About'
-import Features from '../components/Features'
+import Product from '../components/Product'
 import Intro from '../components/Intro'
 import Header from '../components/Header'
 
@@ -11,7 +11,7 @@ function Main () {
         <div id="Main">
             <Header/>
             <Intro/>
-            <Features/>
+            <Product/>
             <About/>
         </div>
     )

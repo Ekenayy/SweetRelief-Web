@@ -1,13 +1,13 @@
 import React, {useState, useEffect} from 'react'
 
-function Features () {
+function Product () {
 
     // The Features page will have the different components
     return (
-        <div id="Features">
-            <p>Hello from Features</p>
+        <div id="Features" class='section'>
+            <p>Hello from Product</p>
         </div>
     )
 }
 
-export default Features
+export default Product

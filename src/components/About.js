@@ -6,7 +6,7 @@ function About () {
 
     // The About page will have the different components
     return (
-        <div id="About">
+        <div id="About" class='section'>
             <p>Hello from about</p>
         </div>
     )
