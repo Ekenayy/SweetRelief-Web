@@ -4,7 +4,7 @@ function Product () {
 
     // The Features page will have the different components
     return (
-        <div id="Features" class='section'>
+        <div id="Product" class='section'>
             <p>Hello from Product</p>
         </div>
     )
