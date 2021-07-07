@@ -18,15 +18,6 @@ function App() {
           <Route exact path='/pay'>
             <Pay/>
           </Route>
-          <Route exact path='/intro'>
-            <Intro/>
-          </Route>
-          <Route exact path='/product'>
-            <Product/>
-          </Route>
-          <Route exact path='/about'>
-            <About/>
-          </Route>
           <Route exact path='/'>
             <Main/>
           </Route>
