@@ -9,7 +9,7 @@ function Header () {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        background-color: pink;
+        background-color: #F7F8F3;
         position: sticky;
         width: 100%;
         top: 0;

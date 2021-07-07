@@ -1,12 +1,14 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components';
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 
 
 function Navbar () {
 
     // The Navbar page will have the different components
+
+    const [selected, setSelected] = useState('')
 
     const Link = ({ className, children, id, href, }) => (
         <a className={className} id={id} href={href}>
@@ -23,24 +25,29 @@ function Navbar () {
 
     const StyledLink = styled(Link)`
         margin: auto; 
-        padding: 30px 16px;
+        padding: 20px 30px;
         display: block;
+        font-size: 15px;
+        font-weight: bold;
+        text-decoration: none;
+        color: #1C1C1C
+        transition: all 0.3s ease;
     `
 
-    const NavWords = styled.p`
+    const NavItem = styled.div`
 
     `
 
     return (
         <MainDiv >
-            <StyledLink href='#About'>
+            <StyledLink className='nav-button' href='#About'>
                 Join
             </StyledLink>
-            <StyledLink href='#Product'>
-                <NavWords>Product</NavWords>
+            <StyledLink className='nav-button' href='#Product'>
+                Product
             </StyledLink>
-            <StyledLink href='#About'>
-                <NavWords>About</NavWords>
+            <StyledLink className='nav-button' href='#About'>
+                About
             </StyledLink>
         </MainDiv>
     )
