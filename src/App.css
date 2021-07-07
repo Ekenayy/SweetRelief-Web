@@ -40,6 +40,12 @@ html, body {
   background-color: #F7F8F3;
 }
 
+#Pay{
+  background-color: #ffffff;
+  flex: 1;
+  height:100vh;
+}
+
 #navbar {
   display: flex;
   flex-direction: row;
