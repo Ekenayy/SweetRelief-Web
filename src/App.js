@@ -4,10 +4,6 @@ import './App.css';
 import Pay from "./pages/Pay"
 import { Redirect, Route, Switch } from "react-router-dom";
 import Main from "./pages/Main"
-import Header from './components/Header'
-import Intro from './components/Intro'
-import Product from './components/Product'
-import About from './components/About'
 
 function App() {
 

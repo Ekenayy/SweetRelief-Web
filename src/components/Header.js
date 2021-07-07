@@ -1,9 +1,14 @@
 import React, {useState, useEffect} from 'react'
 import Navbar from './Navbar'
 import styled from 'styled-components';
+import logo from '../photos/waterdrop2.png'
 
 
 function Header () {
+
+    const Image = ({ className, children, id, src, }) => (
+        <img className={className} id={id} src={src}/>
+    );
 
     const MainDiv = styled.div`
         display: flex;
@@ -20,9 +25,13 @@ function Header () {
         padding-left: 10px;
     `
 
+    const Logo = styled(Image)`
+        height: 100px
+    `
+
     return (
         <MainDiv>
-            <HeaderText>Hello from Header</HeaderText>
+            <Logo src={logo}/>
             <Navbar/>
         </MainDiv>
     )
