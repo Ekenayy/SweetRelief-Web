@@ -22,7 +22,6 @@ function Navbar () {
         padding-right: 30px;
     `
 
-
     const StyledLink = styled(Link)`
         margin: auto; 
         padding: 20px 30px;
@@ -32,6 +31,7 @@ function Navbar () {
         text-decoration: none;
         color: #1C1C1C
         transition: all 0.3s ease;
+        border-radius: 5px;
     `
 
     const NavItem = styled.div`

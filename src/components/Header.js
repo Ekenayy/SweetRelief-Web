@@ -6,7 +6,7 @@ import logo from '../photos/waterdrop2.png'
 
 function Header () {
 
-    const Image = ({ className, children, id, src, }) => (
+    const Image = ({ className, children, id, src, alt, }) => (
         <img className={className} id={id} src={src}/>
     );
 
@@ -18,7 +18,12 @@ function Header () {
         position: sticky;
         width: 100%;
         top: 0;
-        padding: 20px 10px;
+    `
+
+    const LogoDiv = styled.div`
+        align-self: center;
+        height: 170px;
+        width: auto;
     `
 
     const HeaderText = styled.p`
@@ -26,14 +31,16 @@ function Header () {
     `
 
     const Logo = styled(Image)`
-        height: 100px;
-        width: 100px
+        height: 100%;
+        width: auto;
         align-self: center;
     `
 
     return (
         <MainDiv>
-            <Logo src={logo}/>
+            <LogoDiv>
+                <Logo src={logo} alt="SweetRelief Logo"/>
+            </LogoDiv>
             <Navbar/>
         </MainDiv>
     )
