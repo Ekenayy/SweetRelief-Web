@@ -31,7 +31,7 @@
 html, body {
   height: 100%;
   margin: 0px;
-  font-family: aileronregular;
+  font-family: 'aileronregular', 'Roboto', sans-serif;
 }
 
 #header {
@@ -65,6 +65,14 @@ html, body {
   right:0px;
   bottom:0px;
   left:0px;
+  border-bottom-width: 10px;
+  border-color: #F7F8F3;
+  border-style: solid;
+}
+
+#product {
+  height: 150vh;
+  flex: 1;
 }
 
 .nav-button {
@@ -77,6 +85,10 @@ html, body {
 }
 
 .nav-button:hover {
+  background-color: grey;
+}
+
+.filter-item:hover {
   background-color: grey;
 }
 

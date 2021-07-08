@@ -22,7 +22,7 @@ function Header () {
 
     const LogoDiv = styled.div`
         align-self: center;
-        height: 170px;
+        height: 120px;
         width: auto;
     `
 
