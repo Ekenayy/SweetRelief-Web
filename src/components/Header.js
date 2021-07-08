@@ -26,7 +26,9 @@ function Header () {
     `
 
     const Logo = styled(Image)`
-        height: 100px
+        height: 100px;
+        width: 100px
+        align-self: center;
     `
 
     return (
