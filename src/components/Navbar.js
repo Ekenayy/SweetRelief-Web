@@ -26,7 +26,7 @@ function Navbar () {
         margin: auto; 
         padding: 20px 30px;
         display: block;
-        font-size: 15px;
+        font-size: 20px;
         font-weight: bold;
         text-decoration: none;
         color: #1C1C1C

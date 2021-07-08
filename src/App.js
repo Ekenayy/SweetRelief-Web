@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import ReactDOM from "react-dom";
-import './App.css';
+import './css/App.css';
 import Pay from "./pages/Pay"
 import { Redirect, Route, Switch } from "react-router-dom";
 import Main from "./pages/Main"
