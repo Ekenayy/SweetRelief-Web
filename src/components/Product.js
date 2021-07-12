@@ -23,6 +23,7 @@ function Product () {
     );
 
     const BigText = styled.h1`
+        font-size: 40px;
     `
 
     const HeaderDiv = styled.div`
@@ -33,10 +34,13 @@ function Product () {
         align-self: center;
     `
 
-    const PictureDiv = styled.div`
+    const PicDiv = styled.div`
         height: 70%;
         align-self: center;
         margin-top: 30px;
+    `
+
+    const FilterPicDiv = styled(PicDiv)`
     `
 
     const FilterDiv = styled.div`
@@ -72,17 +76,19 @@ function Product () {
     `
 
     const TextDiv = styled.div`
+        padding-top: 15px;
     `
 
     const FilterContent = () => {
         return (
             <AllContentDiv>
-                <PictureDiv>
+                <PicDiv>
                     <DemoImage src={MainPage}/>
-                </PictureDiv>
-                {/* <TextDiv>
+                </PicDiv>
+                <TextDiv>
                     <BigText>Filters</BigText>
-                </TextDiv> */}
+                    <p>Find locations that suit your needs</p>
+                </TextDiv>
             </AllContentDiv>
             
         )
@@ -90,25 +96,25 @@ function Product () {
 
     const CommentContent = () => {
         return (
-            <PictureDiv>
+            <PicDiv>
                 <DemoImage src={CommentScreen}></DemoImage>
-            </PictureDiv>
+            </PicDiv>
         )
     }
 
     const PayContent = () => {
         return (
-            <PictureDiv>
+            <PicDiv>
                 <DemoImage src={PayScreen}></DemoImage>
-            </PictureDiv>
+            </PicDiv>
         )
     }
 
     const ExploreContent = () => {
         return (
-            <PictureDiv>
+            <PicDiv>
                 <DemoImage src={LocationDetails}></DemoImage>
-            </PictureDiv>
+            </PicDiv>
         )
     }
 
@@ -129,7 +135,7 @@ function Product () {
     }
 
     return (
-        <div id="product" class='section'>
+        <div id="Product" class='section'>
             <HeaderDiv>
                 <BigText>SweetRelief</BigText>
                 <p>Never go home early</p>
