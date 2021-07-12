@@ -47,7 +47,7 @@ function Product () {
         margin: 5px 30px;
         display: inline-block;
         border-radius: 5px;
-        width: 100px;
+        width: 140px;
         border-bottom: solid;
         border-color: #DDF8E8;
         border-bottom-width: ${props => props.selected ? '5px' : '0px'}
@@ -59,11 +59,32 @@ function Product () {
         align-self: center;
     `
 
+    const FilterText = styled.p`
+        display: inline-block;
+        margin-left: 5px;
+        align-self: center;
+        font-size: 20px;
+    `
+
+    const AllContentDiv = styled.div`
+        display: flex;
+        flex-direction: row;
+    `
+
+    const TextDiv = styled.div`
+    `
+
     const FilterContent = () => {
         return (
-            <PictureDiv>
+            <AllContentDiv>
+                <PictureDiv>
                     <DemoImage src={MainPage}/>
-            </PictureDiv>
+                </PictureDiv>
+                {/* <TextDiv>
+                    <BigText>Filters</BigText>
+                </TextDiv> */}
+            </AllContentDiv>
+            
         )
     }
 
@@ -105,27 +126,30 @@ function Product () {
             default: 
                 return <FilterContent/>
         }
-
     }
-    
+
     return (
         <div id="product" class='section'>
             <HeaderDiv>
                 <BigText>SweetRelief</BigText>
-                <p>Because finding a bathroom should be easy.</p>
+                <p>Never go home early</p>
             </HeaderDiv>
             <FilterDiv>
                 <FilterItem  className="filter-item" selected={selected == 'main'} onClick={() => setSelected('main')}>
-                    <p>Filter</p>
+                    <i class="fa fa-filter fa-2x"></i>
+                    <FilterText>Filter</FilterText>
                 </FilterItem>
                 <FilterItem className="filter-item" selected={selected == 'explore'} onClick={() => setSelected('explore')}>
-                    <p>Explore</p>
+                    <i class="fa fa-wpexplorer fa-2x"></i>
+                    <FilterText>Explore</FilterText>
                 </FilterItem>
                 <FilterItem className="filter-item" selected={selected == 'comment'} onClick={() => setSelected('comment')}>
-                    <p>Comment</p>
+                    <i class="fa fa-comments fa-2x"></i>
+                    <FilterText>Comment</FilterText>
                 </FilterItem>
                 <FilterItem className="filter-item" selected={selected == 'pay'} onClick={() => setSelected('pay')}>
-                    <p>Pay</p>
+                    <i class="fa fa-random fa-2x"></i>
+                    <FilterText>Pay</FilterText>
                 </FilterItem>
             </FilterDiv>
             <DemoDiv>
