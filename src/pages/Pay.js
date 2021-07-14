@@ -1,13 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import ReactDOM from "react-dom";
 
-
 const PayPalButton = window.paypal.Buttons.driver("react", { React, ReactDOM });
 
 function Pay () {
-
-    const baseUrl = 'http://127.0.0.1:3000'
-    const tunneledUrl = 'https://22a4b6a1986db6.localhost.run'
 
     const [orderId, setOrderId] = useState(window.orderId)
     const [order, setOrder] = useState(null)
@@ -67,6 +63,7 @@ function Pay () {
             />
             <p>Order Id: {orderId}</p>
             <p>{process.env.REACT_APP_API_BASE_URL}</p>
+            <p>Testing!</p>
         </div>
     );
 }
