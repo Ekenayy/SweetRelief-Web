@@ -30,6 +30,7 @@
 
 html, body {
   height: 100%;
+  width: 100vw;
   margin: 0px;
   font-family: 'aileronregular', 'Roboto', sans-serif;
 }
@@ -55,6 +56,11 @@ html, body {
 
 .nav-item {
   margin: 5px 10px;
+}
+
+#videoBG {
+  z-index: -1;
+
 }
 
 .section {
@@ -90,6 +96,11 @@ html, body {
 
 .filter-item:hover {
   background-color: grey;
+}
+
+#videoBG {
+  width: 700px;
+  height: 700px;
 }
 
 

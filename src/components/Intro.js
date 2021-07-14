@@ -1,5 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components';
+import photo from '../photos/screenshot.png'
+import video from '../videos/Demo.mp4'
+
+
 
 function Intro () {
 
@@ -46,7 +50,9 @@ function Intro () {
                     <SmallText>Find restrooms in your area. Discover local businesses.</SmallText>
                 </WordDiv>
                 <ProductDiv>
-                    <Words>Hello from Product Div</Words>
+                    <video id='videoBG' poster={photo} playsinline autoplay='autoplay' loop muted={true}>
+                        <source src={video} type='video/mp4'/>
+                    </video>
                 </ProductDiv>
             </MainDiv>
         </div>
