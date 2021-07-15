@@ -18,8 +18,9 @@ function Header () {
         position: sticky;
         width: 100%;
         top: 0;
+        left: 0;
         z-index: 1000;
-        height: 7rem;
+        height: 6rem;
         border-bottom: 1px solid #eee;
     `
 

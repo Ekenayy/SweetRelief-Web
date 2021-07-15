@@ -16,39 +16,51 @@ function Navbar () {
         </a>
     );
 
+    const NewDiv = ({className, children, id}) => (
+        <div className={className} id={id}>
+            {children}
+        </div>
+    )
+
     const MainDiv = styled.div`
         display: flex;
-        flex-direction: row;
         padding-right: 30px;
     `
 
     const StyledLink = styled(Link)`
-        margin: auto; 
-        padding: 20px 30px;
-        display: block;
-        font-size: 20px;
-        font-weight: bold;
         text-decoration: none;
-        color: #1C1C1C
-        transition: all 0.3s ease;
-        border-radius: 5px;
+        color: inherit;
+        outline: none;
     `
 
-    const NavItem = styled.div`
-
+    const NavItem = styled(NewDiv)`
+        padding: 20px 30px;
+        display: block;
+        transition: all 0.3s ease;
+        border-radius: 5px;
+        margin: auto; 
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: #1C1C1C;
     `
 
     return (
-        <MainDiv >
-            <StyledLink className='nav-button' href='#Intro'>
-                Join
-            </StyledLink>
-            <StyledLink className='nav-button' href='#Product'>
-                Product
-            </StyledLink>
-            <StyledLink className='nav-button' href='#About'>
-                About
-            </StyledLink>
+        <MainDiv>
+            <NavItem className='nav-button'>
+                <StyledLink  href='#Intro'>
+                    Join
+                </StyledLink>
+            </NavItem>
+            <NavItem className='nav-button'>
+                <StyledLink  href='#Product'>
+                    Product
+                </StyledLink>
+            </NavItem>
+            <NavItem className='nav-button'>
+                <StyledLink href='#About'>
+                    About
+                </StyledLink>
+            </NavItem>
         </MainDiv>
     )
 }
