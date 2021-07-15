@@ -56,6 +56,13 @@
   }
 }
 
+@media (max-width: 37.5em) {
+  .nav-button {
+    display: none;
+  }
+}
+
+
 
 .App-header {
   background-color: #282c34;
@@ -97,10 +104,6 @@ body {
 }
 
 
-.nav-item {
-  margin: 5px 10px;
-}
-
 /* #videoBG {
   position: absolute;
   z-index: 3;
@@ -137,12 +140,6 @@ body {
 }
 
 .nav-button {
-  margin: auto; 
-  padding: 30px 16px;
-  display: block;
-  transition: all 0.3s ease;
-  /* font-size: 20px; */
-  /* color: #3d2b47; */
 }
 
 .nav-button:hover {
