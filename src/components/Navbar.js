@@ -44,6 +44,10 @@ function Navbar () {
         color: #1C1C1C;
     `
 
+    // @media (max-width: 37.5em) {
+    //     display: none;
+    // }
+
     return (
         <MainDiv>
             <NavItem className='nav-button'>

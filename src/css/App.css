@@ -16,7 +16,7 @@
 
 @media (max-width: 37.5em) {
   #navbar {
-      padding: 0 0 0 1.5rem;
+      /* padding: 0 0 0 1.5rem; */
   }
 }
 
@@ -62,7 +62,11 @@
   }
 }
 
-
+/* @media (max-width: 37.5em) {
+  .demo-pic-div {
+    height: 300px;
+  }
+} */
 
 .App-header {
   background-color: #282c34;

@@ -22,6 +22,13 @@ function Product () {
         </div>
     );
 
+    const Div = ({className, children, id, onClick}) => (
+        <div id={id} className={className} onClick={onClick}>
+            {children}
+        </div>
+    )
+    
+
     const BigText = styled.h1`
         font-size: 40px;
         align-self: center;
@@ -37,10 +44,14 @@ function Product () {
         align-self: center;
     `
 
-    const PicDiv = styled.div`
-        height: 70%;
+    const PicDiv = styled(Div)`
+        height: 800px;
+        width: auto;
         align-self: center;
         margin-top: 30px;
+        @media (max-width: 37.5em) {
+            max-height: 500px;
+        }
     `
 
     const FilterPicDiv = styled(PicDiv)`
@@ -65,7 +76,7 @@ function Product () {
     `
 
     const DemoImage = styled(Image)`
-        height: 900px;
+        height: 100%;
         width: auto;
         align-self: center;
     `
@@ -99,8 +110,8 @@ function Product () {
     const FilterContent = () => {
         return (
             <AllContentDiv>
-                <PicDiv>
-                    <DemoImage src={MainPage}/>
+                <PicDiv className='demo-pic-div'>
+                    <DemoImage  src={MainPage}/>
                 </PicDiv>
                 <TextDiv>
                     <BigText>Filters</BigText>
