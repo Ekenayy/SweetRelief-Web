@@ -62,8 +62,6 @@ function Pay () {
                 onCancel={() => onError('Canceled')}
             />
             <p>Order Id: {orderId}</p>
-            <p>{process.env.REACT_APP_API_BASE_URL}</p>
-            <p>Testing!</p>
         </div>
     );
 }

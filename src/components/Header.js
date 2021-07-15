@@ -18,6 +18,7 @@ function Header () {
         position: sticky;
         width: 100%;
         top: 0;
+        z-index: 4;
     `
 
     const LogoDiv = styled.div`

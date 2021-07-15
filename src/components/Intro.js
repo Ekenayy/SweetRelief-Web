@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components';
 import photo from '../photos/screenshot.png'
-import video from '../videos/Demo.mp4'
-
+import video from '../videos/DemoOrangeFrame.mp4'
+import frame from '../photos/newphoneframe.png'
 
 
 function Intro () {
@@ -29,27 +29,49 @@ function Intro () {
     `
 
     const WordDiv = styled.div`
+        align-items: flex-start;
+        width: 40%;
+        padding-left: 50px;
+        padding-top: 80px;
     `
 
     const ProductDiv = styled.div`
+        align-items: center;
+        padding-bottom: 20px;
     `
 
     const BigText = styled.h1`
+        font-size: 40px;
+        text-align: left;
+    `
+
+    const MedText = styled(BigText)`
+        font-size: 30px;
     `
 
     const SmallText = styled.p`
         font-size: 20px;
-        margin-top: 50px;
+        margin-top: 30px;
+        text-align: left;
     `
+
+    useEffect(() => {
+
+        document.querySelector('video#videoBG').playbackRate=1.25
+    }, [])
 
     return (
         <div id="Intro" class='section'>
             <MainDiv>
                 <WordDiv>
-                    <BigText>Stop leaving the park early.</BigText>
-                    <SmallText>Find restrooms in your area. Discover local businesses.</SmallText>
+                    <BigText>SweetRelief</BigText>
+                    <MedText>Find restrooms. Discover local businesses.</MedText>
+                    <SmallText>Finding a restroom in the city can be tough. Finding new customers can be even tougher.
+                        SweetRelief is connecting awesome businesses with awesome people through the power of the potty!
+                    </SmallText>
                 </WordDiv>
-                <ProductDiv>
+                <ProductDiv >
+                    {/* <img id='phoneFrame' src={frame} alt='mobile frame'/> */}
                     <video id='videoBG' poster={photo} playsinline autoplay='autoplay' loop muted={true}>
                         <source src={video} type='video/mp4'/>
                     </video>
@@ -57,6 +79,7 @@ function Intro () {
             </MainDiv>
         </div>
     )
+
 }
 
 export default Intro

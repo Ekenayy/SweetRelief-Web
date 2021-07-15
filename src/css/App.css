@@ -58,9 +58,26 @@ html, body {
   margin: 5px 10px;
 }
 
-#videoBG {
-  z-index: -1;
+/* #videoBG {
+  position: absolute;
+  z-index: 3;
+  width: 680px;
+  height: 600px;
+  right: 265px;
+  top: 262px;
+} */
 
+#videoBG {
+  width: 700px;
+  height: 700px;
+}
+
+#phoneFrame {
+  z-index: 2;
+  position: relative;
+  height: 1245px;
+  width: 735px;
+  bottom: 230px;
 }
 
 .section {
@@ -96,11 +113,6 @@ html, body {
 
 .filter-item:hover {
   background-color: grey;
-}
-
-#videoBG {
-  width: 700px;
-  height: 700px;
 }
 
 

@@ -147,15 +147,15 @@ function Product () {
                 </FilterItem>
                 <FilterItem className="filter-item" selected={selected == 'explore'} onClick={() => setSelected('explore')}>
                     <i class="fa fa-wpexplorer fa-2x"></i>
-                    <FilterText>Explore</FilterText>
-                </FilterItem>
-                <FilterItem className="filter-item" selected={selected == 'comment'} onClick={() => setSelected('comment')}>
-                    <i class="fa fa-comments fa-2x"></i>
-                    <FilterText>Comment</FilterText>
+                    <FilterText>Discover</FilterText>
                 </FilterItem>
                 <FilterItem className="filter-item" selected={selected == 'pay'} onClick={() => setSelected('pay')}>
                     <i class="fa fa-random fa-2x"></i>
                     <FilterText>Pay</FilterText>
+                </FilterItem>
+                <FilterItem className="filter-item" selected={selected == 'comment'} onClick={() => setSelected('comment')}>
+                    <i class="fa fa-comments fa-2x"></i>
+                    <FilterText>Comment</FilterText>
                 </FilterItem>
             </FilterDiv>
             <DemoDiv>
