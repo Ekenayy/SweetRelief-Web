@@ -40,7 +40,7 @@ function Navbar () {
 
     return (
         <MainDiv >
-            <StyledLink className='nav-button' href='#About'>
+            <StyledLink className='nav-button' href='#Intro'>
                 Join
             </StyledLink>
             <StyledLink className='nav-button' href='#Product'>

@@ -20,12 +20,14 @@ function Intro () {
 
     const MainDiv = styled.div`
         display: flex;
-        flex: 1;
+        position: relative;
         flex-direction: row;
         padding: 40px 20px; 
-        width: 90%;
+        width: 100%
+        min-height: 85vh;
         height: 100%;
         justify-content: space-around;
+        background: #BEA7E5;
     `
 
     const WordDiv = styled.div`
@@ -41,16 +43,18 @@ function Intro () {
     `
 
     const BigText = styled.h1`
-        font-size: 40px;
+        font-size: 4rem;
         text-align: left;
+        font-weight: 500;
     `
 
     const MedText = styled(BigText)`
-        font-size: 30px;
+        font-size: 2.7rem;
+        weight: 400;
     `
 
     const SmallText = styled.p`
-        font-size: 20px;
+        font-size: 1.7rem;
         margin-top: 30px;
         text-align: left;
     `
@@ -61,12 +65,12 @@ function Intro () {
     }, [])
 
     return (
-        <div id="Intro" class='section'>
-            <MainDiv>
+        // <div id="Intro" class='section'>
+            <MainDiv id='Intro'>
                 <WordDiv>
-                    <BigText>SweetRelief</BigText>
-                    <MedText>Find restrooms. Discover local businesses.</MedText>
-                    <SmallText>Finding a restroom in the city can be tough. Finding new customers can be even tougher.
+                    <BigText class='intro-text'>SweetRelief</BigText>
+                    <MedText class='intro-text'>Find restrooms. Discover local businesses.</MedText>
+                    <SmallText class='intro-text'>Finding a restroom in the city can be tough. Finding new customers can be even tougher.
                         SweetRelief is connecting awesome businesses with awesome people through the power of the potty!
                     </SmallText>
                 </WordDiv>
@@ -77,7 +81,7 @@ function Intro () {
                     </video>
                 </ProductDiv>
             </MainDiv>
-        </div>
+        // </div>
     )
 
 }

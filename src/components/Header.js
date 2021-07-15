@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import Navbar from './Navbar'
 import styled from 'styled-components';
-import logo from '../photos/waterdrop2.png'
+import logo from '../photos/WaterdropWordless1.png'
 
 
 function Header () {
@@ -18,12 +18,14 @@ function Header () {
         position: sticky;
         width: 100%;
         top: 0;
-        z-index: 4;
+        z-index: 1000;
+        height: 7rem;
+        border-bottom: 1px solid #eee;
     `
 
     const LogoDiv = styled.div`
         align-self: center;
-        height: 120px;
+        height: 140px;
         width: auto;
     `
 
@@ -38,7 +40,7 @@ function Header () {
     `
 
     return (
-        <MainDiv>
+        <MainDiv id='navbar'>
             <LogoDiv>
                 <Logo src={logo} alt="SweetRelief Logo"/>
             </LogoDiv>

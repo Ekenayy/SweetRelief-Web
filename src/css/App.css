@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
 }
 
 .App-logo {
@@ -7,11 +7,41 @@
   pointer-events: none;
 }
 
+/* Media Preferences */
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
+@media (max-width: 37.5em) {
+  #navbar {
+      padding: 0 0 0 1.5rem;
+  }
+}
+
+@media (max-width: 56.25em) {
+  #Intro {
+    height: auto;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 37.5em) {
+  #Product {
+    padding: 4rem 2rem;
+
+  }
+}
+
+@media (max-width: 56.25em) {
+  .intro-text {
+    text-align: center;
+  }
+}
+
+
 
 .App-header {
   background-color: #282c34;
@@ -30,9 +60,13 @@
 
 html, body {
   height: 100%;
-  width: 100vw;
+  width: 100%;
   margin: 0px;
   font-family: 'aileronregular', 'Roboto', sans-serif;
+}
+
+body {
+  position: relative;
 }
 
 #header {
@@ -48,11 +82,6 @@ html, body {
   height:100vh;
 }
 
-#navbar {
-  display: flex;
-  flex-direction: row;
-  padding-right: 30px;
-}
 
 .nav-item {
   margin: 5px 10px;

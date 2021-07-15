@@ -79,6 +79,10 @@ function Product () {
         padding-top: 15px;
     `
 
+    const MainDiv = styled.div`
+        display: flex;
+    `
+
     const FilterContent = () => {
         return (
             <AllContentDiv>
@@ -135,7 +139,7 @@ function Product () {
     }
 
     return (
-        <div id="Product" class='section'>
+        <MainDiv id='Product'>
             <HeaderDiv>
                 <BigText>SweetRelief</BigText>
                 <p>Never go home early</p>
@@ -161,7 +165,7 @@ function Product () {
             <DemoDiv>
                 <ConditionalContent/>
             </DemoDiv>
-        </div>
+        </MainDiv>
     )
 }
 
