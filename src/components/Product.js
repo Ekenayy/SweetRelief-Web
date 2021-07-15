@@ -24,10 +24,13 @@ function Product () {
 
     const BigText = styled.h1`
         font-size: 40px;
+        align-self: center;
     `
 
     const HeaderDiv = styled.div`
+        display: flex;
         align-self: center;
+        flex-direction: column
     `
 
     const DemoDiv = styled.div`
@@ -44,16 +47,20 @@ function Product () {
     `
 
     const FilterDiv = styled.div`
+        display: flex;
+        flex-direction: row;
         align-content: center;
+        align-self: center;
+        flex-wrap: wrap;
     `
 
     const FilterItem = styled(Filter)`
         margin: 5px 30px;
-        display: inline-block;
         border-radius: 5px;
         width: 140px;
         border-bottom: solid;
         border-color: #DDF8E8;
+        align-content: center;
         border-bottom-width: ${props => props.selected ? '5px' : '0px'}
     `
 
@@ -81,6 +88,12 @@ function Product () {
 
     const MainDiv = styled.div`
         display: flex;
+        padding-top: 5rem;
+        background: #F4A261;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        min-height: 85vh;
     `
 
     const FilterContent = () => {
@@ -141,10 +154,10 @@ function Product () {
     return (
         <MainDiv id='Product'>
             <HeaderDiv>
-                <BigText>SweetRelief</BigText>
+                <BigText>Product</BigText>
                 <p>Never go home early</p>
             </HeaderDiv>
-            <FilterDiv>
+            <FilterDiv id='filter-div'>
                 <FilterItem  className="filter-item" selected={selected == 'main'} onClick={() => setSelected('main')}>
                     <i class="fa fa-filter fa-2x"></i>
                     <FilterText>Filter</FilterText>
@@ -162,7 +175,7 @@ function Product () {
                     <FilterText>Comment</FilterText>
                 </FilterItem>
             </FilterDiv>
-            <DemoDiv>
+            <DemoDiv id='demo-div'>
                 <ConditionalContent/>
             </DemoDiv>
         </MainDiv>

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components';
-import photo from '../photos/screenshot.png'
+import photo from '../photos/MainPage.png'
 import video from '../videos/DemoOrangeFrame.mp4'
 import frame from '../photos/newphoneframe.png'
 
