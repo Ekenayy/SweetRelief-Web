@@ -37,7 +37,7 @@
 }
 
 @media (max-width: 56.25em) {
-  .intro-text {
+  #intro-text, #intro-subheader, #intro-header {
     text-align: center;
   }
 }

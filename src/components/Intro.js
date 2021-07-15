@@ -31,8 +31,8 @@ function Intro () {
     `
 
     const WordDiv = styled.div`
-        align-items: flex-start;
-        width: 40%;
+        align-items: center;
+        width: 100%;
         padding-left: 50px;
         padding-top: 80px;
     `
@@ -68,9 +68,9 @@ function Intro () {
         // <div id="Intro" class='section'>
             <MainDiv id='Intro'>
                 <WordDiv>
-                    <BigText class='intro-text'>SweetRelief</BigText>
-                    <MedText class='intro-text'>Find restrooms. Discover local businesses.</MedText>
-                    <SmallText class='intro-text'>Finding a restroom in the city can be tough. Finding new customers can be even tougher.
+                    <BigText id='intro-header'>SweetRelief</BigText>
+                    <MedText id='intro-subheader'>Find restrooms. Discover local businesses.</MedText>
+                    <SmallText id='intro-text'>Finding a restroom in the city can be tough. Finding new customers can be even tougher.
                         SweetRelief is connecting awesome businesses with awesome people through the power of the potty!
                     </SmallText>
                 </WordDiv>
