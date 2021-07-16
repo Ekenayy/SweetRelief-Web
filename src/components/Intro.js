@@ -28,6 +28,9 @@ function Intro () {
         height: 100%;
         justify-content: space-around;
         background: #BEA7E5;
+        background: -webkit-radial-gradient(top left, #BEA7E5, #F4A261);
+        background: -moz-radial-gradient(top left, #BEA7E5, #F4A261);
+        background: radial-gradient(to bottom right, #BEA7E5, #F4A261);
     `
 
     const WordDiv = styled.div`

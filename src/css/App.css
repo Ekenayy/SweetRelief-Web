@@ -1,4 +1,5 @@
 .App {
+  
   /* text-align: center; */
 }
 
@@ -131,7 +132,6 @@ body {
 }
 
 .section {
-  background: #BEA7E5;
   height:100vh;
   width: 100%;
   top:0px;

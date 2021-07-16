@@ -21,7 +21,7 @@ function Header () {
         left: 0;
         z-index: 1000;
         height: 6rem;
-        border-bottom: 1px solid #eee;
+        border-bottom: 1px solid #BEA7E5;
     `
 
     const LogoDiv = styled.div`

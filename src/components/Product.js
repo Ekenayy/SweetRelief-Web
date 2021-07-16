@@ -142,11 +142,11 @@ function Product () {
     const MainDiv = styled.div`
         display: flex;
         padding-top: 5rem;
-        background: #F4A261;
         flex-direction: column;
         height: 100%;
         width: 100%;
         min-height: 85vh;
+        background: #F7F8F3;
     `
 
     const DiscoverMedia = styled.div`
