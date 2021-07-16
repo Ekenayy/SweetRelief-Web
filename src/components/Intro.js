@@ -77,7 +77,7 @@ function Intro () {
                 </WordDiv>
                 <ProductDiv >
                     {/* <img id='phoneFrame' src={frame} alt='mobile frame'/> */}
-                    <video id='videoBG' poster={photo} playsinline autoplay='autoplay' loop muted={true}>
+                    <video id='videoBG' poster={photo} playsInline autoPlay='autoplay' loop muted={true}>
                         <source src={video} type='video/mp4'/>
                     </video>
                 </ProductDiv>

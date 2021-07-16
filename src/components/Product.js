@@ -4,6 +4,7 @@ import MainPage from '../photos/MainPage.png'
 import PayScreen from '../photos/Payscreen.png'
 import LocationDetails from '../photos/LocationDetails.png'
 import CommentScreen from '../photos/CommentScreen.png'
+import { useMediaQuery } from 'react-responsive';
 
 
 function Product () {
@@ -11,7 +12,11 @@ function Product () {
     // The Features page will have the different components
 
     const [selected, setSelected] = useState("")
+    // const [mobile, setMobile] = useState(isMobile)
 
+    const isMobile = useMediaQuery({ query: `(max-width: 37.5em)` });
+
+    console.log(isMobile)
     const Image = ({ className, children, id, src, alt, }) => (
         <img className={className} id={id} src={src}/>
     );
@@ -27,7 +32,7 @@ function Product () {
             {children}
         </div>
     )
-    
+
 
     const BigText = styled.h1`
         font-size: 40px;
@@ -63,7 +68,7 @@ function Product () {
         align-content: center;
         align-self: center;
         @media screen and (max-width: 37.5em) {
-            margin: 5px 10px;
+            margin: 5px 5px;
             box-sizing: border-box;
         }
     `
@@ -77,7 +82,10 @@ function Product () {
         align-content: center;
         @media screen and (max-width: 37.5em) {
             margin: 5px 10px;
-            width: 60px;
+            width: 90px;
+            height: 40px;
+            padding-top: 15px;
+            padding-left: 10px;
         }
         border-bottom-width: ${props => props.selected ? '5px' : '0px'}
     `
@@ -89,10 +97,13 @@ function Product () {
     `
 
     const FilterText = styled.p`
-        display: inline-block;
+        display: inline;
         margin-left: 5px;
         align-self: center;
         font-size: 20px;
+        @media screen and (max-width: 37.5em) {
+            font-size: 14px;
+        }
     `
 
     const AllContentDiv = styled.div`
@@ -177,19 +188,19 @@ function Product () {
             </HeaderDiv>
             <FilterDiv id='filter-div'>
                 <FilterItem  className="filter-item" selected={selected == 'main'} onClick={() => setSelected('main')}>
-                    <i class="fa fa-filter fa-2x"></i>
+                    {isMobile ? <i class="fa fa-filter fa-lg"></i> : <i class="fa fa-filter fa-2x"></i>}
                     <FilterText>Filter</FilterText>
                 </FilterItem>
                 <FilterItem className="filter-item" selected={selected == 'explore'} onClick={() => setSelected('explore')}>
-                    <i class="fa fa-wpexplorer fa-2x"></i>
+                    {isMobile ? <i class="fa fa-wpexplorer fa-lg"></i> : <i class="fa fa-wpexplorer fa-2x"></i>}
                     <FilterText>Discover</FilterText>
                 </FilterItem>
                 <FilterItem className="filter-item" selected={selected == 'pay'} onClick={() => setSelected('pay')}>
-                    <i class="fa fa-random fa-2x"></i>
+                    {isMobile ? <i class="fa fa-random fa-lg"></i> : <i class="fa fa-random fa-2x"></i>}
                     <FilterText>Pay</FilterText>
                 </FilterItem>
                 <FilterItem className="filter-item" selected={selected == 'comment'} onClick={() => setSelected('comment')}>
-                    <i class="fa fa-comments fa-2x"></i>
+                    {isMobile ? <i class="fa fa-comments fa-lg"></i> : <i class="fa fa-comments fa-2x"></i>}
                     <FilterText>Comment</FilterText>
                 </FilterItem>
             </FilterDiv>
