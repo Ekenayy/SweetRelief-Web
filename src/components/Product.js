@@ -4,6 +4,7 @@ import MainPage from '../photos/MainPage.png'
 import PayScreen from '../photos/Payscreen.png'
 import LocationDetails from '../photos/LocationDetails.png'
 import CommentScreen from '../photos/CommentScreen.png'
+import DiscoverScreen from '../photos/DiscoverScreen.png'
 import { useMediaQuery } from 'react-responsive';
 
 
@@ -37,6 +38,9 @@ function Product () {
     const BigText = styled.h1`
         font-size: 40px;
         align-self: center;
+        @media screen and (max-width: 37.5em) {
+            font-size: 20px;
+        }
     `
 
     const HeaderDiv = styled.div`
@@ -46,7 +50,9 @@ function Product () {
     `
 
     const DemoDiv = styled.div`
+        display: flex;
         align-self: center;
+        width: 100% !important;
     `
 
     const PicDiv = styled(Div)`
@@ -56,6 +62,9 @@ function Product () {
         margin-top: 30px;
         @media (max-width: 37.5em) {
             max-height: 500px;
+            max-width: 300px;
+            align-content: center;
+            left: 0;
         }
     `
 
@@ -76,7 +85,9 @@ function Product () {
     const FilterItem = styled(Filter)`
         margin: 5px 30px;
         border-radius: 5px;
+        height: 60px;
         width: 140px;
+        padding: 5px 0px 0px 10px;
         border-bottom: solid;
         border-color: #DDF8E8;
         align-content: center;
@@ -109,10 +120,22 @@ function Product () {
     const AllContentDiv = styled.div`
         display: flex;
         flex-direction: row;
+        @media screen and (max-width: 37.5em) {
+            width: 100% !important;
+        }
     `
 
     const TextDiv = styled.div`
+        display: flex;
+        flex-direction: column;
         padding-top: 15px;
+        @media screen and (max-width: 37.5em) {
+            width: 100px;
+            align-content: flex-start;
+            margin-left: 20px;
+            text-align: center;
+            padding-top: 50px;
+        }
     `
 
     const MainDiv = styled.div`
@@ -123,6 +146,22 @@ function Product () {
         height: 100%;
         width: 100%;
         min-height: 85vh;
+    `
+
+    const DiscoverMedia = styled.div`
+        display: flex;
+        flex-direction: row;
+        padding-left: 50px;
+        @media screen and (max-width: 37.5em) {
+            padding-left: 0px;
+        }
+    `
+
+    const DiscoverPicDiv = styled(PicDiv)`
+        @media (max-width: 37.5em) {
+            max-height: 450px;
+            max-width: 250px;
+        }
     `
 
     const FilterContent = () => {
@@ -136,7 +175,6 @@ function Product () {
                     <p>Find locations that suit your needs</p>
                 </TextDiv>
             </AllContentDiv>
-            
         )
     }
 
@@ -156,11 +194,17 @@ function Product () {
         )
     }
 
-    const ExploreContent = () => {
+    const DiscoverContent = () => {
         return (
-            <PicDiv>
-                <DemoImage src={LocationDetails}></DemoImage>
-            </PicDiv>
+            <DiscoverMedia>
+                <DiscoverPicDiv>
+                    <DemoImage src={LocationDetails}></DemoImage>
+                </DiscoverPicDiv>
+                <DiscoverPicDiv>
+                    <DemoImage src={DiscoverScreen}></DemoImage>
+                </DiscoverPicDiv>
+            </DiscoverMedia>
+
         )
     }
 
@@ -173,8 +217,8 @@ function Product () {
                 return <PayContent/>
             case 'comment':
                 return <CommentContent/>
-            case 'explore':
-                return <ExploreContent/>
+            case 'discover':
+                return <DiscoverContent/>
             default: 
                 return <FilterContent/>
         }
@@ -191,7 +235,7 @@ function Product () {
                     {isMobile ? <i class="fa fa-filter fa-lg"></i> : <i class="fa fa-filter fa-2x"></i>}
                     <FilterText>Filter</FilterText>
                 </FilterItem>
-                <FilterItem className="filter-item" selected={selected == 'explore'} onClick={() => setSelected('explore')}>
+                <FilterItem className="filter-item" selected={selected == 'discover'} onClick={() => setSelected('discover')}>
                     {isMobile ? <i class="fa fa-wpexplorer fa-lg"></i> : <i class="fa fa-wpexplorer fa-2x"></i>}
                     <FilterText>Discover</FilterText>
                 </FilterItem>
