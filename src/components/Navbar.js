@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components';
 import { NavLink, Link } from "react-router-dom";
-
+import ReorderIcon from '@material-ui/icons/Reorder';
 
 
 function Navbar () {
@@ -47,6 +47,14 @@ function Navbar () {
         color: #1C1C1C;
         @media (max-width: 37.5em) {
             padding: 10px 20px;
+            display: none;
+        }
+    `
+    
+    const NavIcon = styled(NavItem)`
+        display: none;
+        @media (max-width: 37.5em) {
+            display: block;
         }
     `
 
@@ -67,6 +75,9 @@ function Navbar () {
                     About
                 </StyledLink>
             </NavItem>
+            <NavIcon>
+                <ReorderIcon/>
+            </NavIcon>
         </MainDiv>
     )
 }
