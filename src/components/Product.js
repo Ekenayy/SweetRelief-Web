@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components';
 import MainPage from '../photos/MainPage.png'
-import PayScreen from '../photos/Payscreen.png'
+import PayScreen from '../photos/PayScreen.png'
 import LocationDetails from '../photos/LocationDetails.png'
 import CommentScreen from '../photos/CommentScreen.png'
 
@@ -62,7 +62,10 @@ function Product () {
         flex-direction: row;
         align-content: center;
         align-self: center;
-        flex-wrap: wrap;
+        @media screen and (max-width: 37.5em) {
+            margin: 5px 10px;
+            box-sizing: border-box;
+        }
     `
 
     const FilterItem = styled(Filter)`
@@ -72,6 +75,10 @@ function Product () {
         border-bottom: solid;
         border-color: #DDF8E8;
         align-content: center;
+        @media screen and (max-width: 37.5em) {
+            margin: 5px 10px;
+            width: 60px;
+        }
         border-bottom-width: ${props => props.selected ? '5px' : '0px'}
     `
 

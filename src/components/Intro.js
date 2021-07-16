@@ -60,7 +60,6 @@ function Intro () {
     `
 
     useEffect(() => {
-
         document.querySelector('video#videoBG').playbackRate=1.25
     }, [])
 

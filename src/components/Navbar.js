@@ -25,6 +25,9 @@ function Navbar () {
     const MainDiv = styled.div`
         display: flex;
         padding-right: 30px;
+        @media (max-width: 37.5em) {
+            padding-right: none;
+        }
     `
 
     const StyledLink = styled(Link)`
@@ -42,11 +45,10 @@ function Navbar () {
         font-size: 1.2rem;
         font-weight: 500;
         color: #1C1C1C;
+        @media (max-width: 37.5em) {
+            padding: 10px 20px;
+        }
     `
-
-    // @media (max-width: 37.5em) {
-    //     display: none;
-    // }
 
     return (
         <MainDiv>
