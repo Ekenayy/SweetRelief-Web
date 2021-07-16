@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components';
 import MainPage from '../photos/MainPage.png'
-import PayScreen from '../photos/PayScreen.png'
+import PayScreen from '../photos/Payscreen.png'
 import LocationDetails from '../photos/LocationDetails.png'
 import CommentScreen from '../photos/CommentScreen.png'
 

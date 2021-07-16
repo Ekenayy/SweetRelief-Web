@@ -63,6 +63,8 @@ function Intro () {
         document.querySelector('video#videoBG').playbackRate=1.25
     }, [])
 
+    // If the window is a certain size, show a clickable video instead
+
     return (
         // <div id="Intro" class='section'>
             <MainDiv id='Intro'>
