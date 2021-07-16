@@ -53,6 +53,7 @@ function Product () {
         display: flex;
         align-self: center;
         width: 100% !important;
+        height: 100%;
     `
 
     const PicDiv = styled(Div)`
@@ -152,8 +153,10 @@ function Product () {
         display: flex;
         flex-direction: row;
         padding-left: 50px;
+        height: 100%;
         @media screen and (max-width: 37.5em) {
-            padding-left: 0px;
+            flex-direction: column;
+            position: relative;
         }
     `
 
@@ -161,6 +164,18 @@ function Product () {
         @media (max-width: 37.5em) {
             max-height: 450px;
             max-width: 250px;
+            position: absolute;
+            left: 30px;
+            bottom: 30px;
+        }
+    `
+    const OverlayPicDiv = styled(DiscoverPicDiv)`
+        @media (max-width: 37.5em) {
+            position: relative;
+            left: 100px;
+            top: 30px;
+            bottom: 0px;
+            opacity: 0.95;
         }
     `
 
@@ -200,9 +215,9 @@ function Product () {
                 <DiscoverPicDiv>
                     <DemoImage src={LocationDetails}></DemoImage>
                 </DiscoverPicDiv>
-                <DiscoverPicDiv>
+                <OverlayPicDiv>
                     <DemoImage src={DiscoverScreen}></DemoImage>
-                </DiscoverPicDiv>
+                </OverlayPicDiv>
             </DiscoverMedia>
 
         )
