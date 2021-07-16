@@ -81,15 +81,15 @@ function Product () {
         border-color: #DDF8E8;
         align-content: center;
         @media screen and (max-width: 37.5em) {
-            margin: 5px 10px;
-            width: 90px;
+            margin: 5px 5px;
+            width: 80px;
             height: 40px;
             padding-top: 15px;
             padding-left: 10px;
         }
         border-bottom-width: ${props => props.selected ? '5px' : '0px'}
     `
-
+// 350 on the window simulates a phonescreen
     const DemoImage = styled(Image)`
         height: 100%;
         width: auto;
@@ -102,7 +102,7 @@ function Product () {
         align-self: center;
         font-size: 20px;
         @media screen and (max-width: 37.5em) {
-            font-size: 14px;
+            font-size: 12px;
         }
     `
 
