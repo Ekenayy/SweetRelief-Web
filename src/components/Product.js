@@ -90,7 +90,7 @@ function Product () {
         width: 140px;
         padding: 5px 0px 0px 10px;
         border-bottom: solid;
-        border-color: #DDF8E8;
+        border-color: #F4A261;
         align-content: center;
         @media screen and (max-width: 37.5em) {
             margin: 5px 5px;
@@ -243,7 +243,7 @@ function Product () {
         <MainDiv id='Product'>
             <HeaderDiv>
                 <BigText>Product</BigText>
-                <p>Never go home early</p>
+                <p>Never go home early. 600+ real locations</p>
             </HeaderDiv>
             <FilterDiv id='filter-div'>
                 <FilterItem  className="filter-item" selected={selected == 'main'} onClick={() => setSelected('main')}>
