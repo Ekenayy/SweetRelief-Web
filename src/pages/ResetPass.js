@@ -1,11 +1,8 @@
 import React, {useState, useEffect} from 'react'
+import { useForm } from "react-hook-form";
 import styled from 'styled-components';
 
-function ResetPass () {
-
-    const [error, setError] = useState("")
-
-    const Body = styled.div`
+const Body = styled.div`
         width: 100%;
         height: 100vh;
         background: #BEA7E5;
@@ -20,7 +17,7 @@ function ResetPass () {
         margin: auto;
     `
 
-    const Form = styled.div`
+    const Form = styled.form`
         position: relative;
         z-index: 1;
         background: #FFFFFF;
@@ -84,16 +81,34 @@ function ResetPass () {
         font-family: 'aileronregular', 'Roboto', sans-serif;
     `
 
+function ResetPass () {
+
+    const [error, setError] = useState("")
+    const { register, handleSubmit } = useForm();
+
+    // useEffect(() => {
+    //     register('email')
+    //     register('token')
+    //     register('newPass')
+    //     register('confirmPass')
+    // }, [register])
+
+    const onSubmit = (data) => {
+        console.log(data)
+    }
+
     return (
         <Body>
             <ResetPage>
-                <Form>
+                <Form onSubmit={handleSubmit(onSubmit)}>
                     <TitleText>Reset Password</TitleText>
                     <InputSection>
                         <InputText>Token:</InputText>
                         <Input
                             type='text'
                             placeholder='token'
+                            {...register('token')}
+                            // onChange={text => setValue('token', text)}
                         />
                     </InputSection>
                     <InputSection>
@@ -101,6 +116,8 @@ function ResetPass () {
                         <Input
                             type='text'
                             placeholder='email'
+                            {...register('email')}
+                            // onChange={text => setValue('email', text)}
                         />
                     </InputSection>
                     <InputSection>
@@ -108,6 +125,8 @@ function ResetPass () {
                         <Input
                             type='password'
                             placeholder='new password'
+                            {...register('newPass')}
+                            // onChange={text => setValue('newPass', text)}
                         />
                     </InputSection>
                     <InputSection>
@@ -115,6 +134,8 @@ function ResetPass () {
                         <Input
                             type='password'
                             placeholder='confirm password'
+                            {...register('confirmPass')}
+                            // onChange={text => setValue('confirmPass', text)}
                         />
                     </InputSection>
                     {error ? <ErorrSpan>Test</ErorrSpan> : null}
