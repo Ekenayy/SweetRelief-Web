@@ -78,6 +78,7 @@ const Body = styled.div`
 
     const ErorrSpan = styled.p`
         color: red;
+        text-align: center;
         font-family: 'aileronregular', 'Roboto', sans-serif;
     `
 
@@ -94,7 +95,20 @@ function ResetPass () {
     // }, [register])
 
     const onSubmit = (data) => {
-        console.log(data)
+
+        let formBody = {
+            email: data.email,
+            password: data.newPass,
+            token: data.token
+        }
+
+        let passMatch = data.newPass === data.confirmPass
+
+        if (passMatch) {
+            fetch(`${process.env.REACT_APP_API_BASE_URL}/capture_order`)
+        } else {
+            setError('Passwords do not match')
+        }
     }
 
     return (
@@ -138,7 +152,7 @@ function ResetPass () {
                             // onChange={text => setValue('confirmPass', text)}
                         />
                     </InputSection>
-                    {error ? <ErorrSpan>Test</ErorrSpan> : null}
+                    {error ? <ErorrSpan>{error}</ErorrSpan> : null}
                     <Button>Submit</Button>
                 </Form>
             </ResetPage>
