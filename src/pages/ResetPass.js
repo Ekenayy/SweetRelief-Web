@@ -105,10 +105,17 @@ function ResetPass () {
         let passMatch = data.newPass === data.confirmPass
 
         if (passMatch) {
-            fetch(`${process.env.REACT_APP_API_BASE_URL}/capture_order`)
+            fetch(`${process.env.REACT_APP_API_BASE_URL}/reset_password`, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(formBody)
+            })
+                .then(r => r.json())
+                .then(data => console.log(data))
         } else {
             setError('Passwords do not match')
         }
+        
     }
 
     return (
