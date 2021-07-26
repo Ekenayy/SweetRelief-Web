@@ -3,10 +3,7 @@ import Navbar from './Navbar'
 import styled from 'styled-components';
 import logo from '../photos/WaterdropWordless1.png'
 
-
-function Header () {
-
-    const Image = ({ className, children, id, src, alt, }) => (
+const Image = ({ className, children, id, src, alt, }) => (
         <img className={className} id={id} src={src}/>
     );
 
@@ -39,6 +36,8 @@ function Header () {
         width: auto;
         align-self: center;
     `
+
+function Header () {
 
     return (
         <MainDiv id='navbar'>

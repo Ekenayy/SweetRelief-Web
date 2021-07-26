@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react'
-import { useForm } from "react-hook-form";
 import styled from 'styled-components';
 
 const Body = styled.div`
@@ -85,8 +84,12 @@ const Body = styled.div`
 function ResetPass () {
 
     const [error, setError] = useState("")
-    const { register, handleSubmit } = useForm();
-
+    const [formData, setFormData] = useState({
+        email: "",
+        token: '',
+        newPass: '',
+        confirmPass: ''
+    })
     // useEffect(() => {
     //     register('email')
     //     register('token')
@@ -94,15 +97,17 @@ function ResetPass () {
     //     register('confirmPass')
     // }, [register])
 
-    const onSubmit = (data) => {
+    const onSubmit = (evt) => {
+
+        evt.preventDefault()
 
         let formBody = {
-            email: data.email,
-            password: data.newPass,
-            token: data.token
+            email: formData.email,
+            password: formData.newPass,
+            token: formData.token
         }
 
-        let passMatch = data.newPass === data.confirmPass
+        let passMatch = formData.newPass === formData.confirmPass
 
         if (passMatch) {
             fetch(`${process.env.REACT_APP_API_BASE_URL}/reset_password`, {
@@ -115,48 +120,52 @@ function ResetPass () {
         } else {
             setError('Passwords do not match')
         }
-        
+
     }
 
     return (
         <Body>
             <ResetPage>
-                <Form onSubmit={handleSubmit(onSubmit)}>
+                <Form onSubmit={onSubmit}>
                     <TitleText>Reset Password</TitleText>
                     <InputSection>
                         <InputText>Token:</InputText>
-                        <Input
+                        <input 
+                            class='input'
                             type='text'
                             placeholder='token'
-                            {...register('token')}
-                            // onChange={text => setValue('token', text)}
+                            onChange={evt=> setFormData({...formData, token: evt.target.value})}
+                            value={formData.token}
                         />
                     </InputSection>
                     <InputSection>
                         <InputText>Email:</InputText>
-                        <Input
+                        <input 
+                            class='input'
                             type='text'
                             placeholder='email'
-                            {...register('email')}
-                            // onChange={text => setValue('email', text)}
+                            onChange={evt=> setFormData({...formData, email: evt.target.value})}
+                            value={formData.email}
                         />
                     </InputSection>
                     <InputSection>
                         <InputText>New Password:</InputText>
-                        <Input
+                        <input 
+                            class='input'
                             type='password'
                             placeholder='new password'
-                            {...register('newPass')}
-                            // onChange={text => setValue('newPass', text)}
+                            onChange={evt=> setFormData({...formData, newPass: evt.target.value})}
+                            value={formData.newPass}
                         />
                     </InputSection>
                     <InputSection>
                         <InputText>Confirm New Password:</InputText>
-                        <Input
+                        <input 
+                            class='input'
                             type='password'
                             placeholder='confirm password'
-                            {...register('confirmPass')}
-                            // onChange={text => setValue('confirmPass', text)}
+                            onChange={evt=> setFormData({...formData, confirmPass: evt.target.value})}
+                            value={formData.confirmPass}
                         />
                     </InputSection>
                     {error ? <ErorrSpan>{error}</ErorrSpan> : null}

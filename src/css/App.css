@@ -154,6 +154,19 @@ body {
   background-color: grey;
 }
 
+.input {
+  outline: 0;
+  font-family: 'aileronregular', 'Roboto', sans-serif;
+  background: #e2dee2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  border-radius: 10px;
+}
+
 
 @keyframes App-logo-spin {
   from {
