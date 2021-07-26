@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components';
+import { useHistory } from "react-router-dom"
 
 const Body = styled.div`
         width: 100%;
@@ -81,7 +82,7 @@ const Body = styled.div`
         font-family: 'aileronregular', 'Roboto', sans-serif;
     `
 
-function ResetPass () {
+function ResetPass ( ) {
 
     const [error, setError] = useState("")
     const [formData, setFormData] = useState({
@@ -90,19 +91,17 @@ function ResetPass () {
         newPass: '',
         confirmPass: ''
     })
-    // useEffect(() => {
-    //     register('email')
-    //     register('token')
-    //     register('newPass')
-    //     register('confirmPass')
-    // }, [register])
+
+    const history = useHistory()
 
     const onSubmit = (evt) => {
 
         evt.preventDefault()
 
+        setError("")
+
         let formBody = {
-            email: formData.email,
+            email: formData.email.toLowerCase(),
             password: formData.newPass,
             token: formData.token
         }
@@ -116,11 +115,25 @@ function ResetPass () {
                 body: JSON.stringify(formBody)
             })
                 .then(r => r.json())
-                .then(data => console.log(data))
+                .then(data => {
+                    if (data.error) {
+                        setError(data.error)
+                    } else {
+                        alert(data.success)
+                        history.push(`/`)
+                    }
+                })
         } else {
             setError('Passwords do not match')
         }
 
+        setFormData(
+            {...formData, email: "",
+            token: '',
+            newPass: '',
+            confirmPass: ''
+            }
+        )
     }
 
     return (
