@@ -7,17 +7,7 @@ import CommentScreen from '../photos/CommentScreen.png'
 import DiscoverScreen from '../photos/DiscoverScreen.png'
 import { useMediaQuery } from 'react-responsive';
 
-
-function Product () {
-
-    // The Features page will have the different components
-
-    const [selected, setSelected] = useState("")
-    // const [mobile, setMobile] = useState(isMobile)
-
-    const isMobile = useMediaQuery({ query: `(max-width: 37.5em)` });
-
-    const Image = ({ className, children, id, src, alt, }) => (
+const Image = ({ className, children, id, src, alt, }) => (
         <img className={className} id={id} src={src}/>
     );
 
@@ -39,6 +29,7 @@ function Product () {
         align-self: center;
         @media screen and (max-width: 37.5em) {
             font-size: 20px;
+            text-align: center;
         }
     `
 
@@ -66,9 +57,6 @@ function Product () {
             align-content: center;
             left: 0;
         }
-    `
-
-    const FilterPicDiv = styled(PicDiv)`
     `
 
     const FilterDiv = styled.div`
@@ -105,6 +93,9 @@ function Product () {
         height: 100%;
         width: auto;
         align-self: center;
+        @media screen and (max-width: 37.5em) {
+            align-self: flex-start;
+        }
     `
 
     const FilterText = styled.p`
@@ -119,9 +110,10 @@ function Product () {
 
     const AllContentDiv = styled.div`
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         @media screen and (max-width: 37.5em) {
             width: 100% !important;
+            padding-left: 0px;
         }
     `
 
@@ -156,7 +148,21 @@ function Product () {
         @media screen and (max-width: 37.5em) {
             flex-direction: column;
             position: relative;
+            padding-right: 80px;
         }
+    `
+
+    const DiscoverText = styled(BigText)`
+
+    `
+
+    const DiscoverTextDiv = styled.div`
+    `
+
+    const DiscoverDiv = styled.div`
+        display: flex;
+        flex-direction: column;
+        width: 100%;
     `
 
     const DiscoverPicDiv = styled(PicDiv)`
@@ -178,38 +184,60 @@ function Product () {
         }
     `
 
+    const FilterPicDiv = styled(PicDiv)`
+        @media (max-width: 37.5em) {
+            align-items: flex-start;
+        }
+    `
+
+function Product () {
+
+    // The Features page will have the different components
+
+    const [selected, setSelected] = useState("")
+    // const [mobile, setMobile] = useState(isMobile)
+
+    const isMobile = useMediaQuery({ query: `(max-width: 37.5em)` });
+
     const FilterContent = () => {
         return (
             <AllContentDiv>
-                <PicDiv className='demo-pic-div'>
+                <BigText>Find locations that suit your needs</BigText>
+                <FilterPicDiv>
                     <DemoImage  src={MainPage}/>
-                </PicDiv>
-                <TextDiv>
-                    <BigText>Filters</BigText>
-                    <p>Find locations that suit your needs</p>
-                </TextDiv>
+                </FilterPicDiv>
             </AllContentDiv>
         )
     }
 
     const CommentContent = () => {
         return (
+        <AllContentDiv>
+                <BigText>Read and leave comments</BigText>
             <PicDiv>
                 <DemoImage src={CommentScreen}></DemoImage>
             </PicDiv>
+        </AllContentDiv>
+            
         )
     }
 
     const PayContent = () => {
         return (
+        <AllContentDiv>
+            <BigText>Pay for just the restroom</BigText>
             <PicDiv>
                 <DemoImage src={PayScreen}></DemoImage>
             </PicDiv>
+        </AllContentDiv>
+            
         )
     }
 
     const DiscoverContent = () => {
         return (
+        <DiscoverDiv>
+                <DiscoverText>Discover hidden gems and promotions in your area</DiscoverText>
             <DiscoverMedia>
                 <DiscoverPicDiv>
                     <DemoImage src={LocationDetails}></DemoImage>
@@ -218,7 +246,7 @@ function Product () {
                     <DemoImage src={DiscoverScreen}></DemoImage>
                 </OverlayPicDiv>
             </DiscoverMedia>
-
+        </DiscoverDiv>
         )
     }
 
