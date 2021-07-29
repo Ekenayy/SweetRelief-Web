@@ -1,20 +1,12 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components';
-import { NavLink, Link } from "react-router-dom";
 import ReorderIcon from '@material-ui/icons/Reorder';
 
-
-function Navbar () {
-
-    // The Navbar page will have the different components
-
-    const [selected, setSelected] = useState('')
-
     const Link = ({ className, children, id, href, }) => (
-        <a className={className} id={id} href={href}>
-            {children}
-        </a>
-    );
+            <a className={className} id={id} href={href}>
+                {children}
+            </a>
+        );
 
     const NewDiv = ({className, children, id}) => (
         <div className={className} id={id}>
@@ -57,6 +49,12 @@ function Navbar () {
             display: block;
         }
     `
+
+function Navbar () {
+
+    // The Navbar page will have the different components
+
+    const [selected, setSelected] = useState('')
 
     return (
         <MainDiv>

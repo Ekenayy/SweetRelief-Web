@@ -4,16 +4,6 @@ import photo from '../photos/MainPage.png'
 import video from '../videos/DemoOrangeFrame.mp4'
 import frame from '../photos/newphoneframe.png'
 
-
-function Intro () {
-
-    // The Intro page will have the different components
-
-    // One main section holding everything with style flex: 1
-    // Two sections side by side
-    // One section with a product video playing 
-    // The second section with the download link and general information
-
     const Words = styled.p`
         align-self: center;
     `
@@ -61,6 +51,17 @@ function Intro () {
         margin-top: 30px;
         text-align: left;
     `
+
+function Intro () {
+
+    // The Intro page will have the different components
+
+    // One main section holding everything with style flex: 1
+    // Two sections side by side
+    // One section with a product video playing 
+    // The second section with the download link and general information
+
+
 
     useEffect(() => {
         document.querySelector('video#videoBG').playbackRate=1.25

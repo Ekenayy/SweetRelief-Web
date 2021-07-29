@@ -1,10 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components';
 
-
-function About () {
-
-    const MainDiv = styled.div`
+const MainDiv = styled.div`
         display: flex;
         padding-top: 5rem;
         flex-direction: column;
@@ -12,7 +9,11 @@ function About () {
         width: 100%;
         min-height: 85vh;
         background: #F7F8F3;
-    `
+`
+
+function About () {
+
+    
     // The About page will have the different components
     return (
         <MainDiv id="About">

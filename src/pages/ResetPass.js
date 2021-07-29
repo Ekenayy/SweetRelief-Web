@@ -58,7 +58,6 @@ const Body = styled.div`
     `
 
     const InputSection = styled.div`
-
     `
 
     const TitleText = styled.p`

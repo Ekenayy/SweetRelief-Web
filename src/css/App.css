@@ -15,6 +15,12 @@
   }
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  .App {
+    overflow: hidden;
+  }
+}
+
 @media (max-width: 37.5em) {
   #navbar {
       /* padding: 0 0 0 1.5rem; */
