@@ -6,6 +6,8 @@ import CommentScreen from '../photos/CommentScreen.png'
 import DiscoverScreen from '../photos/DiscoverScreen.png'
 import { useMediaQuery } from 'react-responsive';
 import FilterContent from './FilterContent'
+import {AllContentDiv, BigText, PicDiv, DemoImage} from '../css/styles/Styles.js'
+
 
 const Image = ({ className, children, id, src, alt, }) => (
         <img className={className} id={id} src={src}/>
@@ -24,14 +26,6 @@ const Image = ({ className, children, id, src, alt, }) => (
     )
 
 
-    const BigText = styled.h1`
-        font-size: 40px;
-        align-self: center;
-        @media screen and (max-width: 37.5em) {
-            font-size: 20px;
-            text-align: center;
-        }
-    `
 
     const HeaderDiv = styled.div`
         display: flex;
@@ -44,19 +38,6 @@ const Image = ({ className, children, id, src, alt, }) => (
         align-self: center;
         width: 100% !important;
         height: 100%;
-    `
-
-    const PicDiv = styled(Div)`
-        height: 800px;
-        width: auto;
-        align-self: center;
-        margin-top: 30px;
-        @media (max-width: 37.5em) {
-            max-height: 500px;
-            max-width: 300px;
-            align-content: center;
-            left: 0;
-        }
     `
 
     const FilterDiv = styled.div`
@@ -89,14 +70,6 @@ const Image = ({ className, children, id, src, alt, }) => (
         border-bottom-width: ${props => props.selected ? '5px' : '0px'}
     `
 // 350 on the window simulates a phonescreen
-    const DemoImage = styled(Image)`
-        height: 100%;
-        width: auto;
-        align-self: center;
-        @media screen and (max-width: 37.5em) {
-            align-self: flex-start;
-        }
-    `
 
     const FilterText = styled.p`
         display: inline;
@@ -105,15 +78,6 @@ const Image = ({ className, children, id, src, alt, }) => (
         font-size: 20px;
         @media screen and (max-width: 37.5em) {
             font-size: 12px;
-        }
-    `
-
-    const AllContentDiv = styled.div`
-        display: flex;
-        flex-direction: column;
-        @media screen and (max-width: 37.5em) {
-            width: 100% !important;
-            padding-left: 0px;
         }
     `
 
@@ -199,17 +163,6 @@ function Product () {
     // const [mobile, setMobile] = useState(isMobile)
 
     const isMobile = useMediaQuery({ query: `(max-width: 37.5em)` });
-
-    // const FilterContent = () => {
-    //     return (
-    //         <AllContentDiv>
-    //             <BigText>Find locations that suit your needs</BigText>
-    //             <FilterPicDiv>
-    //                 <DemoImage  src={MainPage}/>
-    //             </FilterPicDiv>
-    //         </AllContentDiv>
-    //     )
-    // }
 
     const CommentContent = () => {
         return (
