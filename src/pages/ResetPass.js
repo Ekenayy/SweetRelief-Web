@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components';
 import { useHistory } from "react-router-dom"
+import { useMediaQuery } from 'react-responsive';
+
+
 
 const Body = styled.div`
         width: 100%;
@@ -9,12 +12,21 @@ const Body = styled.div`
         background: -webkit-radial-gradient(top left, #BEA7E5, #F4A261);
         background: -moz-radial-gradient(top left, #BEA7E5, #F4A261);
         background: radial-gradient(to bottom right, #BEA7E5, #F4A261);
+        @media screen and (max-width: 37.5em) {
+            display: flex;
+            padding: 0px;
+        }
     `
 
     const ResetPage = styled.div`
         width: 460px;
         padding: 8% 0 0;
         margin: auto;
+        @media screen and (max-width: 37.5em) {
+            padding-top: 100px;
+            padding-right: 0px;
+            padding-left: 0px;
+        }
     `
 
     const Form = styled.form`
@@ -26,6 +38,9 @@ const Body = styled.div`
         padding: 45px;
         border-radius: 10px;
         box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+        @media screen and (max-width: 37.5em) {
+            max-width: 280px;
+        }
     `
 
     const Input = styled.input`
@@ -93,6 +108,9 @@ function ResetPass ( ) {
     })
 
     const history = useHistory()
+
+    const isMobile = useMediaQuery({ query: `(max-width: 37.5em)` });
+
 
     const onSubmit = (evt) => {
 

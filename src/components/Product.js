@@ -17,7 +17,6 @@ function Product () {
 
     const isMobile = useMediaQuery({ query: `(max-width: 37.5em)` });
 
-    console.log(isMobile)
     const Image = ({ className, children, id, src, alt, }) => (
         <img className={className} id={id} src={src}/>
     );
