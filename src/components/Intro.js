@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import photo from '../photos/MainPage.png'
 import video from '../videos/DemoOrangeFrame.mp4'
 import frame from '../photos/newphoneframe.png'
+import { useMediaQuery } from 'react-responsive';
 
     const Words = styled.p`
         align-self: center;
@@ -21,6 +22,8 @@ import frame from '../photos/newphoneframe.png'
         background: -webkit-radial-gradient(top left, #BEA7E5, #F4A261);
         background: -moz-radial-gradient(top left, #BEA7E5, #F4A261);
         background: radial-gradient(to bottom right, #BEA7E5, #F4A261);
+        @media screen and (max-width: 37.5em) {
+        }
     `
 
     const WordDiv = styled.div`
@@ -28,6 +31,9 @@ import frame from '../photos/newphoneframe.png'
         width: 100%;
         padding-left: 50px;
         padding-top: 80px;
+        @media screen and (max-width: 37.5em) {
+            padding-left: 0px;
+        }
     `
 
     const ProductDiv = styled.div`
@@ -39,6 +45,9 @@ import frame from '../photos/newphoneframe.png'
         font-size: 4rem;
         text-align: left;
         font-weight: 500;
+        @media screen and (max-width: 37.5em) {
+            text-align: center;
+        }
     `
 
     const MedText = styled(BigText)`
@@ -50,18 +59,14 @@ import frame from '../photos/newphoneframe.png'
         font-size: 1.7rem;
         margin-top: 30px;
         text-align: left;
+        @media screen and (max-width: 37.5em) {
+            text-align: center;
+        }
     `
 
 function Intro () {
 
-    // The Intro page will have the different components
-
-    // One main section holding everything with style flex: 1
-    // Two sections side by side
-    // One section with a product video playing 
-    // The second section with the download link and general information
-
-
+    const isMobile = useMediaQuery({ query: `(max-width: 37.5em)` });
 
     useEffect(() => {
         document.querySelector('video#videoBG').playbackRate=1.25
@@ -75,9 +80,9 @@ function Intro () {
                 <WordDiv>
                     <BigText id='intro-header'>SweetRelief</BigText>
                     <MedText id='intro-subheader'>Find restrooms. Discover local businesses.</MedText>
-                    <SmallText id='intro-text'>Finding a restroom in the city can be tough. Finding new customers can be even tougher.
+                    {isMobile ? <SmallText> We're connecting awesome businesses with awesome people through the power of the potty!</SmallText> : <SmallText id='intro-text'>Finding a restroom in the city can be tough. Finding new customers can be even tougher.
                         SweetRelief is connecting awesome businesses with awesome people through the power of the potty!
-                    </SmallText>
+                    </SmallText>}
                 </WordDiv>
                 <ProductDiv >
                     {/* <img id='phoneFrame' src={frame} alt='mobile frame'/> */}
