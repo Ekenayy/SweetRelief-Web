@@ -5,10 +5,9 @@ const MainDiv = styled.div`
         display: flex;
         padding-top: 5rem;
         flex-direction: column;
-        height: 100%;
         width: 100%;
-        min-height: 85vh;
-        background: #F7F8F3;
+        min-height: 35vh;
+        background: #1C1C1C;
 `
 
 function About () {
