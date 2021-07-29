@@ -15,6 +15,7 @@ const Body = styled.div`
         @media screen and (max-width: 37.5em) {
             display: flex;
             padding: 0px;
+            height: 100%;
         }
     `
 
