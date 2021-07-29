@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components';
-import MainPage from '../photos/MainPage.png'
 import PayScreen from '../photos/Payscreen.png'
 import LocationDetails from '../photos/LocationDetails.png'
 import CommentScreen from '../photos/CommentScreen.png'
 import DiscoverScreen from '../photos/DiscoverScreen.png'
 import { useMediaQuery } from 'react-responsive';
+import FilterContent from './FilterContent'
 
 const Image = ({ className, children, id, src, alt, }) => (
         <img className={className} id={id} src={src}/>
@@ -132,7 +132,8 @@ const Image = ({ className, children, id, src, alt, }) => (
 
     const MainDiv = styled.div`
         display: flex;
-        padding-top: 5rem;
+        padding-top: 3rem;
+        margin-bottom: 2rem;
         flex-direction: column;
         height: 100%;
         width: 100%;
@@ -199,16 +200,16 @@ function Product () {
 
     const isMobile = useMediaQuery({ query: `(max-width: 37.5em)` });
 
-    const FilterContent = () => {
-        return (
-            <AllContentDiv>
-                <BigText>Find locations that suit your needs</BigText>
-                <FilterPicDiv>
-                    <DemoImage  src={MainPage}/>
-                </FilterPicDiv>
-            </AllContentDiv>
-        )
-    }
+    // const FilterContent = () => {
+    //     return (
+    //         <AllContentDiv>
+    //             <BigText>Find locations that suit your needs</BigText>
+    //             <FilterPicDiv>
+    //                 <DemoImage  src={MainPage}/>
+    //             </FilterPicDiv>
+    //         </AllContentDiv>
+    //     )
+    // }
 
     const CommentContent = () => {
         return (
