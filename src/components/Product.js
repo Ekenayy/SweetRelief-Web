@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components';
-import PayScreen from '../photos/Payscreen.png'
-import LocationDetails from '../photos/LocationDetails.png'
 import CommentScreen from '../photos/CommentScreen.png'
-import DiscoverScreen from '../photos/DiscoverScreen.png'
 import { useMediaQuery } from 'react-responsive';
 import FilterContent from './FilterContent'
+import CommentContent from './CommentContent'
+import DiscoverContent from './DiscoverContent'
+import PayContent from './PayContent'
+
 import {AllContentDiv, BigText, PicDiv, DemoImage} from '../css/styles/Styles.js'
 
 
@@ -24,8 +25,6 @@ const Image = ({ className, children, id, src, alt, }) => (
             {children}
         </div>
     )
-
-
 
     const HeaderDiv = styled.div`
         display: flex;
@@ -105,107 +104,13 @@ const Image = ({ className, children, id, src, alt, }) => (
         background: #F7F8F3;
     `
 
-    const DiscoverMedia = styled.div`
-        display: flex;
-        flex-direction: row;
-        padding-left: 50px;
-        height: 100%;
-        @media screen and (max-width: 37.5em) {
-            flex-direction: column;
-            position: relative;
-            padding-right: 80px;
-        }
-    `
-
-    const DiscoverText = styled(BigText)`
-
-    `
-
-    const DiscoverTextDiv = styled.div`
-    `
-
-    const DiscoverDiv = styled.div`
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-    `
-
-    const DiscoverPicDiv = styled(PicDiv)`
-        @media (max-width: 37.5em) {
-            max-height: 450px;
-            max-width: 250px;
-            position: absolute;
-            left: 30px;
-            bottom: 30px;
-        }
-    `
-    const OverlayPicDiv = styled(DiscoverPicDiv)`
-        @media (max-width: 37.5em) {
-            position: relative;
-            left: 100px;
-            top: 30px;
-            bottom: 0px;
-            opacity: 0.95;
-        }
-    `
-
-    const FilterPicDiv = styled(PicDiv)`
-        @media (max-width: 37.5em) {
-            align-items: flex-start;
-        }
-    `
-
 function Product () {
 
-    // The Features page will have the different components
-
     const [selected, setSelected] = useState("")
-    // const [mobile, setMobile] = useState(isMobile)
 
     const isMobile = useMediaQuery({ query: `(max-width: 37.5em)` });
 
-    const CommentContent = () => {
-        return (
-        <AllContentDiv>
-                <BigText>Read and leave comments</BigText>
-            <PicDiv>
-                <DemoImage src={CommentScreen}></DemoImage>
-            </PicDiv>
-        </AllContentDiv>
-            
-        )
-    }
-
-    const PayContent = () => {
-        return (
-        <AllContentDiv>
-            <BigText>Pay for just the restroom</BigText>
-            <PicDiv>
-                <DemoImage src={PayScreen}></DemoImage>
-            </PicDiv>
-        </AllContentDiv>
-            
-        )
-    }
-
-    const DiscoverContent = () => {
-        return (
-        <DiscoverDiv>
-                <DiscoverText>Discover hidden gems and promotions in your area</DiscoverText>
-            <DiscoverMedia>
-                <DiscoverPicDiv>
-                    <DemoImage src={LocationDetails}></DemoImage>
-                </DiscoverPicDiv>
-                <OverlayPicDiv>
-                    <DemoImage src={DiscoverScreen}></DemoImage>
-                </OverlayPicDiv>
-            </DiscoverMedia>
-        </DiscoverDiv>
-        )
-    }
-
     const ConditionalContent = () => {
-        // This content will check selected state and render the correct image based on user feedback
         switch (selected) {
             case 'main':
                 return <FilterContent/>

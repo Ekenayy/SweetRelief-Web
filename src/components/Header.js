@@ -12,7 +12,7 @@ const Image = ({ className, children, id, src, alt, }) => (
         flex-direction: row;
         justify-content: space-between;
         background-color: #F7F8F3;
-        position: sticky;
+        position: fixed;
         width: 100%;
         top: 0;
         left: 0;

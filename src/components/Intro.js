@@ -17,6 +17,7 @@ import { useMediaQuery } from 'react-responsive';
         width: 100%
         min-height: 85vh;
         height: 100%;
+        margin-top: 60px;
         justify-content: space-around;
         background: #BEA7E5;
         background: -webkit-radial-gradient(top left, #BEA7E5, #F4A261);
