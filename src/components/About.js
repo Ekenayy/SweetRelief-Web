@@ -49,10 +49,6 @@ function About () {
                 <TitleText>Contact</TitleText>
                 <AboutText>info@sweetrelief.tech</AboutText>
             </AboutItem>
-            <AboutItem>
-                <TitleText>About SweetRelief</TitleText>
-                <AboutText>SweetRelief is helping people</AboutText>
-            </AboutItem>
         </MainDiv>
     )
 }

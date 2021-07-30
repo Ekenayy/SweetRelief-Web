@@ -49,8 +49,8 @@ export const PicDiv = styled(Div)`
 `
 
 export const DemoImage = styled(Image)`
-    height: 100%;
-    width: auto;
+    height: auto;
+    width: 100%;
     align-self: center;
     @media screen and (max-width: 37.5em) {
         align-self: flex-start;
