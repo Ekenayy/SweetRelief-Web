@@ -37,6 +37,7 @@ const Image = ({ className, children, id, src, alt, }) => (
         align-self: center;
         width: 100% !important;
         height: 100%;
+        padding-top: 30px;
     `
 
     const FilterDiv = styled.div`
