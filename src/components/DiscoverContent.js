@@ -12,6 +12,7 @@ const DiscoverDiv = styled.div`
     `
 
 const DiscoverPicDiv = styled(PicDiv)`
+        margin: 0px 20px;
 `
 
 const MobilePicDiv = styled(PicDiv)`
