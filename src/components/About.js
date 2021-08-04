@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components';
-import {AllContentDiv, BigText, PicDiv, DemoImage} from '../css/styles/Styles.js'
+import {AllContentDiv, BigText, PicDiv, DemoImage, Link} from '../css/styles/Styles.js'
 
 const MainDiv = styled.div`
         display: flex;
@@ -30,12 +30,23 @@ const AboutText = styled.p`
     font-size: 1.3rem;
 `
 
+const LinkText = styled(AboutText)`
+    color: #BEA7E5;
+`
+
 const AboutItem = styled.div`
     display: flex;
     flex-direction: column;
     @media (max-width: 56.25em) {
     }
     padding: 0px 10px;
+`
+
+const StyledLink = styled(Link)`
+        text-decoration: none;
+        color: inherit;
+        outline: none;
+        cursor: pointer;
 `
 
 function About () {
@@ -47,7 +58,9 @@ function About () {
             </AboutItem>
             <AboutItem>
                 <TitleText>Contact</TitleText>
-                <AboutText>info@sweetrelief.tech</AboutText>
+                <StyledLink href='mailto:info@sweetrelief.tech' target='blank'>
+                    <LinkText>info@sweetrelief.tech</LinkText>
+                </StyledLink>
             </AboutItem>
         </MainDiv>
     )

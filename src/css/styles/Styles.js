@@ -17,6 +17,12 @@ export const Div = ({className, children, id, onClick}) => (
     </div>
 )
 
+export const Link = ({ className, children, target, id, href, }) => (
+    <a className={className} id={id} href={href} target={target}>
+        {children}
+    </a>
+);
+
 export const AllContentDiv = styled.div`
     display: flex;
     flex-direction: column;
