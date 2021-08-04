@@ -96,7 +96,7 @@ const Image = ({ className, children, id, src, alt, }) => (
     const MainDiv = styled.div`
         display: flex;
         padding-top: 3rem;
-        margin-bottom: 2rem;
+        padding-bottom: 50px;
         flex-direction: column;
         height: 100%;
         width: 100%;
@@ -129,7 +129,7 @@ function Product () {
         <MainDiv id='Product'>
             <HeaderDiv>
                 <BigText>Product</BigText>
-                <p>Never go home early. 600+ real locations</p>
+                <p>With 600+ real locations</p>
             </HeaderDiv>
             <FilterDiv id='filter-div'>
                 <FilterItem  className="filter-item" selected={selected == 'main'} onClick={() => setSelected('main')}>

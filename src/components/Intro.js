@@ -29,11 +29,13 @@ import { useMediaQuery } from 'react-responsive';
 
     const WordDiv = styled.div`
         align-items: center;
-        width: 100%;
+        overflow-wrap: normal;
+        width: 50%;
         padding-left: 50px;
         padding-top: 80px;
         @media screen and (max-width: 37.5em) {
             padding-left: 0px;
+            width: 100%
         }
     `
 
