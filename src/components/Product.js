@@ -105,6 +105,11 @@ const Image = ({ className, children, id, src, alt, }) => (
         background: #F7F8F3;
     `
 
+    const TitleText = styled(BigText)`
+        font-size: 4rem;
+        font-weight: 500;
+    `
+
 function Product () {
 
     const [selected, setSelected] = useState("")
@@ -129,7 +134,7 @@ function Product () {
     return (
         <MainDiv id='Product'>
             <HeaderDiv>
-                <BigText>Product</BigText>
+                <TitleText>Product</TitleText>
                 <p>With 600+ real locations</p>
             </HeaderDiv>
             <FilterDiv id='filter-div'>

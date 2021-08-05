@@ -63,6 +63,16 @@ const WordDiv = styled.div`
     }
 `
 
+const SmallText = styled.p`
+    font-size: 1.7rem;
+    margin-top: 30px;
+    text-align: left;
+    @media screen and (max-width: 37.5em) {
+        text-align: center;
+        font-size: 16px;
+        margin-top: 5px;
+    }
+`
 function CommentContent () {
 
     const isMobile = useMediaQuery({ query: `(max-width: 37.5em)` });
@@ -97,6 +107,7 @@ function CommentContent () {
         <MainDiv>
                 <WordDiv>
                     <BigText>Read and leave comments</BigText>
+                    <SmallText>Inform others and see before you pee!</SmallText>
                 </WordDiv>
                 {isMobile ? <MobileMedia/> : <WebMedia/>}
             {/* <PicDiv>
