@@ -53,6 +53,16 @@ const WebPicDiv = styled(PicDiv)`
         margin: 0px 20px;
 `
 
+const WordDiv = styled.div`
+    align-self: center;
+    align-items: center;
+    width: 100%
+    @media (max-width: 37.5em) {
+        width: 100%;
+        padding-top: 0px;
+    }
+`
+
 function CommentContent () {
 
     const isMobile = useMediaQuery({ query: `(max-width: 37.5em)` });
@@ -85,7 +95,9 @@ function CommentContent () {
 
     return (
         <MainDiv>
-                <BigText>Read and leave comments</BigText>
+                <WordDiv>
+                    <BigText>Read and leave comments</BigText>
+                </WordDiv>
                 {isMobile ? <MobileMedia/> : <WebMedia/>}
             {/* <PicDiv>
                 <DemoImage src={CommentScreen}></DemoImage>
