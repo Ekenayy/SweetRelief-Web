@@ -7,7 +7,9 @@ import { useMediaQuery } from 'react-responsive';
 
 const Body = styled.div`
         width: 100%;
-        height: 100vh;
+        height: 100%;
+        min-height: 100vh;
+        padding-bottom: 30px;
         background: #BEA7E5;
         background: -webkit-radial-gradient(top left, #BEA7E5, #F4A261);
         background: -moz-radial-gradient(top left, #BEA7E5, #F4A261);

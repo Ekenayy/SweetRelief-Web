@@ -11,7 +11,7 @@ const Image = ({ className, children, id, src, alt, }) => (
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        background-color: #F7F8F3;
+        background-color: white;
         position: fixed;
         width: 100%;
         top: 0;
