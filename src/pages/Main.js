@@ -3,6 +3,7 @@ import About from '../components/About'
 import Product from '../components/Product'
 import Intro from '../components/Intro'
 import Header from '../components/Header'
+import IndexView from "../views/IndexView";
 
 function Main () {
 
@@ -10,9 +11,8 @@ function Main () {
     return (
         <div id="Main">
             <Header/>
-            <Intro/>
-            <Product/>
-            <About/>
+            <IndexView/>
+            {/* <About/> */}
         </div>
     )
 }
