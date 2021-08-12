@@ -126,7 +126,7 @@ class IndexView extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="af-class-section-5 af-class-wf-section">
+            <div id='About' className="af-class-section-5 af-class-wf-section">
               <div className="af-class-container-4 w-container">
                 <div className="af-class-columns-5 w-row">
                   <div className="af-class-column-12 w-col w-col-6">
