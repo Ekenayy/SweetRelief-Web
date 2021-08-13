@@ -35,7 +35,7 @@ import ReorderIcon from '@material-ui/icons/Reorder';
         border-radius: 5px;
         margin: auto; 
         font-size: 1.2rem;
-        font-weight: 500;
+  
         color: #1C1C1C;
         @media (max-width: 37.5em) {
             padding: 10px 20px;

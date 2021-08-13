@@ -115,6 +115,11 @@ body {
   height:100vh;
 }
 
+.nav-button {
+  font-family: Aileron, sans-serif;
+  font-weight: 400;
+}
+
 
 /* #videoBG {
   position: absolute;
@@ -183,3 +188,34 @@ body {
     transform: rotate(360deg);
   }
 }
+
+@font-face {
+  font-family: 'Aileron';
+  src: url('~/.appfairy/fonts/Aileron-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* @font-face {
+  font-family: 'Aileron';
+  src: url('.../.appfairy/fonts/Aileron-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aileron';
+  src: url('.../.appfairy/fonts/Aileron-SemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Aileron';
+  src: url('.../.appfairy/fonts/Aileron-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+} */
