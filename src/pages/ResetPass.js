@@ -4,7 +4,6 @@ import { useHistory } from "react-router-dom"
 import { useMediaQuery } from 'react-responsive';
 
 
-
 const Body = styled.div`
         width: 100%;
         height: 100%;
