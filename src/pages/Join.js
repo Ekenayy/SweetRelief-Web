@@ -5,7 +5,7 @@ import Header from '../components/Header.js'
 import { useHistory } from "react-router-dom"
 
 const ContentDiv = styled.div`
-        margin-top: 6rem;
+        margin-top: 5rem;
         width: 100%;
         height: 100%;
         min-height: 100vh;
@@ -24,6 +24,10 @@ const ContentDiv = styled.div`
 const Body = styled.div`
 `
 
+const MainDiv = styled.div`
+        padding-top: 4rem;
+`
+
 
 function Join ( {location} ) {
 
@@ -35,16 +39,18 @@ function Join ( {location} ) {
     // Enablement -- Show them how to verify that someone has paid. This is the receipt.
     // You'll get a notification from paypal or stripe 
     // Simply look at the receipt 
-    console.log(location.page)
 
     return (
-        <ContentDiv>
+        <Body>
             <Header page={location.page}/>
-            <AllContentDiv>
-                <BigText>Welcome to Join</BigText>
+            <ContentDiv>
+                <MainDiv>
+                    <BigText>Welcome to Join</BigText>
                 {/* <BigText>{props.location.state}</BigText> */}
-            </AllContentDiv>
-        </ContentDiv>
+                </MainDiv>
+            </ContentDiv>
+            
+        </Body>
         
     )
 }

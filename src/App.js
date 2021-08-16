@@ -2,14 +2,15 @@ import React, {useState, useEffect} from 'react'
 import ReactDOM from "react-dom";
 import './css/App.css';
 import Pay from "./pages/Pay"
-import { Redirect, Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch, withRouter } from "react-router-dom";
 import Main from "./pages/Main"
 import ResetPass from './pages/ResetPass'
 import Join from "./pages/Join"
 
 
-function App(  ) {
+function App( {location}  ) {
 
+  console.log(location.pathname)
   return (
     <div className="App">
       <div id='body'>
@@ -24,4 +25,4 @@ function App(  ) {
   );
 }
 
-export default App;
+export default withRouter(App);
