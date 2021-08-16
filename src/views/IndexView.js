@@ -82,7 +82,7 @@ class IndexView extends React.Component {
                 <p className="af-class-paragraph-5">The stigma against homelessness is part of the reason why the world doesn't have more public restrooms. We don't like that at all, so we're donating 1% of all of our revenues to organizations serving the homeless. </p>
               </div>
             </div>
-            <div className="af-class-wf-section">
+            <div id="Product" className="af-class-wf-section">
               <div id="Pay-Cont" className="af-class-container-2 af-class-pay-cont w-container">
                 <div className="af-class-columns-4 w-row">
                   <div className="af-class-column-8 w-col w-col-6"><img src="images/PayMockSideways.png" loading="lazy" sizes="(max-width: 479px) 75vw, (max-width: 767px) 360px, (max-width: 1279px) 45vw, 450px" srcSet="images/PayMockSideways-p-500.png 500w, images/PayMockSideways-p-800.png 800w, images/PayMockSideways-p-1080.png 1080w, images/PayMockSideways-p-1600.png 1600w, images/PayMockSideways.png 1728w" alt className="af-class-image" /></div>
@@ -122,22 +122,6 @@ class IndexView extends React.Component {
                   <div className="af-class-column-9 w-col w-col-6">
                     <p className="af-class-paragraph-3 af-class-coral-title">Comment</p>
                     <p className="af-class-paragraph-4">See before you pee!&nbsp;Stay informed and let others know about your experience.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div id="About" className="af-class-section-5 af-class-wf-section">
-              <div className="af-class-container-4 w-container">
-                <div className="af-class-columns-5 w-row">
-                  <div className="af-class-column-12 w-col w-col-6">
-                    <h1 className="af-class-heading-2">About SweetRelief</h1>
-                    <p className="af-class-paragraph-6">Our goal is to increase access to restrooms while also helping small businesses reach new audiences.</p>
-                  </div>
-                  <div className="w-col w-col-6">
-                    <h1 className="af-class-heading-2">Contact</h1>
-                    <p className="af-class-paragraph-6 af-class-footer-icon">
-                      <a href="mailto:info@sweetrelief.tech" target="blank" className="af-class-footer-link"> Email</a>
-                    </p>
                   </div>
                 </div>
               </div>
