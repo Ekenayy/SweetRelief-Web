@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components';
 import ReorderIcon from '@material-ui/icons/Reorder';
+import { useHistory, Link, NavLink } from "react-router-dom"
 
-    const Link = ({ className, children, id, href, }) => (
+    const DomLink = ({ className, children, id, href, }) => (
             <a className={className} id={id} href={href}>
                 {children}
             </a>
@@ -22,7 +23,7 @@ import ReorderIcon from '@material-ui/icons/Reorder';
         }
     `
 
-    const StyledLink = styled(Link)`
+    const StyledLink = styled(DomLink)`
         text-decoration: none;
         color: inherit;
         outline: none;
@@ -57,9 +58,9 @@ function Navbar ( {page} ) {
         return (
             <MainDiv>
                 <NavItem className='nav-button'>
-                    <StyledLink  href='#Intro'>
+                    <NavLink to='/join' className='nav-link'>
                         Join
-                    </StyledLink>
+                    </NavLink>
                 </NavItem>
                 <NavItem className='nav-button'>
                     <StyledLink  href='#Product'>

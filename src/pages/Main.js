@@ -12,7 +12,6 @@ function Main () {
     // The main page will have the different components
     return (
         <div id="Main">
-            <Header page={'Main'}/>
             <IndexView/>
             <JoinCta/>
             <About/>

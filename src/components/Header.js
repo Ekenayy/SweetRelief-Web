@@ -63,7 +63,7 @@ function Header ( {page} ) {
             <LogoDiv onClick={() => console.log('clicked')}>
                 {/* <Link to={location}> */}
                     <Logo src={logo} alt="SweetRelief Logo"/>
-                {/* </Link> */} 
+                {/* </Link>  */}
             </LogoDiv>
             <Navbar page={page}/>
         </MainDiv>

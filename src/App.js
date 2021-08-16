@@ -6,14 +6,31 @@ import { Redirect, Route, Switch, withRouter } from "react-router-dom";
 import Main from "./pages/Main"
 import ResetPass from './pages/ResetPass'
 import Join from "./pages/Join"
+import Header from './components/Header'
 
 
 function App( {location}  ) {
 
   console.log(location.pathname)
+
+  // Instead of doing it in the components just do it in the app based on the pathname
+
+  const ConditionalHeader = () => {
+    switch (location.pathname) {
+      case '/': 
+        return <Header page={'Main'}/>
+      case '/join':
+        return <Header page={'Join'}/>
+      case 'pay' || 'reset_password':
+        return null
+      default:
+        return <Header page={'Main'}/>
+    }
+  }
   return (
     <div className="App">
       <div id='body'>
+        <ConditionalHeader/>
         <Switch>
           <Route exact path='/reset_password' component={ResetPass}/>
           <Route exact path='/pay' component={Pay}/>

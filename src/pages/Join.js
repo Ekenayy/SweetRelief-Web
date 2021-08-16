@@ -42,11 +42,9 @@ function Join ( {location} ) {
 
     return (
         <Body>
-            <Header page={location.page}/>
             <ContentDiv>
                 <MainDiv>
                     <BigText>Welcome to Join</BigText>
-                {/* <BigText>{props.location.state}</BigText> */}
                 </MainDiv>
             </ContentDiv>
             
