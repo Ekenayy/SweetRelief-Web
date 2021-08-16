@@ -36,6 +36,7 @@ const AboutText = styled.p`
     @media (max-width: 60.25em) {
         padding-left: 10px;
         padding-right: 10px;
+        text-align: center;
     }
 `
 
