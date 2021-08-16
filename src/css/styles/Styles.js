@@ -33,10 +33,32 @@ export const AllContentDiv = styled.div`
 `
 
 export const BigText = styled.h1`
-    font-size: 40px;
+    font-size: 2.7rem;
     align-self: center;
+    font-family: Aileron;
+    font-weight: 400;
     @media screen and (max-width: 37.5em) {
         font-size: 20px;
+        text-align: center;
+    }
+`
+
+export const MedText = styled.p`
+    font-size: 1.4rem;
+    font-family: Aileron;
+    font-weight: 400;
+    align-self: center;
+    margin-bottom: 2rem;
+    @media screen and (max-width: 37.5em) {
+        text-align: center;
+    }
+`
+
+export const TitleText = styled(BigText)`
+    font-size: 4rem;
+    font-weight: 700;
+    @media screen and (max-width: 37.5em) {
+        font-size: 4rem;
         text-align: center;
     }
 `

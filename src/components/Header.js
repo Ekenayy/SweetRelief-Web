@@ -2,6 +2,9 @@ import React, {useState, useEffect} from 'react'
 import Navbar from './Navbar'
 import styled from 'styled-components';
 import logo from '../photos/WaterdropWordless1.png'
+import { useHistory, Link } from "react-router-dom"
+// import {Link} from '../css/styles/Styles.js'
+
 
 const Image = ({ className, children, id, src, alt, }) => (
         <img className={className} id={id} src={src}/>
@@ -25,6 +28,7 @@ const Image = ({ className, children, id, src, alt, }) => (
         align-self: center;
         height: 140px;
         width: auto;
+        cursor: pointer;
     `
 
     const HeaderText = styled.p`
@@ -37,14 +41,31 @@ const Image = ({ className, children, id, src, alt, }) => (
         align-self: center;
     `
 
-function Header () {
+function Header ( {page} ) {
+
+    const history = useHistory()
+
+    const handleClick = () => {
+        history.push({
+            pathname: '/',
+            page: 'Main'
+        })
+    }
+
+    const location = {
+        pathname: '/',
+        page: 'Main'
+    }
+
 
     return (
         <MainDiv id='navbar'>
-            <LogoDiv>
-                <Logo src={logo} alt="SweetRelief Logo"/>
+            <LogoDiv onClick={() => console.log('clicked')}>
+                {/* <Link to={location}> */}
+                    <Logo src={logo} alt="SweetRelief Logo"/>
+                {/* </Link> */} 
             </LogoDiv>
-            <Navbar/>
+            <Navbar page={page}/>
         </MainDiv>
     )
 }

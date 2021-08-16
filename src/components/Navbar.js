@@ -35,7 +35,6 @@ import ReorderIcon from '@material-ui/icons/Reorder';
         border-radius: 5px;
         margin: auto; 
         font-size: 1.2rem;
-  
         color: #1C1C1C;
         @media (max-width: 37.5em) {
             padding: 10px 20px;
@@ -50,33 +49,53 @@ import ReorderIcon from '@material-ui/icons/Reorder';
         }
     `
 
-function Navbar () {
-
-    // The Navbar page will have the different components
+function Navbar ( {page} ) {
 
     const [selected, setSelected] = useState('')
 
+    const MainNav = () => {
+        return (
+            <MainDiv>
+                <NavItem className='nav-button'>
+                    <StyledLink  href='#Intro'>
+                        Join
+                    </StyledLink>
+                </NavItem>
+                <NavItem className='nav-button'>
+                    <StyledLink  href='#Product'>
+                        Product
+                    </StyledLink>
+                </NavItem>
+                <NavItem className='nav-button'>
+                    <StyledLink href='#About'>
+                        About
+                    </StyledLink>
+                </NavItem>
+                <NavIcon>
+                    <ReorderIcon/>
+                </NavIcon>
+            </MainDiv>
+        )
+    }
+
+    const ConditionalComp = () => {
+        switch (page) {
+            case 'Main':
+                return <MainNav/>
+            case 'Join':
+                return (
+                    <MainDiv>
+                        <NavIcon>
+                            <ReorderIcon/>
+                        </NavIcon>
+                    </MainDiv>
+                )
+            default:
+                return <MainNav/>
+        }
+    }
     return (
-        <MainDiv>
-            <NavItem className='nav-button'>
-                <StyledLink  href='#Intro'>
-                    Join
-                </StyledLink>
-            </NavItem>
-            <NavItem className='nav-button'>
-                <StyledLink  href='#Product'>
-                    Product
-                </StyledLink>
-            </NavItem>
-            <NavItem className='nav-button'>
-                <StyledLink href='#About'>
-                    About
-                </StyledLink>
-            </NavItem>
-            <NavIcon>
-                <ReorderIcon/>
-            </NavIcon>
-        </MainDiv>
+        <ConditionalComp/>
     )
 }
 

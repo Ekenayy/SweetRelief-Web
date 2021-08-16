@@ -197,9 +197,9 @@ body {
   font-display: swap;
 }
 
-/* @font-face {
+@font-face {
   font-family: 'Aileron';
-  src: url('.../.appfairy/fonts/Aileron-Bold.otf') format('opentype');
+  src: url('~/.appfairy/fonts/Aileron-Bold.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -207,15 +207,37 @@ body {
 
 @font-face {
   font-family: 'Aileron';
-  src: url('.../.appfairy/fonts/Aileron-SemiBold.otf') format('opentype');
+  src: url('~/.appfairy/fonts/Aileron-SemiBold.otf') format('opentype');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Aileron';
-  src: url('.../.appfairy/fonts/Aileron-Light.otf') format('opentype');
+  src: url('~/.appfairy/fonts/Aileron-Light.otf') format('opentype');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
-} */
+}
+
+@font-face {
+  font-family: 'Font awesome 5 free 400';
+  src: url('~/.appfairy/fonts/Font-Awesome-5-Free-Regular-400.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Font awesome 5 brands 400';
+  src: url('~/.appfairy/fonts/Font-Awesome-5-Brands-Regular-400.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Font awesome 5 free solid 900';
+  src: url('~/.appfairy/fonts/Font-Awesome-5-Free-Solid-900.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

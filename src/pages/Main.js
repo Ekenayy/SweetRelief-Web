@@ -3,6 +3,8 @@ import About from '../components/About'
 import Product from '../components/Product'
 import Intro from '../components/Intro'
 import Header from '../components/Header'
+import JoinCta from '../components/JoinCta'
+
 import IndexView from "../views/IndexView";
 
 function Main () {
@@ -10,9 +12,10 @@ function Main () {
     // The main page will have the different components
     return (
         <div id="Main">
-            <Header/>
+            <Header page={'Main'}/>
             <IndexView/>
-            {/* <About/> */}
+            <JoinCta/>
+            <About/>
         </div>
     )
 }

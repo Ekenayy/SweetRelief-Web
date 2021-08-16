@@ -19,19 +19,33 @@ const MainDiv = styled.div`
 
 const TitleText = styled.h2`
     color: #F7F8F3;
-    weight: 500;
-    font-size: 1.7rem;
+    font-family: Aileron;
+    weight: 400;
+    font-size: 1.3rem;
     padding-bottom: 0px;
+    text-align: center;
+    max-width: 90%;
 `
 
 const AboutText = styled.p`
+    font-family: Aileron;
     weight: 300;
     color: #F7F8F3;
-    font-size: 1.3rem;
+    font-size: 1rem;
+    max-width: 100%;
+    @media (max-width: 60.25em) {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 `
 
 const LinkText = styled(AboutText)`
     color: #BEA7E5;
+`
+
+const IconText = styled(LinkText)`
+    font-family: Font awesome 5 free 400;
+    font-wight: 400;
 `
 
 const AboutItem = styled.div`
@@ -54,12 +68,13 @@ function About () {
         <MainDiv id="About">
             <AboutItem>
                 <TitleText>About SweetRelief</TitleText>
-                <AboutText>We're bringing people together </AboutText>
+                <AboutText>Our goal is to increase access to restrooms while also helping small businesses reach new audiences. </AboutText>
             </AboutItem>
             <AboutItem>
                 <TitleText>Contact</TitleText>
                 <StyledLink href='mailto:info@sweetrelief.tech' target='blank'>
                     <LinkText>info@sweetrelief.tech</LinkText>
+                    {/* <i class="fa fa-envelope"></i> */}
                 </StyledLink>
             </AboutItem>
         </MainDiv>
