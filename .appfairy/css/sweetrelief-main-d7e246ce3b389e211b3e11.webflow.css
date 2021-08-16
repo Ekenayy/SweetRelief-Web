@@ -4,7 +4,7 @@
   max-height: none;
   max-width: 100%;
   min-height: 85vh;
-  margin-top: 60px;
+  margin-top: 5rem;
   margin-bottom: 0px;
   grid-auto-columns: 1fr;
   -ms-grid-columns: 1fr 1fr;
@@ -369,7 +369,7 @@
 }
 
 .section-5 {
-  border-top: 0.1px solid grey;
+  border-top: 0.05px solid grey;
 }
 
 .link {
@@ -391,6 +391,11 @@
     padding-top: 160px;
   }
 
+  .paragraph-2 {
+    font-size: 1.5rem;
+    line-height: 35px;
+  }
+
   .columns-2 {
     padding-right: 60px;
     padding-left: 60px;
@@ -410,6 +415,10 @@
 
   .container-4 {
     max-width: 100%;
+  }
+
+  .section-5 {
+    border-top-width: 0.05px;
   }
 
   .column-13 {
@@ -758,6 +767,10 @@
 
   .paragraph-6.footer-icon {
     font-family: 'Font awesome 5 free 400', sans-serif;
+  }
+
+  .section-5 {
+    border-top-width: 0.05px;
   }
 
   .link-2 {
