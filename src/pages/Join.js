@@ -67,7 +67,8 @@ const WelcomeText = styled(TitleText)`
 `
 
 const InstructText = styled(MedText)`
-    margin-left: 5px;
+    margin-left: 15px;
+    font-size: 2rem;
 `
 
 

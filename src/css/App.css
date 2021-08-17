@@ -183,9 +183,10 @@ body {
 }
 
 .instruct-icon {
-  padding-bottom: 1em;
-  height: 2em;
+  padding-bottom: .5em;
+  height: 3em;
   width: auto;
+  fill: #F4A261;
   transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 
