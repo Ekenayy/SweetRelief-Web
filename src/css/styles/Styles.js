@@ -84,3 +84,23 @@ export const DemoImage = styled(Image)`
         align-self: flex-start;
     }
 `
+
+export const Button = styled.button`
+        font-family: 'aileronregular', 'Roboto', sans-serif;
+        text-transform: uppercase;
+        outline: 0;
+        background: #BEA7E5;
+        width: 100%;
+        border: 0;
+        padding: 15px;
+        color: #FFFFFF;
+        font-size: 14px;
+        -webkit-transition: all 0.3 ease;
+        transition: all 0.3 ease;
+        cursor: pointer;
+        margin-top: 10px;
+        border-radius: 10px;
+        &:hover, &:active, &:focus {
+            background: #9b89ba;
+        }
+    `

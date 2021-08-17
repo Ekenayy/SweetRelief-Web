@@ -43,6 +43,7 @@ const ContentDiv = styled.div`
     position: relative;
     z-index: 1;
     min-height: 80vh;
+    max-height: 100vh;
     background: #FFFFFF;
     box-shadow: 16px 17px 15px 0px rgba(13,13,13,0.59);
     @media screen and (max-width: 767px) {
