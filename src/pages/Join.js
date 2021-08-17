@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components';
 import {AllContentDiv, BigText, MedText, TitleText, PicDiv, DemoImage} from '../css/styles/Styles.js'
-import Header from '../components/Header.js'
 import { useHistory } from "react-router-dom"
 import CreateOutlinedIcon from '@material-ui/icons/CreateOutlined';
 import DraftsOutlinedIcon from '@material-ui/icons/DraftsOutlined';
@@ -86,6 +85,7 @@ const InstructText = styled(MedText)`
 
 function Join ( ) {
 
+    const [locTypes, setLocTypes] = useState([])
     // How this will work section
     // 1. Fill out this quick form
     // 2. Receive an email confirmation once the business has been reviewed
@@ -94,6 +94,19 @@ function Join ( ) {
     // Enablement -- Show them how to verify that someone has paid. This is the receipt.
     // You'll get a notification from paypal or stripe 
     // Simply look at the receipt 
+
+    
+    useEffect(() => {
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/location_types`)
+            .then(r => r.json())
+            .then(data => {
+                if (data.error) {
+                    console.log(data.error)
+                } else {
+                    setLocTypes(data) 
+                }
+            })
+    }, []) 
 
     return (
         <Body>
@@ -113,7 +126,7 @@ function Join ( ) {
                         <InstructText>Once verified, your business will be loaded on the app!</InstructText>
                     </InstructionDiv>
                 </WordDiv>
-                <JoinForm/>
+                <JoinForm locTypes={locTypes}/>
             </ContentDiv>
         </Body>        
     )

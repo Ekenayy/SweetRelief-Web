@@ -26,10 +26,12 @@ const InputText = styled(MedText)`
     color: white;
 `
 
-function JoinForm () {
+function JoinForm ( {locTypes} ) {
 
     //         params.permit(:name, :email, :payment_price, :latitude, :longitude, :price_cents, :upvotes, :downvotes, :locType, :free, :key_required)
     //         joined_address = [params[:address], params[:city], params[:state], params[:zip_code]].compact.join(', ')
+
+    // forms of payment
 
     const [error, setError] = useState("")
     const [formData, setFormData] = useState({
@@ -44,7 +46,15 @@ function JoinForm () {
         active: false
     })
 
-    console.log(formData)
+
+    // t.text "description"
+    // t.string "marketing_link"
+    // t.string "payment_forms", default: [], array: true
+
+    const optionList = locTypes.map((locType) => {
+        return <option value={locType}>{locType}</option>
+    })
+
     return (
         <Form>
             <InputSection>
@@ -58,14 +68,18 @@ function JoinForm () {
                 />
             </InputSection>
             <InputSection>
-                <InputText>Business Industry:</InputText>
+                <InputText>Business Type:</InputText>
                 <input 
                     class='join-input'
                     type='text'
-                    placeholder='business industry'
+                    list='locType-list'
+                    placeholder='business type'
                     onChange={evt=> setFormData({...formData, locType: evt.target.value})}
                     value={formData.locType}
                 />
+                <datalist id='locType-list'>
+                    {optionList}
+                </datalist>
             </InputSection>
             <InputSection>
                 <InputText>Email:</InputText>
@@ -108,7 +122,7 @@ function JoinForm () {
                 />
             </InputSection>
             <InputSection>
-                <InputText>Primary Contact:</InputText>
+                <InputText>Primary Contact (First and last name):</InputText>
                 <input 
                     class='join-input'
                     type='text'
