@@ -3,12 +3,7 @@ import styled from 'styled-components';
 import {AllContentDiv, BigText, MedText, DemoImage, Link} from '../css/styles/Styles.js'
 import { useHistory } from "react-router-dom"
 
-
-function JoinCta ( ) {
-
-    const history = useHistory()
-
-    const MainDiv = styled.div`
+const MainDiv = styled.div`
         display: flex;
         min-height: 50vh;
         padding: 5rem 8%;
@@ -42,6 +37,12 @@ function JoinCta ( ) {
             background: #F4A261;
         }
     `
+
+function JoinCta ( ) {
+
+    const history = useHistory()
+
+    
 
     const handlePress = () => {
         history.push({
