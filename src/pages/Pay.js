@@ -24,9 +24,9 @@ function Pay () {
 
         // let order = await actions.order.capture();
         const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/capture_order`, {
-        method: 'POST',
-        headers: {'Content-Type' : 'application/json'},
-        body: JSON.stringify({order_id: orderId})
+            method: 'POST',
+            headers: {'Content-Type' : 'application/json'},
+            body: JSON.stringify({order_id: orderId})
         })
 
         const responseData = await response.json()

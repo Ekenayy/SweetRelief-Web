@@ -103,10 +103,13 @@ function Join ( ) {
                 if (data.errors) {
                     console.log(data.error)
                 } else {
+                    console.log(data)
                     setLocTypes(data) 
                 }
             })
     }, []) 
+
+    console.log(process.env.REACT_APP_API_BASE_URL)
 
     return (
         <Body>
