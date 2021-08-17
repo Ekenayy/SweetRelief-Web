@@ -44,16 +44,20 @@ const ContentDiv = styled.div`
     min-height: 80vh;
     background: #FFFFFF;
     box-shadow: 16px 17px 15px 0px rgba(13,13,13,0.59);
-    @media screen and (max-width: 37.5em) {
+    @media screen and (max-width: 767px) {
         flex-direction: column;
+    }
+    @media screen and (max-width: 37.5em) {
     }
 `
 
 const WordDiv = styled.div`
     padding-top: 80px;
-    max-width: 50%;
-    @media screen and (max-width: 37.5em) {
+    max-width: 40%;
+    @media screen and (max-width: 767px) {
         max-width: 100%;
+    }
+    @media screen and (max-width: 37.5em) {
     }
 `
 
