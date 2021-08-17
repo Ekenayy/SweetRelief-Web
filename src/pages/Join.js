@@ -6,6 +6,7 @@ import { useHistory } from "react-router-dom"
 import CreateOutlinedIcon from '@material-ui/icons/CreateOutlined';
 import DraftsOutlinedIcon from '@material-ui/icons/DraftsOutlined';
 import CheckCircleOutlinedIcon from '@material-ui/icons/CheckCircleOutlined';
+import JoinForm from '../components/JoinForm'
 
 const Span = ({ className, children, id, onClick }) => {
     <span className={className} id={id} onClick={onClick}> {children}</span>
@@ -101,10 +102,11 @@ function Join ( ) {
                         <InstructText>Receive an email confirmation</InstructText>
                     </InstructionDiv>
                     <InstructionDiv>
-                        <CheckCircleOutlinedIcon class='instruct-icon'/>
+                        <CheckCircleOutlinedIcon class='instruct-icon' id='check-icon'/>
                         <InstructText>Once verified, your business will be loaded on the app!</InstructText>
                     </InstructionDiv>
                 </WordDiv>
+                <JoinForm/>
             </ContentDiv>
         </Body>        
     )

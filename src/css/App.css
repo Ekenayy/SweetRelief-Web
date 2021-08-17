@@ -169,9 +169,9 @@ body {
   background-color: #BEA7E5;
 }
 
-.input {
+input {
   outline: 0;
-  font-family: 'aileronregular', 'Roboto', sans-serif;
+  font-family: 'Aileron', 'Roboto', sans-serif;
   background: #e2dee2;
   width: 100%;
   border: 0;
@@ -182,12 +182,21 @@ body {
   border-radius: 10px;
 }
 
+.join-input {
+  background: white;
+  font-size: 20px;
+}
+
 .instruct-icon {
   padding-bottom: .5em;
   height: 3em;
   width: auto;
   fill: #F4A261;
   transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+#check-icon {
+  height: 4em;
 }
 
 
