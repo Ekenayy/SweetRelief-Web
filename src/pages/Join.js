@@ -1,9 +1,15 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components';
-import {AllContentDiv, BigText, PicDiv, DemoImage} from '../css/styles/Styles.js'
+import {AllContentDiv, BigText, MedText, TitleText, PicDiv, DemoImage} from '../css/styles/Styles.js'
 import Header from '../components/Header.js'
 import { useHistory } from "react-router-dom"
+import CreateOutlinedIcon from '@material-ui/icons/CreateOutlined';
+import DraftsOutlinedIcon from '@material-ui/icons/DraftsOutlined';
+import CheckCircleOutlinedIcon from '@material-ui/icons/CheckCircleOutlined';
 
+const Span = ({ className, children, id, onClick }) => {
+    <span className={className} id={id} onClick={onClick}> {children}</span>
+}
 const Body = styled.div`
         display: flex;
         flex-direction: column;
@@ -28,20 +34,40 @@ const MainDiv = styled.div`
 const ContentDiv = styled.div`
     align-self: center;
     margin-top: 80px;
-    width: 90%;
+    min-width: 80%;
     display: flex;
-    border-radius: 40px;
-    padding-top: 4rem;
+    border-radius: 10px;
+    padding: 20px 40px;
     flex-direction: row;
     position: relative;
     z-index: 1;
+    min-height: 80vh;
     background: #FFFFFF;
+    box-shadow: 16px 17px 15px 0px rgba(13,13,13,0.59);
     @media screen and (max-width: 37.5em) {
         flex-direction: column;
     }
 `
 
 const WordDiv = styled.div`
+    padding-top: 80px;
+    max-width: 50%;
+    @media screen and (max-width: 37.5em) {
+        max-width: 100%;
+    }
+`
+
+const InstructionDiv = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+`
+
+const WelcomeText = styled(TitleText)`
+`
+
+const InstructText = styled(MedText)`
+    margin-left: 5px;
 `
 
 
@@ -60,7 +86,19 @@ function Join ( ) {
         <Body>
             <ContentDiv>
                 <WordDiv>
-                    <BigText>Welcome</BigText>
+                    <WelcomeText>Join the platform in a few easy steps</WelcomeText>
+                    <InstructionDiv>
+                        <CreateOutlinedIcon class='instruct-icon'/>
+                        <InstructText>Fill out this quick form</InstructText>
+                    </InstructionDiv>
+                    <InstructionDiv>
+                        <DraftsOutlinedIcon class='instruct-icon'/>
+                        <InstructText>Receive an email confirmation</InstructText>
+                    </InstructionDiv>
+                    <InstructionDiv>
+                        <CheckCircleOutlinedIcon class='instruct-icon'/>
+                        <InstructText>Once verified, your business will be loaded on the app!</InstructText>
+                    </InstructionDiv>
                 </WordDiv>
             </ContentDiv>
         </Body>        
