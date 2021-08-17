@@ -71,7 +71,8 @@ function JoinForm ( {locTypes} ) {
             </InputSection>
             <InputSection>
                 <InputText>Business Type:</InputText>
-                <input 
+                <input
+                    name='locType-list' 
                     class='join-input'
                     type='text'
                     list='locType-list'
@@ -79,7 +80,7 @@ function JoinForm ( {locTypes} ) {
                     onChange={evt=> setFormData({...formData, locType: evt.target.value})}
                     value={formData.locType}
                 />
-                <datalist id='locType-list'>
+                <datalist  id='locType-list'>
                     {optionList}
                 </datalist>
             </InputSection>

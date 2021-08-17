@@ -100,7 +100,7 @@ function Join ( ) {
         fetch(`${process.env.REACT_APP_API_BASE_URL}/location_types`)
             .then(r => r.json())
             .then(data => {
-                if (data.error) {
+                if (data.errors) {
                     console.log(data.error)
                 } else {
                     setLocTypes(data) 
