@@ -48,8 +48,10 @@ const ContentDiv = styled.div`
     box-shadow: 16px 17px 15px 0px rgba(13,13,13,0.59);
     @media screen and (max-width: 767px) {
         flex-direction: column;
+        max-height: 400vh;
     }
     @media screen and (max-width: 37.5em) {
+        max-height: 400vh;
     }
 `
 
