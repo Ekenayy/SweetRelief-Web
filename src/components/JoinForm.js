@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import {BigText, MedText, Button, TitleText} from '../css/styles/Styles.js'
 import { useHistory } from "react-router-dom"
 import { useMediaQuery } from 'react-responsive';
+import {uid} from 'react-uid';
+
 
 const Form = styled.form`
         position: relative;
@@ -52,7 +54,7 @@ function JoinForm ( {locTypes} ) {
     // t.string "payment_forms", default: [], array: true
 
     const optionList = locTypes.map((locType) => {
-        return <option value={locType}>{locType}</option>
+        return <option key={uid(locType)} value={locType}>{locType}</option>
     })
 
     return (
