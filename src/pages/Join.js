@@ -49,11 +49,13 @@ const ContentDiv = styled.div`
     @media screen and (max-width: 767px) {
         flex-direction: column;
         max-width: 90%;
-        max-height: 400vh;
+        max-height: 800vh;
     }
     @media screen and (max-width: 37.5em) {
         max-height: 400vh;
         max-width: 280px;
+        padding: 10px 20px;
+        margin-bottom: 80px;
     }
 `
 
