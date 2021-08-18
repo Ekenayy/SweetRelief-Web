@@ -8,6 +8,7 @@ import {uid} from 'react-uid';
 
 const Form = styled.form`
         position: relative;
+        text-align: center;
         margin-left: 10px;
         z-index: 1;
         min-width: 50%;
@@ -47,15 +48,18 @@ const List = styled.ul`
     flex-direction: row;
     overflow: hidden; 
     max-width: 100%;
-    justify-content: space-between;
+    counter-reset: step;
+    margin-bottom: 30px;
 `
 
 const ProgLi = styled(Li)`
-    display: flex;
-    flex-direction: column;
     list-style-type: none;
+    width: 25%;
     float: left;
 	position: relative;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-family: 'Aileron', 'Roboto', sans-serif;
 `
 
 function JoinForm ( {locTypes} ) {
@@ -92,7 +96,7 @@ function JoinForm ( {locTypes} ) {
             {/* <FormTitle>Join</FormTitle> */}
             <List id='progressbar'>
                 <ProgLi className='active'>Details</ProgLi>
-                <ProgLi>Bathroom</ProgLi>
+                <ProgLi >Bathroom</ProgLi>
                 <ProgLi>App Preferences</ProgLi>
                 <ProgLi>Review Section</ProgLi>
             </List>
