@@ -82,10 +82,17 @@ function JoinForm ( {locTypes} ) {
         return <option key={uid(locType)} value={locType}>{locType}</option>
     })
 
-    const makeActive = (e, ref) => {
+    const goForward = (e, ref) => {
         e.preventDefault()
-        console.log(e, ref)
         ref.current.className='active'
+    }
+
+    const goBackward = (e, liRef, firstFieldRef, secondFieldRef) => {
+        // Take in the ref for the top number and also the ref for the fieldset
+        e.preventDefault()
+        liRef.current.className=''
+        firstFieldRef.current.display='none'
+        secondFieldRef.current.display='block'
     }
 
     return (
@@ -163,7 +170,7 @@ function JoinForm ( {locTypes} ) {
                         value={formData.zip_code}
                     />
                 </InputSection>
-                <Button onClick={(e) => makeActive(e, bathDeetsRef)}>Next</Button>
+                <Button onClick={(e) => goForward(e, bathDeetsRef)}>Next</Button>
             </fieldset>
             <fieldset>
                 <InputSection>
