@@ -55,6 +55,23 @@ const ProgLi = styled(Li)`
     font-family: 'Aileron', 'Roboto', sans-serif;
 `
 
+const NextButton = styled(Button)`
+    width: 40%;
+`
+
+const BackButton = styled(NextButton)`
+    background: white;
+    color: black;
+`
+
+const ButtonView = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+`
+
+
 function JoinForm ( {locTypes} ) {
 
     //         params.permit(:name, :email, :payment_price, :latitude, :longitude, :price_cents, :upvotes, :downvotes, :locType, :free, :key_required)
@@ -96,16 +113,15 @@ function JoinForm ( {locTypes} ) {
         liRef.current.className='active'
         earlierFieldRef.current.className='inactive-field'
         laterFieldRef.current.className='active-field'
-        console.log(earlierFieldRef.current.display, laterFieldRef.current.display)
-
     }
 
     const goBackward = (e, liRef, earlierFieldRef, laterFieldRef) => {
         // Take in the ref for the top number and also the ref for the fieldset
         e.preventDefault()
         liRef.current.className=''
-        earlierFieldRef.current.display='block'
-        laterFieldRef.current.display='none'
+        earlierFieldRef.current.className='inactive-field'
+        laterFieldRef.current.className='active-field'
+        console.log(earlierFieldRef, laterFieldRef)
     }
 
 
@@ -197,6 +213,10 @@ function JoinForm ( {locTypes} ) {
                         value={formData.primary_contact}
                     />
                 </InputSection>
+                <ButtonView>
+                    <BackButton onClick={(e) => goBackward(e, bathDeetsLi, bathDeetsField, bizDeetsField)}>Back</BackButton>
+                    <NextButton>Next</NextButton>
+                </ButtonView>
             </fieldset>
         </Form>
     )
