@@ -92,6 +92,9 @@ function JoinForm ( {locTypes} ) {
         zip_code: '',
         locType: '',
         primary_contact: '',
+        description: '',
+        payment_forms: [],
+        marketing_link: '',
         price_cents: 0,
         unisex: false,
         free: false,
@@ -114,6 +117,7 @@ function JoinForm ( {locTypes} ) {
     const reviewField = useRef()
 
     let numbArr = [0, 1, 2, 3, 4, 5]
+    let paymentOpArr = ['Money', 'Survey', 'Email', 'Coupon']
 
     const priceValues = numbArr.map(numb => {
         return <option class='price-option' value={numb}>{`$${numb}`}</option>
@@ -123,22 +127,20 @@ function JoinForm ( {locTypes} ) {
         return <option key={uid(locType)} value={locType}>{locType}</option>
     })
 
-    const goForward = (e, liRef, earlierFieldRef, laterFieldRef) => {
+    const goForward = (e, liRef, currentFieldRef, nextFieldRef) => {
         e.preventDefault()
         liRef.current.className='active'
-        earlierFieldRef.current.className='inactive-field'
-        laterFieldRef.current.className='active-field'
+        currentFieldRef.current.className='inactive-field'
+        nextFieldRef.current.className='active-field'
     }
 
-    const goBackward = (e, liRef, earlierFieldRef, laterFieldRef) => {
+    const goBackward = (e, liRef, currentFieldRef, nextFieldRef) => {
         // Take in the ref for the top number and also the ref for the fieldset
         e.preventDefault()
         liRef.current.className=''
-        earlierFieldRef.current.className='inactive-field'
-        laterFieldRef.current.className='active-field'
+        currentFieldRef.current.className='inactive-field'
+        nextFieldRef.current.className='active-field'
     }
-
-    console.log(formData.unisex)
 
     return (
         <Form id='join-form'>
@@ -149,7 +151,7 @@ function JoinForm ( {locTypes} ) {
                 <li  ref={appPrefLi}>App Preferences</li>
                 <li  ref={reviewLi}>Review</li>
             </List>
-            
+
             {/* Business Section */}
             <fieldset ref={bizDeetsField}>
                 <InputSection>
@@ -234,7 +236,7 @@ function JoinForm ( {locTypes} ) {
                     />
                 </InputSection>
                 <InputSection>
-                    <InputText>Bathroom Price</InputText>
+                    <InputText>How much will you charge for the restroom?</InputText>
                     <select 
                         class='join-select'
                         placeholder='Bathroom price'
@@ -270,7 +272,36 @@ function JoinForm ( {locTypes} ) {
                 </InputSection>
                 <ButtonView>
                     <BackButton onClick={(e) => goBackward(e, bathDeetsLi, bathDeetsField, bizDeetsField)}>Back</BackButton>
-                    <NextButton>Next</NextButton>
+                    <NextButton onClick={(e) => goForward(e, appPrefLi, bathDeetsField, appPrefField)}>Next</NextButton>
+                </ButtonView>
+            </fieldset>
+
+            {/*  Place where people put stuff specific to the app. Description, payment forms, marketing links*/}
+            <fieldset class='inactive-field' ref={appPrefField}>
+                <InputSection>
+                    <InputText>Short Business Description for App page</InputText>
+                    <input 
+                        class='join-input'
+                        type='text'
+                        placeholder='short description'
+                        onChange={evt=> setFormData({...formData, primary_contact: evt.target.value})}
+                        value={formData.primary_contact}
+                    />
+                </InputSection>
+                <ButtonView>
+                    <BackButton onClick={(e) => goBackward(e, appPrefLi, appPrefField, bathDeetsField)}>Back</BackButton>
+                    <NextButton onClick={(e) => goForward(e, reviewLi, appPrefField, reviewField)}>Next</NextButton>
+                </ButtonView>
+            </fieldset>
+
+            {/* Place where a user can review what they've done. For each kv pair of state do something as an uneditable input */}
+            <fieldset class='inactive-field' ref={reviewField}>
+                <ButtonView>
+                        <BackButton onClick={(e) => goBackward(e, reviewLi, reviewField, appPrefField)}>Back</BackButton>
+                        <NextButton onClick={(e) => {
+                            e.preventDefault()
+                            console.log('submitted')
+                        }}>Submit</NextButton>
                 </ButtonView>
             </fieldset>
         </Form>
