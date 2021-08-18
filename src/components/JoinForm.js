@@ -50,6 +50,7 @@ const List = styled.ul`
     max-width: 100%;
     counter-reset: step;
     margin-bottom: 30px;
+    padding-inline-start: 0px;
 `
 
 const ProgLi = styled(Li)`
@@ -68,7 +69,6 @@ function JoinForm ( {locTypes} ) {
     //         joined_address = [params[:address], params[:city], params[:state], params[:zip_code]].compact.join(', ')
 
     // forms of payment
-
     const [error, setError] = useState("")
     const [formData, setFormData] = useState({
         name: "",
@@ -81,27 +81,31 @@ function JoinForm ( {locTypes} ) {
         primary_contact: '',
         active: false
     })
-
-
-    // t.text "description"
-    // t.string "marketing_link"
-    // t.string "payment_forms", default: [], array: true
+    const bizDeetsRef = useRef()
+    const bathDeetsRef = useRef()
+    const appPrefRef = useRef()
+    const reviewRef = useRef()
 
     const optionList = locTypes.map((locType) => {
         return <option key={uid(locType)} value={locType}>{locType}</option>
     })
 
+    const makeActive = (ref) => {
+        ref.current.className='active'
+    }
+
+    console.log(bizDeetsRef.current)
+
     return (
         <Form>
             {/* <FormTitle>Join</FormTitle> */}
             <List id='progressbar'>
-                <ProgLi className='active'>Details</ProgLi>
-                <ProgLi >Bathroom</ProgLi>
-                <ProgLi>App Preferences</ProgLi>
-                <ProgLi>Review Section</ProgLi>
+                <li  ref={bizDeetsRef} className='active'>Details</li>
+                <li ref={bathDeetsRef}>Bathroom</li>
+                <li  ref={appPrefRef}>App Preferences</li>
+                <li  ref={reviewRef}>Review Section</li>
             </List>
             <FieldSet>
-
                 <InputSection>
                     <InputText>Business Name:</InputText>
                     <input 

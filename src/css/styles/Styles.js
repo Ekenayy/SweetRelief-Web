@@ -17,8 +17,8 @@ export const Div = ({className, children, id, onClick}) => (
     </div>
 )
 
-export const Li = ({className, children, id, onClick}) => (
-    <li id={id} className={className} onClick={onClick}>
+export const Li = ({className, children, id, ref, onClick}) => (
+    <li id={id} className={className} onClick={onClick} ref={ref}>
         {children}
     </li>
 )
