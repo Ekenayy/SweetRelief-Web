@@ -251,6 +251,26 @@ input {
   position: relative;
 }
 
+fieldset select {
+  font-family: 'Aileron', 'Roboto', sans-serif;
+  font-size: 1rem;
+  background: white;
+  width: 100%;
+  height: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+  padding-left: 10px;
+}
+
+select option {
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.price-option:hover {
+  background-color: yellow;
+}
+
 /* #join-form fieldset:not(:first-of-type) {
 	display: none;
 } */

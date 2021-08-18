@@ -27,12 +27,15 @@ const InputSection = styled.div`
 `
 const InputText = styled(MedText)`
     color: white;
+    margin-bottom: 10px;
 `
 
 const FormTitle = styled.p`
     text-align: center;
-    font-size: 1rem;
+    font-size: 2rem;
     font-family: 'Aileron', 'Roboto', sans-serif;
+    color: #BEA7E5;
+    font-weight: 700;
 `
 
 const List = styled.ul`
@@ -69,6 +72,7 @@ const ButtonView = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    margin-top: 10px;
 `
 
 
@@ -88,8 +92,13 @@ function JoinForm ( {locTypes} ) {
         zip_code: '',
         locType: '',
         primary_contact: '',
+        price_cents: 0,
+        unisex: false,
+        free: false,
+        key_required: false,
         active: false
     })
+
     const [formContent, setFormContent] = useState('')
 
     //  Refs for progress li's 
@@ -103,6 +112,12 @@ function JoinForm ( {locTypes} ) {
     const bathDeetsField = useRef()
     const appPrefField = useRef()
     const reviewField = useRef()
+
+    let numbArr = [0, 1, 2, 3, 4, 5]
+
+    const priceValues = numbArr.map(numb => {
+        return <option class='price-option' value={numb}>{`$${numb}`}</option>
+    })
 
     const optionList = locTypes.map((locType) => {
         return <option key={uid(locType)} value={locType}>{locType}</option>
@@ -121,9 +136,9 @@ function JoinForm ( {locTypes} ) {
         liRef.current.className=''
         earlierFieldRef.current.className='inactive-field'
         laterFieldRef.current.className='active-field'
-        console.log(earlierFieldRef, laterFieldRef)
     }
 
+    console.log(formData.unisex)
 
     return (
         <Form id='join-form'>
@@ -136,7 +151,7 @@ function JoinForm ( {locTypes} ) {
             </List>
             <fieldset ref={bizDeetsField}>
                 <InputSection>
-                    <InputText>Business Name:</InputText>
+                    <InputText>Business Name</InputText>
                     <input 
                         class='join-input'
                         type='text'
@@ -146,7 +161,7 @@ function JoinForm ( {locTypes} ) {
                     />
                 </InputSection>
                 <InputSection>
-                    <InputText>Business Type:</InputText>
+                    <InputText>Business Type</InputText>
                     <input
                         name='locType-list' 
                         class='join-input'
@@ -161,7 +176,7 @@ function JoinForm ( {locTypes} ) {
                     </datalist>
                 </InputSection>
                 <InputSection>
-                    <InputText>Business Email:</InputText>
+                    <InputText>Business Email</InputText>
                     <input 
                         class='join-input'
                         type='text'
@@ -171,7 +186,7 @@ function JoinForm ( {locTypes} ) {
                     />
                 </InputSection>
                 <InputSection>
-                    <InputText>Address:</InputText>
+                    <InputText>Address</InputText>
                     <input 
                         class='join-input'
                         type='text'
@@ -181,7 +196,7 @@ function JoinForm ( {locTypes} ) {
                     />
                 </InputSection>
                 <InputSection>
-                    <InputText>City:</InputText>
+                    <InputText>City</InputText>
                     <input 
                         class='join-input'
                         type='text'
@@ -191,7 +206,7 @@ function JoinForm ( {locTypes} ) {
                     />
                 </InputSection>
                 <InputSection>
-                    <InputText>Zip Code:</InputText>
+                    <InputText>Zip Code</InputText>
                     <input 
                         class='join-input'
                         type='text'
@@ -203,8 +218,9 @@ function JoinForm ( {locTypes} ) {
                 <Button onClick={(e) => goForward(e, bathDeetsLi, bizDeetsField, bathDeetsField)}>Next</Button>
             </fieldset>
             <fieldset class='inactive-field' ref={bathDeetsField}>
+                <FormTitle>Bathroom Details</FormTitle>
                 <InputSection>
-                    <InputText>Primary Contact Name (First and last):</InputText>
+                    <InputText>Primary Contact Name (First and last)</InputText>
                     <input 
                         class='join-input'
                         type='text'
@@ -212,6 +228,41 @@ function JoinForm ( {locTypes} ) {
                         onChange={evt=> setFormData({...formData, primary_contact: evt.target.value})}
                         value={formData.primary_contact}
                     />
+                </InputSection>
+                <InputSection>
+                    <InputText>Bathroom Price</InputText>
+                    <select 
+                        class='join-select'
+                        placeholder='Bathroom price'
+                        onChange={evt=> setFormData({...formData, price_cents: evt.target.value})}
+                        value={formData.price_cents}
+                    >
+                        {priceValues}
+                    </select>
+                </InputSection>
+                <InputSection>
+                    <InputText>Gender Neutral or Unisex Bathrooms?</InputText>
+                    <select 
+                        class='join-select'
+                        placeholder='Unisex?'
+                        onChange={evt=> setFormData({...formData, unisex: evt.target.value})}
+                        value={formData.unisex}
+                    >
+                        <option value={true}>Yes</option>
+                        <option value={false}>No</option>
+                    </select>
+                </InputSection>
+                <InputSection>
+                    <InputText>Key Required for Bathroom?</InputText>
+                    <select 
+                        class='join-select'
+                        placeholder='Key Required?'
+                        onChange={evt=> setFormData({...formData, key_required: evt.target.value})}
+                        value={formData.key_required}
+                    >
+                        <option value={true}>Yes</option>
+                        <option value={false}>No</option>
+                    </select>
                 </InputSection>
                 <ButtonView>
                     <BackButton onClick={(e) => goBackward(e, bathDeetsLi, bathDeetsField, bizDeetsField)}>Back</BackButton>
