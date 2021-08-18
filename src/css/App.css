@@ -251,8 +251,16 @@ input {
   position: relative;
 }
 
-#join-form fieldset:not(:first-of-type) {
+/* #join-form fieldset:not(:first-of-type) {
 	display: none;
+} */
+
+.inactive-field {
+  display: none;
+}
+
+.active-field {
+  display: block;
 }
 
 

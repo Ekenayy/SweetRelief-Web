@@ -73,38 +73,52 @@ function JoinForm ( {locTypes} ) {
         primary_contact: '',
         active: false
     })
-    const bizDeetsRef = useRef()
-    const bathDeetsRef = useRef()
-    const appPrefRef = useRef()
-    const reviewRef = useRef()
+    const [formContent, setFormContent] = useState('')
+
+    //  Refs for progress li's 
+    const bizDeetsLi = useRef()
+    const bathDeetsLi = useRef()
+    const appPrefLi = useRef()
+    const reviewLi = useRef()
+
+    // Refs for fieldsets in forms
+    const bizDeetsField = useRef()
+    const bathDeetsField = useRef()
+    const appPrefField = useRef()
+    const reviewField = useRef()
 
     const optionList = locTypes.map((locType) => {
         return <option key={uid(locType)} value={locType}>{locType}</option>
     })
 
-    const goForward = (e, ref) => {
+    const goForward = (e, liRef, earlierFieldRef, laterFieldRef) => {
         e.preventDefault()
-        ref.current.className='active'
+        liRef.current.className='active'
+        earlierFieldRef.current.className='inactive-field'
+        laterFieldRef.current.className='active-field'
+        console.log(earlierFieldRef.current.display, laterFieldRef.current.display)
+
     }
 
-    const goBackward = (e, liRef, firstFieldRef, secondFieldRef) => {
+    const goBackward = (e, liRef, earlierFieldRef, laterFieldRef) => {
         // Take in the ref for the top number and also the ref for the fieldset
         e.preventDefault()
         liRef.current.className=''
-        firstFieldRef.current.display='none'
-        secondFieldRef.current.display='block'
+        earlierFieldRef.current.display='block'
+        laterFieldRef.current.display='none'
     }
+
 
     return (
         <Form id='join-form'>
             {/* <FormTitle>Join</FormTitle> */}
             <List id='progressbar'>
-                <li  ref={bizDeetsRef} className='active'>Details</li>
-                <li ref={bathDeetsRef}>Bathroom</li>
-                <li  ref={appPrefRef}>App Preferences</li>
-                <li  ref={reviewRef}>Review</li>
+                <li  ref={bizDeetsLi} className='active'>Details</li>
+                <li ref={bathDeetsLi}>Bathroom</li>
+                <li  ref={appPrefLi}>App Preferences</li>
+                <li  ref={reviewLi}>Review</li>
             </List>
-            <fieldset>
+            <fieldset ref={bizDeetsField}>
                 <InputSection>
                     <InputText>Business Name:</InputText>
                     <input 
@@ -170,18 +184,18 @@ function JoinForm ( {locTypes} ) {
                         value={formData.zip_code}
                     />
                 </InputSection>
-                <Button onClick={(e) => goForward(e, bathDeetsRef)}>Next</Button>
+                <Button onClick={(e) => goForward(e, bathDeetsLi, bizDeetsField, bathDeetsField)}>Next</Button>
             </fieldset>
-            <fieldset>
+            <fieldset class='inactive-field' ref={bathDeetsField}>
                 <InputSection>
-                        <InputText>Primary Contact Name (First and last):</InputText>
-                        <input 
-                            class='join-input'
-                            type='text'
-                            placeholder='who will we be working with?'
-                            onChange={evt=> setFormData({...formData, primary_contact: evt.target.value})}
-                            value={formData.primary_contact}
-                        />
+                    <InputText>Primary Contact Name (First and last):</InputText>
+                    <input 
+                        class='join-input'
+                        type='text'
+                        placeholder='who will we be working with?'
+                        onChange={evt=> setFormData({...formData, primary_contact: evt.target.value})}
+                        value={formData.primary_contact}
+                    />
                 </InputSection>
             </fieldset>
         </Form>
