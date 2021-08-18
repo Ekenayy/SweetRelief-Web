@@ -17,6 +17,12 @@ export const Div = ({className, children, id, onClick}) => (
     </div>
 )
 
+export const Li = ({className, children, id, onClick}) => (
+    <div id={id} className={className} onClick={onClick}>
+        {children}
+    </div>
+)
+
 export const Link = ({ className, children, target, id, href, }) => (
     <a className={className} id={id} href={href} target={target}>
         {children}

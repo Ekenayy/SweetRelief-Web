@@ -34,15 +34,16 @@ const MainDiv = styled.div`
 const ContentDiv = styled.div`
     align-self: center;
     margin-top: 80px;
-    min-width: 80%;
+    margin-bottom: 80px;
     display: flex;
+    max-width: 70%;
     border-radius: 10px;
     padding: 20px 40px;
     flex-direction: row;
     position: relative;
     z-index: 1;
     min-height: 80vh;
-    max-height: 100vh;
+    max-height: 110vh;
     background: #FFFFFF;
     box-shadow: 16px 17px 15px 0px rgba(13,13,13,0.59);
     @media screen and (max-width: 767px) {
@@ -79,7 +80,7 @@ const WelcomeText = styled(TitleText)`
 
 const InstructText = styled(MedText)`
     margin-left: 15px;
-    font-size: 2rem;
+    font-size: 1.4rem;
 `
 
 
@@ -125,7 +126,7 @@ function Join ( ) {
                         <InstructText>Receive an email confirmation</InstructText>
                     </InstructionDiv>
                     <InstructionDiv>
-                        <CheckCircleOutlinedIcon class='instruct-icon' id='check-icon'/>
+                        <CheckCircleOutlinedIcon class='instruct-icon'/>
                         <InstructText>Once verified, your business will be loaded on the app!</InstructText>
                     </InstructionDiv>
                 </WordDiv>

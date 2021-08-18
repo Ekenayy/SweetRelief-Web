@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import styled from 'styled-components';
-import {BigText, MedText, Button, TitleText} from '../css/styles/Styles.js'
+import {BigText, MedText, Button, Li} from '../css/styles/Styles.js'
 import { useHistory } from "react-router-dom"
 import { useMediaQuery } from 'react-responsive';
 import {uid} from 'react-uid';
@@ -8,9 +8,9 @@ import {uid} from 'react-uid';
 
 const Form = styled.form`
         position: relative;
+        margin-left: 10px;
         z-index: 1;
-        background: #777677;
-        min-width: 55%;
+        min-width: 50%;
         padding: 45px;
         border-radius: 10px;
         margin-left: 10px;
@@ -22,10 +22,40 @@ const Form = styled.form`
         }
 `
 
+const FieldSet = styled.fieldset`
+    min-width: 80%;
+    background: #777677;
+    z-index: 1;
+    border-radius: 10px;
+    overflow: auto;
+`
+
 const InputSection = styled.div`
 `
 const InputText = styled(MedText)`
     color: white;
+`
+
+const FormTitle = styled.p`
+    text-align: center;
+    font-size: 1rem;
+    font-family: 'Aileron', 'Roboto', sans-serif;
+`
+
+const List = styled.ul`
+    display: flex;
+    flex-direction: row;
+    overflow: hidden; 
+    max-width: 100%;
+    justify-content: space-between;
+`
+
+const ProgLi = styled(Li)`
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    float: left;
+	position: relative;
 `
 
 function JoinForm ( {locTypes} ) {
@@ -59,82 +89,92 @@ function JoinForm ( {locTypes} ) {
 
     return (
         <Form>
-            <InputSection>
-                <InputText>Business Name:</InputText>
-                <input 
-                    class='join-input'
-                    type='text'
-                    placeholder='business name'
-                    onChange={evt=> setFormData({...formData, name: evt.target.value})}
-                    value={formData.name}
-                />
-            </InputSection>
-            <InputSection>
-                <InputText>Business Type:</InputText>
-                <input
-                    name='locType-list' 
-                    class='join-input'
-                    type='text'
-                    list='locType-list'
-                    placeholder='business type'
-                    onChange={evt=> setFormData({...formData, locType: evt.target.value})}
-                    value={formData.locType}
-                />
-                <datalist  id='locType-list'>
-                    {optionList}
-                </datalist>
-            </InputSection>
-            <InputSection>
-                <InputText>Email:</InputText>
-                <input 
-                    class='join-input'
-                    type='text'
-                    placeholder='email'
-                    onChange={evt=> setFormData({...formData, email: evt.target.value})}
-                    value={formData.email}
-                />
-            </InputSection>
-            <InputSection>
-                <InputText>Address:</InputText>
-                <input 
-                    class='join-input'
-                    type='text'
-                    placeholder='address'
-                    onChange={evt=> setFormData({...formData, address: evt.target.value})}
-                    value={formData.address}
-                />
-            </InputSection>
-            <InputSection>
-                <InputText>City:</InputText>
-                <input 
-                    class='join-input'
-                    type='text'
-                    placeholder='city'
-                    onChange={evt=> setFormData({...formData, city: evt.target.value})}
-                    value={formData.city}
-                />
-            </InputSection>
-            <InputSection>
-                <InputText>Zip Code:</InputText>
-                <input 
-                    class='join-input'
-                    type='text'
-                    placeholder='zip code'
-                    onChange={evt=> setFormData({...formData, zip_code: evt.target.value})}
-                    value={formData.zip_code}
-                />
-            </InputSection>
-            <InputSection>
-                <InputText>Primary Contact (First and last name):</InputText>
-                <input 
-                    class='join-input'
-                    type='text'
-                    placeholder='who will we be working with?'
-                    onChange={evt=> setFormData({...formData, primary_contact: evt.target.value})}
-                    value={formData.primary_contact}
-                />
-            </InputSection>
-            <Button>Submit</Button>
+            {/* <FormTitle>Join</FormTitle> */}
+            <List id='progressbar'>
+                <ProgLi className='active'>Details</ProgLi>
+                <ProgLi>Bathroom</ProgLi>
+                <ProgLi>App Preferences</ProgLi>
+                <ProgLi>Review Section</ProgLi>
+            </List>
+            <FieldSet>
+
+                <InputSection>
+                    <InputText>Business Name:</InputText>
+                    <input 
+                        class='join-input'
+                        type='text'
+                        placeholder='business name'
+                        onChange={evt=> setFormData({...formData, name: evt.target.value})}
+                        value={formData.name}
+                    />
+                </InputSection>
+                <InputSection>
+                    <InputText>Business Type:</InputText>
+                    <input
+                        name='locType-list' 
+                        class='join-input'
+                        type='text'
+                        list='locType-list'
+                        placeholder='business type'
+                        onChange={evt=> setFormData({...formData, locType: evt.target.value})}
+                        value={formData.locType}
+                    />
+                    <datalist  id='locType-list'>
+                        {optionList}
+                    </datalist>
+                </InputSection>
+                <InputSection>
+                    <InputText>Business Email:</InputText>
+                    <input 
+                        class='join-input'
+                        type='text'
+                        placeholder='email to be used for receiving payments'
+                        onChange={evt=> setFormData({...formData, email: evt.target.value})}
+                        value={formData.email}
+                    />
+                </InputSection>
+                <InputSection>
+                    <InputText>Address:</InputText>
+                    <input 
+                        class='join-input'
+                        type='text'
+                        placeholder='address'
+                        onChange={evt=> setFormData({...formData, address: evt.target.value})}
+                        value={formData.address}
+                    />
+                </InputSection>
+                <InputSection>
+                    <InputText>City:</InputText>
+                    <input 
+                        class='join-input'
+                        type='text'
+                        placeholder='city'
+                        onChange={evt=> setFormData({...formData, city: evt.target.value})}
+                        value={formData.city}
+                    />
+                </InputSection>
+                <InputSection>
+                    <InputText>Zip Code:</InputText>
+                    <input 
+                        class='join-input'
+                        type='text'
+                        placeholder='zip code'
+                        onChange={evt=> setFormData({...formData, zip_code: evt.target.value})}
+                        value={formData.zip_code}
+                    />
+                </InputSection>
+                <InputSection>
+                    <InputText>Primary Contact Name (First and last):</InputText>
+                    <input 
+                        class='join-input'
+                        type='text'
+                        placeholder='who will we be working with?'
+                        onChange={evt=> setFormData({...formData, primary_contact: evt.target.value})}
+                        value={formData.primary_contact}
+                    />
+                </InputSection>
+                <Button>Submit</Button>
+            </FieldSet>
         </Form>
     )
 }
