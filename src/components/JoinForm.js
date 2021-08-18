@@ -149,6 +149,8 @@ function JoinForm ( {locTypes} ) {
                 <li  ref={appPrefLi}>App Preferences</li>
                 <li  ref={reviewLi}>Review</li>
             </List>
+            
+            {/* Business Section */}
             <fieldset ref={bizDeetsField}>
                 <InputSection>
                     <InputText>Business Name</InputText>
@@ -217,6 +219,8 @@ function JoinForm ( {locTypes} ) {
                 </InputSection>
                 <Button onClick={(e) => goForward(e, bathDeetsLi, bizDeetsField, bathDeetsField)}>Next</Button>
             </fieldset>
+
+            {/* Bathroom details section */}
             <fieldset class='inactive-field' ref={bathDeetsField}>
                 <FormTitle>Bathroom Details</FormTitle>
                 <InputSection>
