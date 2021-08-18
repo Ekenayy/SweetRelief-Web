@@ -277,15 +277,30 @@ function JoinForm ( {locTypes} ) {
             </fieldset>
 
             {/*  Place where people put stuff specific to the app. Description, payment forms, marketing links*/}
+            {/* How will users add promotions and other info. A promotions array? */}
             <fieldset class='inactive-field' ref={appPrefField}>
+                <FormTitle>App Preferences</FormTitle>
                 <InputSection>
-                    <InputText>Short Business Description for App page</InputText>
-                    <input 
+                    <InputText>Short Business Description </InputText>
+                    <textarea
+                        rows="5"
+                        maxLength='160'
                         class='join-input'
                         type='text'
-                        placeholder='short description'
-                        onChange={evt=> setFormData({...formData, primary_contact: evt.target.value})}
-                        value={formData.primary_contact}
+                        placeholder='short description (160 character max)'
+                        onChange={evt=> setFormData({...formData, description: evt.target.value})}
+                        value={formData.description}
+                    >
+                    </textarea>
+                </InputSection>
+                <InputSection>
+                    <InputText>Marketing Material Link</InputText>
+                    <input
+                        class='join-input'
+                        type='text'
+                        placeholder='Think event calendars, menus'
+                        onChange={evt=> setFormData({...formData, marketing_link: evt.target.value})}
+                        value={formData.marketing_link}
                     />
                 </InputSection>
                 <ButtonView>

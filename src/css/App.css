@@ -169,7 +169,7 @@ body {
   background-color: #BEA7E5;
 }
 
-input {
+input, textarea {
   outline: 0;
   font-family: 'Aileron', 'Roboto', sans-serif;
   background: #e2dee2;
