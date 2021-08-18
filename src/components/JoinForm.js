@@ -23,14 +23,6 @@ const Form = styled.form`
         }
 `
 
-const FieldSet = styled.fieldset`
-    min-width: 80%;
-    background: #777677;
-    z-index: 1;
-    border-radius: 10px;
-    overflow: auto;
-`
-
 const InputSection = styled.div`
 `
 const InputText = styled(MedText)`
@@ -90,22 +82,22 @@ function JoinForm ( {locTypes} ) {
         return <option key={uid(locType)} value={locType}>{locType}</option>
     })
 
-    const makeActive = (ref) => {
+    const makeActive = (e, ref) => {
+        e.preventDefault()
+        console.log(e, ref)
         ref.current.className='active'
     }
 
-    console.log(bizDeetsRef.current)
-
     return (
-        <Form>
+        <Form id='join-form'>
             {/* <FormTitle>Join</FormTitle> */}
             <List id='progressbar'>
                 <li  ref={bizDeetsRef} className='active'>Details</li>
                 <li ref={bathDeetsRef}>Bathroom</li>
                 <li  ref={appPrefRef}>App Preferences</li>
-                <li  ref={reviewRef}>Review Section</li>
+                <li  ref={reviewRef}>Review</li>
             </List>
-            <FieldSet>
+            <fieldset>
                 <InputSection>
                     <InputText>Business Name:</InputText>
                     <input 
@@ -171,18 +163,20 @@ function JoinForm ( {locTypes} ) {
                         value={formData.zip_code}
                     />
                 </InputSection>
+                <Button onClick={(e) => makeActive(e, bathDeetsRef)}>Next</Button>
+            </fieldset>
+            <fieldset>
                 <InputSection>
-                    <InputText>Primary Contact Name (First and last):</InputText>
-                    <input 
-                        class='join-input'
-                        type='text'
-                        placeholder='who will we be working with?'
-                        onChange={evt=> setFormData({...formData, primary_contact: evt.target.value})}
-                        value={formData.primary_contact}
-                    />
+                        <InputText>Primary Contact Name (First and last):</InputText>
+                        <input 
+                            class='join-input'
+                            type='text'
+                            placeholder='who will we be working with?'
+                            onChange={evt=> setFormData({...formData, primary_contact: evt.target.value})}
+                            value={formData.primary_contact}
+                        />
                 </InputSection>
-                <Button>Submit</Button>
-            </FieldSet>
+            </fieldset>
         </Form>
     )
 }

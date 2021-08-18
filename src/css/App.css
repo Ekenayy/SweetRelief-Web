@@ -243,6 +243,18 @@ input {
 	color: white;
 }
 
+#join-form fieldset {
+  min-width: 80%;
+  background: #777677;
+  border-radius: 10px;
+  overflow: auto;
+  position: relative;
+}
+
+#join-form fieldset:not(:first-of-type) {
+	display: none;
+}
+
 
 @keyframes App-logo-spin {
   from {
