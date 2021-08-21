@@ -7,6 +7,7 @@ import DraftsOutlinedIcon from '@material-ui/icons/DraftsOutlined';
 import CheckCircleOutlinedIcon from '@material-ui/icons/CheckCircleOutlined';
 import JoinForm from '../components/JoinForm'
 
+// https://elements-cover-images-0.imgix.net/81ef698a-8110-4e4e-a636-9ce6b31c20ed?auto=compress%2Cformat&fit=max&w=900&s=37f04e2f2bc553a0d6840cd13443a6c3
 const Span = ({ className, children, id, onClick }) => {
     <span className={className} id={id} onClick={onClick}> {children}</span>
 }
@@ -128,6 +129,9 @@ function Join ( ) {
                     <InstructionDiv>
                         <CheckCircleOutlinedIcon class='instruct-icon'/>
                         <InstructText>Once verified, your business will be loaded on the app!</InstructText>
+                    </InstructionDiv>
+                    <InstructionDiv>
+                        <InstructText>Have a question? Shoot us an email.</InstructText>
                     </InstructionDiv>
                 </WordDiv>
                 <JoinForm locTypes={locTypes}/>

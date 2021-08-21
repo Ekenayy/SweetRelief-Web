@@ -59,6 +59,7 @@ const ProgLi = styled(Li)`
 `
 
 const NextButton = styled(Button)`
+    display: block;
     width: 40%;
 `
 
@@ -80,7 +81,7 @@ function JoinForm ( {locTypes} ) {
 
     //         params.permit(:name, :email, :payment_price, :latitude, :longitude, :price_cents, :upvotes, :downvotes, :locType, :free, :key_required)
     //         joined_address = [params[:address], params[:city], params[:state], params[:zip_code]].compact.join(', ')
-
+    // :wheelchair_accessible, :baby_changing_station
     // forms of payment
     const [error, setError] = useState("")
     const [formData, setFormData] = useState({
@@ -96,6 +97,8 @@ function JoinForm ( {locTypes} ) {
         payment_forms: [],
         marketing_link: '',
         price_cents: 0,
+        wheelchair_accessible: false,
+        baby_changing_station: false,
         unisex: false,
         free: false,
         key_required: false,
@@ -107,13 +110,13 @@ function JoinForm ( {locTypes} ) {
     //  Refs for progress li's 
     const bizDeetsLi = useRef()
     const bathDeetsLi = useRef()
-    const appPrefLi = useRef()
+    const marketingPrefLi = useRef()
     const reviewLi = useRef()
 
     // Refs for fieldsets in forms
     const bizDeetsField = useRef()
     const bathDeetsField = useRef()
-    const appPrefField = useRef()
+    const marketingField = useRef()
     const reviewField = useRef()
 
     let numbArr = [0, 1, 2, 3, 4, 5]
@@ -134,6 +137,16 @@ function JoinForm ( {locTypes} ) {
         nextFieldRef.current.className='active-field'
     }
 
+    const handleReview = (e, liRef) => {
+        e.preventDefault()
+        liRef.current.className='active'
+        reviewField.current.className='active-field'
+        bizDeetsField.current.className='active-field'
+        bathDeetsField.current.className='active-field'
+        marketingField.current.className='active-field'
+        
+    }
+
     const goBackward = (e, liRef, currentFieldRef, nextFieldRef) => {
         // Take in the ref for the top number and also the ref for the fieldset
         e.preventDefault()
@@ -146,9 +159,9 @@ function JoinForm ( {locTypes} ) {
         <Form id='join-form'>
             {/* <FormTitle>Join</FormTitle> */}
             <List id='progressbar'>
-                <li  ref={bizDeetsLi} className='active'>Details</li>
+                <li  ref={bizDeetsLi} className='active'>Business</li>
                 <li ref={bathDeetsLi}>Bathroom</li>
-                <li  ref={appPrefLi}>App Preferences</li>
+                <li  ref={marketingPrefLi}>Marketing</li>
                 <li  ref={reviewLi}>Review</li>
             </List>
 
@@ -270,18 +283,42 @@ function JoinForm ( {locTypes} ) {
                         <option value={false}>No</option>
                     </select>
                 </InputSection>
+                <InputSection>
+                    <InputText>Baby Changing Stations?</InputText>
+                    <select 
+                        class='join-select'
+                        placeholder='Baby changing station?'
+                        onChange={evt=> setFormData({...formData, baby_changing_station: evt.target.value})}
+                        value={formData.baby_changing_station}
+                    >
+                        <option value={true}>Yes</option>
+                        <option value={false}>No</option>
+                    </select>
+                </InputSection>
+                <InputSection>
+                    <InputText>Wheelchair Accessible?</InputText>
+                    <select 
+                        class='join-select'
+                        placeholder='Wheelchair Accessible?'
+                        onChange={evt=> setFormData({...formData, wheelchair_accessible: evt.target.value})}
+                        value={formData.wheelchair_accessible}
+                    >
+                        <option value={true}>Yes</option>
+                        <option value={false}>No</option>
+                    </select>
+                </InputSection>
                 <ButtonView>
                     <BackButton onClick={(e) => goBackward(e, bathDeetsLi, bathDeetsField, bizDeetsField)}>Back</BackButton>
-                    <NextButton onClick={(e) => goForward(e, appPrefLi, bathDeetsField, appPrefField)}>Next</NextButton>
+                    <NextButton onClick={(e) => goForward(e, marketingPrefLi, bathDeetsField, marketingField)}>Next</NextButton>
                 </ButtonView>
             </fieldset>
 
             {/*  Place where people put stuff specific to the app. Description, payment forms, marketing links*/}
             {/* How will users add promotions and other info. A promotions array? */}
-            <fieldset class='inactive-field' ref={appPrefField}>
-                <FormTitle>App Preferences</FormTitle>
+            <fieldset class='inactive-field' ref={marketingField}>
+                <FormTitle>Marketing Preferences</FormTitle>
                 <InputSection>
-                    <InputText>Short Business Description </InputText>
+                    <InputText>Business Description </InputText>
                     <textarea
                         rows="5"
                         maxLength='160'
@@ -298,25 +335,26 @@ function JoinForm ( {locTypes} ) {
                     <input
                         class='join-input'
                         type='text'
-                        placeholder='Think event calendars, menus'
+                        placeholder='Add a link to an event calendar, menu, pickup/delivery app etc'
                         onChange={evt=> setFormData({...formData, marketing_link: evt.target.value})}
                         value={formData.marketing_link}
                     />
                 </InputSection>
                 <ButtonView>
-                    <BackButton onClick={(e) => goBackward(e, appPrefLi, appPrefField, bathDeetsField)}>Back</BackButton>
-                    <NextButton onClick={(e) => goForward(e, reviewLi, appPrefField, reviewField)}>Next</NextButton>
+                    <BackButton onClick={(e) => goBackward(e, marketingPrefLi, marketingField, bathDeetsField)}>Back</BackButton>
+                    <NextButton onClick={(e) => goForward(e, reviewLi, marketingField, reviewField)}>Next</NextButton>
+                    {/* <NextButton onClick={(e) => handleReview(e, reviewLi)}>Next</NextButton> */}
                 </ButtonView>
             </fieldset>
 
             {/* Place where a user can review what they've done. For each kv pair of state do something as an uneditable input */}
             <fieldset class='inactive-field' ref={reviewField}>
                 <ButtonView>
-                        <BackButton onClick={(e) => goBackward(e, reviewLi, reviewField, appPrefField)}>Back</BackButton>
-                        <NextButton onClick={(e) => {
-                            e.preventDefault()
-                            console.log('submitted')
-                        }}>Submit</NextButton>
+                    <BackButton onClick={(e) => goBackward(e, reviewLi, reviewField, marketingField)}>Back</BackButton>
+                    <NextButton onClick={(e) => {
+                        e.preventDefault()
+                        console.log('submitted')
+                    }}>Submit</NextButton>
                 </ButtonView>
             </fieldset>
         </Form>
