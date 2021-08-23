@@ -92,11 +92,15 @@ function JoinForm ( {locTypes} ) {
         state: '',
         zip_code: '',
         locType: '',
-        primary_contact: '',
+        primary_contact_name: '',
+        primary_contact_email: '',
         description: '',
         payment_forms: [],
         marketing_link: '',
         price_cents: 0,
+        promotion_1: '',
+        promotion_2: '',
+        promotion_3: '',
         wheelchair_accessible: false,
         baby_changing_station: false,
         unisex: false,
@@ -155,6 +159,8 @@ function JoinForm ( {locTypes} ) {
         nextFieldRef.current.className='active-field'
     }
 
+    console.log(formData.promotion_1)
+
     return (
         <Form id='join-form'>
             {/* <FormTitle>Join</FormTitle> */}
@@ -184,7 +190,7 @@ function JoinForm ( {locTypes} ) {
                         class='join-input'
                         type='text'
                         list='locType-list'
-                        placeholder='business type'
+                        placeholder='business type (pick from dropdown or write your own)'
                         onChange={evt=> setFormData({...formData, locType: evt.target.value})}
                         value={formData.locType}
                     />
@@ -197,7 +203,7 @@ function JoinForm ( {locTypes} ) {
                     <input 
                         class='join-input'
                         type='text'
-                        placeholder='email to be used for receiving payments'
+                        placeholder='email to be used for receiving payments and comms'
                         onChange={evt=> setFormData({...formData, email: evt.target.value})}
                         value={formData.email}
                     />
@@ -232,6 +238,26 @@ function JoinForm ( {locTypes} ) {
                         value={formData.zip_code}
                     />
                 </InputSection>
+                <InputSection>
+                    <InputText>Primary Contact Name (First and last)</InputText>
+                    <input 
+                        class='join-input'
+                        type='text'
+                        placeholder='who will we be working with?'
+                        onChange={evt=> setFormData({...formData, primary_contact_name: evt.target.value})}
+                        value={formData.primary_contact}
+                    />
+                </InputSection>
+                <InputSection>
+                    <InputText>Primary Contact Email (First and last)</InputText>
+                    <input 
+                        class='join-input'
+                        type='text'
+                        placeholder='primary contact email'
+                        onChange={evt=> setFormData({...formData, primary_contact: evt.target.value})}
+                        value={formData.primary_contact}
+                    />
+                </InputSection>
                 <Button onClick={(e) => goForward(e, bathDeetsLi, bizDeetsField, bathDeetsField)}>Next</Button>
             </fieldset>
 
@@ -239,25 +265,18 @@ function JoinForm ( {locTypes} ) {
             <fieldset class='inactive-field' ref={bathDeetsField}>
                 <FormTitle>Bathroom Details</FormTitle>
                 <InputSection>
-                    <InputText>Primary Contact Name (First and last)</InputText>
+                    <InputText>How much will you charge for the restroom?</InputText>
                     <input 
                         class='join-input'
-                        type='text'
-                        placeholder='who will we be working with?'
-                        onChange={evt=> setFormData({...formData, primary_contact: evt.target.value})}
-                        value={formData.primary_contact}
-                    />
-                </InputSection>
-                <InputSection>
-                    <InputText>How much will you charge for the restroom?</InputText>
-                    <select 
-                        class='join-select'
-                        placeholder='Bathroom price'
+                        type='number'
+                        min='0'
+                        max='5'
+                        placeholder='Bathroom price (maximum is $5)'
                         onChange={evt=> setFormData({...formData, price_cents: evt.target.value})}
                         value={formData.price_cents}
-                    >
-                        {priceValues}
-                    </select>
+                    />
+                        {/* {priceValues} */}
+                    {/* </select> */}
                 </InputSection>
                 <InputSection>
                     <InputText>Gender Neutral or Unisex Bathrooms?</InputText>
@@ -340,6 +359,37 @@ function JoinForm ( {locTypes} ) {
                         value={formData.marketing_link}
                     />
                 </InputSection>
+                <InputSection>
+                    <InputText>Promotion 1</InputText>
+                    <input
+                        class='join-input'
+                        type='text'
+                        placeholder='Optional info about promotions (happy hour, weekly events etc)'
+                        onChange={evt=> setFormData({...formData, promotion_1: evt.target.value})}
+                        value={formData.promotion_1}
+                    />
+                </InputSection>
+                <InputSection>
+                    <InputText>Promotion 2</InputText>
+                    <input
+                        class='join-input'
+                        type='text'
+                        placeholder='Optional info about promotions (happy hour, weekly events etc)'
+                        onChange={evt=> setFormData({...formData, promotion_1: evt.target.value})}
+                        value={formData.promotion_1}
+                    />
+                </InputSection>
+                <InputSection>
+                    <InputText>Promotion 3</InputText>
+                    <input
+                        class='join-input'
+                        type='text'
+                        placeholder='Optional info about promotions (happy hour, weekly events etc)'
+                        onChange={evt=> setFormData({...formData, promotion_1: evt.target.value})}
+                        value={formData.promotion_1}
+                    />
+                </InputSection>
+                
                 <ButtonView>
                     <BackButton onClick={(e) => goBackward(e, marketingPrefLi, marketingField, bathDeetsField)}>Back</BackButton>
                     <NextButton onClick={(e) => goForward(e, reviewLi, marketingField, reviewField)}>Next</NextButton>
