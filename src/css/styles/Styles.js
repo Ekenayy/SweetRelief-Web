@@ -110,3 +110,10 @@ export const Button = styled.button`
             background: #9b89ba;
         }
     `
+
+export const StyledLink = styled(Link)`
+    text-decoration: none;
+    color: inherit;
+    outline: none;
+    cursor: pointer;
+`

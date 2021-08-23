@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components';
-import {AllContentDiv, BigText, MedText, TitleText, PicDiv, DemoImage} from '../css/styles/Styles.js'
+import {AllContentDiv, BigText, MedText, StyledLink, TitleText, PicDiv, DemoImage} from '../css/styles/Styles.js'
 import { useHistory } from "react-router-dom"
 import CreateOutlinedIcon from '@material-ui/icons/CreateOutlined';
 import DraftsOutlinedIcon from '@material-ui/icons/DraftsOutlined';
@@ -83,6 +83,10 @@ const InstructText = styled(MedText)`
     margin-left: 15px;
     font-size: 1.4rem;
 `
+const LinkText = styled(InstructText)`
+    color: #BEA7E5;
+    font-weight: 700;
+`
 
 
 function Join ( ) {
@@ -131,7 +135,10 @@ function Join ( ) {
                         <InstructText>Once verified, your business will be loaded on the app!</InstructText>
                     </InstructionDiv>
                     <InstructionDiv>
-                        <InstructText>Have a question? Shoot us an email.</InstructText>
+                        <InstructText>Have a question?</InstructText>
+                        <StyledLink href='mailto:info@sweetrelief.tech' target='blank'>
+                            <LinkText>Shoot us an email.</LinkText>
+                        </StyledLink>
                     </InstructionDiv>
                 </WordDiv>
                 <JoinForm locTypes={locTypes}/>

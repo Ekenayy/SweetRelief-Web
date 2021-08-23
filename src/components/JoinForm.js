@@ -108,6 +108,7 @@ function JoinForm ( {locTypes} ) {
         key_required: false,
         active: false
     })
+    const [locId, setLocId] = useState('')
 
     const [formContent, setFormContent] = useState('')
 
@@ -159,7 +160,10 @@ function JoinForm ( {locTypes} ) {
         nextFieldRef.current.className='active-field'
     }
 
-    console.log(formData.promotion_1)
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+    }
 
     return (
         <Form id='join-form'>
@@ -397,14 +401,12 @@ function JoinForm ( {locTypes} ) {
                 </ButtonView>
             </fieldset>
 
-            {/* Place where a user can review what they've done. For each kv pair of state do something as an uneditable input */}
+            {/* Place where a user can revi few what they've done. For each kv pair of state do something as an uneditable input */}
             <fieldset class='inactive-field' ref={reviewField}>
+                <InputText>Take one more look at your answers before submitting! </InputText>
                 <ButtonView>
                     <BackButton onClick={(e) => goBackward(e, reviewLi, reviewField, marketingField)}>Back</BackButton>
-                    <NextButton onClick={(e) => {
-                        e.preventDefault()
-                        console.log('submitted')
-                    }}>Submit</NextButton>
+                    <NextButton onClick={(e) => handleSubmit(e)}>Submit</NextButton>
                 </ButtonView>
             </fieldset>
         </Form>
