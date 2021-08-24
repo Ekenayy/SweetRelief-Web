@@ -117,3 +117,10 @@ export const StyledLink = styled(Link)`
     outline: none;
     cursor: pointer;
 `
+
+
+export const ErrorSpan = styled.p`
+    color: red;
+    text-align: center;
+    font-family: Aileron, Roboto, sans-serif;
+`

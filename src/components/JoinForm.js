@@ -1,10 +1,10 @@
 import React, {useState, useEffect, useRef} from 'react'
 import styled from 'styled-components';
-import {BigText, MedText, Button, Li} from '../css/styles/Styles.js'
+import {BigText, MedText, Button, Li, ErrorSpan} from '../css/styles/Styles.js'
 import { useHistory } from "react-router-dom"
 import { useMediaQuery } from 'react-responsive';
 import {uid} from 'react-uid';
-
+import SimpleReactValidator from 'simple-react-validator';
 
 const Form = styled.form`
         position: relative;
@@ -83,7 +83,7 @@ function JoinForm ( {locTypes} ) {
     //         joined_address = [params[:address], params[:city], params[:state], params[:zip_code]].compact.join(', ')
     // :wheelchair_accessible, :baby_changing_station
     // forms of payment
-    const [error, setError] = useState("")
+    const [errors, setErrors] = useState("")
     const [formData, setFormData] = useState({
         name: "",
         email: '',
@@ -92,6 +92,7 @@ function JoinForm ( {locTypes} ) {
         state: '',
         zip_code: '',
         locType: '',
+        password: '',
         primary_contact_name: '',
         primary_contact_email: '',
         description: '',
@@ -101,6 +102,7 @@ function JoinForm ( {locTypes} ) {
         promotion_1: '',
         promotion_2: '',
         promotion_3: '',
+        promotions: ['suh baby', '', ''],
         wheelchair_accessible: false,
         baby_changing_station: false,
         unisex: false,
@@ -109,7 +111,6 @@ function JoinForm ( {locTypes} ) {
         active: false
     })
     const [locId, setLocId] = useState('')
-
     const [formContent, setFormContent] = useState('')
 
     //  Refs for progress li's 
@@ -124,6 +125,10 @@ function JoinForm ( {locTypes} ) {
     const marketingField = useRef()
     const reviewField = useRef()
 
+    // Validator
+    const validator = new SimpleReactValidator()
+    // const simpleValidator = useRef(new SimpleReactValidator())
+
     let numbArr = [0, 1, 2, 3, 4, 5]
     let paymentOpArr = ['Money', 'Survey', 'Email', 'Coupon']
 
@@ -134,6 +139,51 @@ function JoinForm ( {locTypes} ) {
     const optionList = locTypes.map((locType) => {
         return <option key={uid(locType)} value={locType}>{locType}</option>
     })
+
+    const handleCreate = (e, liRef, currentFieldRef, nextFieldRef) => {
+        e.preventDefault()
+
+        if (validator.allValid() && !locId) {
+            fetch(`${process.env.REACT_APP_API_BASE_URL}/locations`, {
+                method: 'POST',
+                headers: {'Content-Type' : 'application/json'},
+                body: JSON.stringify(formData)
+            })
+                .then(r => r.json())
+                .then(data => {
+                    if (data.errors) {
+                        setErrors(data.errors)
+                    } else {
+                        setLocId(data.id)
+                        console.log(data.id)
+                        goForward(e, liRef, currentFieldRef, nextFieldRef)
+                    }
+                })
+        } else if (locId) {
+            handleNext(e, liRef, currentFieldRef, nextFieldRef)
+        } else {
+            validator.showMessages()
+            setErrors(['Make sure all fields are correctly filled'])
+        }
+    }
+
+    const handleNext = (e, liRef, currentFieldRef, nextFieldRef) => {
+        e.preventDefault()
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/locations/${locId}`, {
+            method: 'PATCH',
+            headers: {'Content-Type' : 'application/json'},
+            body: JSON.stringify(formData)
+        })
+            .then(r => r.json())
+            .then(data => {
+                if (data.errors) {
+                    setErrors(data.errors)
+                } else {
+                    // setLocId(data.id)
+                    goForward(e, liRef, currentFieldRef, nextFieldRef)
+                }
+            })
+    }
 
     const goForward = (e, liRef, currentFieldRef, nextFieldRef) => {
         e.preventDefault()
@@ -160,9 +210,12 @@ function JoinForm ( {locTypes} ) {
         nextFieldRef.current.className='active-field'
     }
 
+    // const handlePromotions = (evt) => {
+    // }
+
     const handleSubmit = (e) => {
         e.preventDefault()
-
+        console.log(formData)
     }
 
     return (
@@ -184,8 +237,10 @@ function JoinForm ( {locTypes} ) {
                         type='text'
                         placeholder='business name'
                         onChange={evt=> setFormData({...formData, name: evt.target.value})}
-                        value={formData.name}
+                        value={formData.promotions[0]}
+                        onBlur={() => validator.showMessageFor('business_name')}
                     />
+                    {validator.message('business_name', formData.name, 'required')}
                 </InputSection>
                 <InputSection>
                     <InputText>Business Type</InputText>
@@ -197,7 +252,9 @@ function JoinForm ( {locTypes} ) {
                         placeholder='business type (pick from dropdown or write your own)'
                         onChange={evt=> setFormData({...formData, locType: evt.target.value})}
                         value={formData.locType}
+                        onBlur={() => validator.showMessageFor('business_type')}
                     />
+                    {validator.message('business_type', formData.locType, 'required')}
                     <datalist  id='locType-list'>
                         {optionList}
                     </datalist>
@@ -210,7 +267,23 @@ function JoinForm ( {locTypes} ) {
                         placeholder='email to be used for receiving payments and comms'
                         onChange={evt=> setFormData({...formData, email: evt.target.value})}
                         value={formData.email}
+                        onBlur={() => validator.showMessageFor('business_email')}
                     />
+                    {validator.message('business_email', formData.email, 'required|email')}
+                </InputSection>
+                <InputSection>
+                    <InputText>Password</InputText>
+                    <input
+                        name='locType-list' 
+                        class='join-input'
+                        type='password'
+                        list='locType-list'
+                        placeholder='password'
+                        onChange={evt=> setFormData({...formData, password: evt.target.value})}
+                        value={formData.password}
+                        onBlur={() => validator.showMessageFor('password')}
+                    />
+                    {validator.message('password', formData.password, 'required')}
                 </InputSection>
                 <InputSection>
                     <InputText>Address</InputText>
@@ -220,7 +293,9 @@ function JoinForm ( {locTypes} ) {
                         placeholder='address'
                         onChange={evt=> setFormData({...formData, address: evt.target.value})}
                         value={formData.address}
+                        onBlur={() => validator.showMessageFor('address')}
                     />
+                    {validator.message('address', formData.address, 'required')}
                 </InputSection>
                 <InputSection>
                     <InputText>City</InputText>
@@ -230,7 +305,9 @@ function JoinForm ( {locTypes} ) {
                         placeholder='city'
                         onChange={evt=> setFormData({...formData, city: evt.target.value})}
                         value={formData.city}
+                        onBlur={() => validator.showMessageFor('city')}
                     />
+                    {validator.message('city', formData.city, 'required')}
                 </InputSection>
                 <InputSection>
                     <InputText>Zip Code</InputText>
@@ -240,7 +317,9 @@ function JoinForm ( {locTypes} ) {
                         placeholder='zip code'
                         onChange={evt=> setFormData({...formData, zip_code: evt.target.value})}
                         value={formData.zip_code}
+                        onBlur={() => validator.showMessageFor('zip_code')}
                     />
+                    {validator.message('zip_code', formData.zip_code, 'required|numeric')}
                 </InputSection>
                 <InputSection>
                     <InputText>Primary Contact Name (First and last)</InputText>
@@ -250,7 +329,9 @@ function JoinForm ( {locTypes} ) {
                         placeholder='who will we be working with?'
                         onChange={evt=> setFormData({...formData, primary_contact_name: evt.target.value})}
                         value={formData.primary_contact}
+                        onBlur={() => validator.showMessageFor('primary_contact_name')}
                     />
+                    {validator.message('primary_contact_name', formData.primary_contact_name, 'required')}
                 </InputSection>
                 <InputSection>
                     <InputText>Primary Contact Email (First and last)</InputText>
@@ -258,11 +339,14 @@ function JoinForm ( {locTypes} ) {
                         class='join-input'
                         type='text'
                         placeholder='primary contact email'
-                        onChange={evt=> setFormData({...formData, primary_contact: evt.target.value})}
-                        value={formData.primary_contact}
+                        onChange={evt=> setFormData({...formData, primary_contact_email: evt.target.value})}
+                        value={formData.primary_contact_email}
+                        onBlur={() => validator.showMessageFor('primary_contact_email')}
                     />
+                    {validator.message('primary_contact_email', formData.primary_contact_email, 'required|email')}
                 </InputSection>
-                <Button onClick={(e) => goForward(e, bathDeetsLi, bizDeetsField, bathDeetsField)}>Next</Button>
+                {errors ? errors.map( (error) => <ErrorSpan key={error}>*{error}</ErrorSpan>) : null}
+                <Button onClick={(e) => handleCreate(e, bathDeetsLi, bizDeetsField, bathDeetsField)}>Next</Button>
             </fieldset>
 
             {/* Bathroom details section */}
@@ -332,7 +416,7 @@ function JoinForm ( {locTypes} ) {
                 </InputSection>
                 <ButtonView>
                     <BackButton onClick={(e) => goBackward(e, bathDeetsLi, bathDeetsField, bizDeetsField)}>Back</BackButton>
-                    <NextButton onClick={(e) => goForward(e, marketingPrefLi, bathDeetsField, marketingField)}>Next</NextButton>
+                    <NextButton onClick={(e) => handleNext(e, marketingPrefLi, bathDeetsField, marketingField)}>Next</NextButton>
                 </ButtonView>
             </fieldset>
 
@@ -369,8 +453,12 @@ function JoinForm ( {locTypes} ) {
                         class='join-input'
                         type='text'
                         placeholder='Optional info about promotions (happy hour, weekly events etc)'
-                        onChange={evt=> setFormData({...formData, promotion_1: evt.target.value})}
-                        value={formData.promotion_1}
+                        onChange={evt=> {
+                            const newPromos = formData.promotions.slice()
+                            newPromos[0] = evt.target.value
+                            setFormData({...formData, promotions: newPromos})
+                        }}                        
+                        value={formData.promotions[0]}
                     />
                 </InputSection>
                 <InputSection>
@@ -379,8 +467,12 @@ function JoinForm ( {locTypes} ) {
                         class='join-input'
                         type='text'
                         placeholder='Optional info about promotions (happy hour, weekly events etc)'
-                        onChange={evt=> setFormData({...formData, promotion_1: evt.target.value})}
-                        value={formData.promotion_1}
+                        onChange={evt=> {
+                            const newPromos = formData.promotions.slice()
+                            newPromos[1] = evt.target.value
+                            setFormData({...formData, promotions: newPromos})
+                        }}                        
+                        value={formData.promotions[1]}
                     />
                 </InputSection>
                 <InputSection>
@@ -389,14 +481,18 @@ function JoinForm ( {locTypes} ) {
                         class='join-input'
                         type='text'
                         placeholder='Optional info about promotions (happy hour, weekly events etc)'
-                        onChange={evt=> setFormData({...formData, promotion_1: evt.target.value})}
-                        value={formData.promotion_1}
+                        onChange={evt=> {
+                            const newPromos = formData.promotions.slice()
+                            newPromos[2] = evt.target.value
+                            setFormData({...formData, promotions: newPromos})
+                        }}                        
+                        value={formData.promotions[2]}
                     />
                 </InputSection>
                 
                 <ButtonView>
                     <BackButton onClick={(e) => goBackward(e, marketingPrefLi, marketingField, bathDeetsField)}>Back</BackButton>
-                    <NextButton onClick={(e) => goForward(e, reviewLi, marketingField, reviewField)}>Next</NextButton>
+                    <NextButton onClick={(e) => handleNext(e, reviewLi, marketingField, reviewField)}>Next</NextButton>
                     {/* <NextButton onClick={(e) => handleReview(e, reviewLi)}>Next</NextButton> */}
                 </ButtonView>
             </fieldset>

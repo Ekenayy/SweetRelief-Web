@@ -92,7 +92,7 @@ const Body = styled.div`
         }
     `
 
-    const ErorrSpan = styled.p`
+    const ErrorSpan = styled.p`
         color: red;
         text-align: center;
         font-family: 'aileronregular', 'Roboto', sans-serif;
@@ -200,7 +200,7 @@ function ResetPass ( ) {
                             value={formData.confirmPass}
                         />
                     </InputSection>
-                    {error ? <ErorrSpan>{error}</ErorrSpan> : null}
+                    {error ? <ErrorSpan>{error}</ErrorSpan> : null}
                     <Button>Submit</Button>
                 </Form>
             </ResetPage>
