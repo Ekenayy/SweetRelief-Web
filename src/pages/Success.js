@@ -57,13 +57,13 @@ function Success () {
 
         history.push('/')
     }
-    
+
     return (
         <GradientBg>
             <ContentDiv>
                 <InsertEmoticonOutlinedIcon class='success-icon'/>
                 <HugeText>Success! </HugeText>
-                <SmallerText>You're all set. Thank you. </SmallerText>
+                <SmallerText>You're all set. Thank you!</SmallerText>
                 <ButtonDiv>
                     <Button onClick={e => handleClick(e)}>Back to home</Button>
                 </ButtonDiv>
