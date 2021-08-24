@@ -126,3 +126,19 @@ export const ErrorSpan = styled.p`
     font-weight: 400;
     font-size: 1.4rem;
 `
+
+export const GradientBg = styled.div`
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        min-height: 100vh;
+        padding-bottom: 30px;
+        background: #BEA7E5;
+        background: -webkit-radial-gradient(top left, #BEA7E5, #F4A261);
+        background: -moz-radial-gradient(top left, #BEA7E5, #F4A261);
+        background: radial-gradient(to bottom right, #BEA7E5, #F4A261);
+        @media screen and (max-width: 37.5em) {
+            padding: 0px;
+        }
+`

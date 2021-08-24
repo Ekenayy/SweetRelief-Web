@@ -6,6 +6,7 @@ import { Redirect, Route, Switch, withRouter } from "react-router-dom";
 import Main from "./pages/Main"
 import ResetPass from './pages/ResetPass'
 import Join from "./pages/Join"
+import Success from "./pages/Success"
 import Header from './components/Header'
 
 
@@ -21,7 +22,11 @@ function App( {location}  ) {
         return <Header page={'Main'}/>
       case '/join':
         return <Header page={'Join'}/>
-      case 'pay' || 'reset_password':
+      case '/pay':
+        return null
+      case '/success':
+        return null
+      case '/reset_password':
         return null
       default:
         return <Header page={'Main'}/>
@@ -35,6 +40,7 @@ function App( {location}  ) {
           <Route exact path='/reset_password' component={ResetPass}/>
           <Route exact path='/pay' component={Pay}/>
           <Route exact path='/join' component={Join}/>
+          <Route exact path='/success' component={Success}/>
           <Route exact path='/' component={Main}/>
         </Switch>
       </div>

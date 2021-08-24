@@ -233,10 +233,10 @@ function JoinForm ( {locTypes} ) {
         e.preventDefault()
 
         let formBody = {
-            address,
-            zip_code,
-            city,
-            state,
+            address: formData.address,
+            zip_code: formData.zip_Code,
+            city: formData.city,
+            state: formData.state,
             token
         }
 
@@ -545,7 +545,7 @@ function JoinForm ( {locTypes} ) {
             </fieldset>
 
             {/* Place for user to input the token that they received in the mail */}
-            <fieldset class='active-field' ref={payField}>
+            <fieldset class='inactive-field' ref={payField}>
                 <FormTitle>Setup Payments (It's Free!)</FormTitle>
                 <InputText>Skip this step dif you don't want to accept payments</InputText>
                 <InputSection>

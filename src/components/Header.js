@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import Navbar from './Navbar'
 import styled from 'styled-components';
 import logo from '../photos/WaterdropWordless1.png'
-import { useHistory, Link } from "react-router-dom"
+import { useHistory, Link, NavLink } from "react-router-dom"
 // import {Link} from '../css/styles/Styles.js'
 
 
@@ -61,9 +61,9 @@ function Header ( {page} ) {
     return (
         <MainDiv id='navbar'>
             <LogoDiv onClick={() => console.log('clicked')}>
-                {/* <Link to={location}> */}
+                {/* <NavLink to={location} className='nav-link'> */}
                     <Logo src={logo} alt="SweetRelief Logo"/>
-                {/* </Link>  */}
+                {/* </NavLink> */}
             </LogoDiv>
             <Navbar page={page}/>
         </MainDiv>

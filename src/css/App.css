@@ -169,6 +169,7 @@ body {
   background-color: #BEA7E5;
 }
 
+/* For forms  */
 input, textarea {
   outline: 0;
   font-family: 'Aileron', 'Roboto', sans-serif;
@@ -281,6 +282,13 @@ select option {
 
 .active-field {
   display: block;
+}
+
+/* For success page */
+.success-icon {
+  height: 5rem;
+  width: auto;
+  fill: #F4A261
 }
 
 
