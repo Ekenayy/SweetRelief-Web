@@ -115,6 +115,7 @@ function JoinForm ( {locTypes} ) {
     const bathDeetsLi = useRef()
     const marketingPrefLi = useRef()
     const reviewLi = useRef()
+    const payLi = useRef()
 
     // Refs for fieldsets in forms
     const bizDeetsField = useRef()
@@ -220,6 +221,7 @@ function JoinForm ( {locTypes} ) {
                 <li ref={bathDeetsLi}>Bathroom</li>
                 <li  ref={marketingPrefLi}>Marketing</li>
                 <li  ref={reviewLi}>Review</li>
+                <li ref={payLi}>Payment</li>
             </List>
 
             {/* Business Section */}

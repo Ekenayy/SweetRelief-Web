@@ -123,4 +123,6 @@ export const ErrorSpan = styled.p`
     color: red;
     text-align: center;
     font-family: Aileron, Roboto, sans-serif;
+    font-weight: 400;
+    font-size: 1.4rem;
 `

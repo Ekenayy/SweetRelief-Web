@@ -109,7 +109,6 @@ function Join ( ) {
                 if (data.errors) {
                     console.log(data.error)
                 } else {
-                    console.log(data)
                     setLocTypes(data) 
                 }
             })
