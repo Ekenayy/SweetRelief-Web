@@ -109,6 +109,7 @@ function JoinForm ( {locTypes} ) {
     })
     const [locId, setLocId] = useState('')
     const [formContent, setFormContent] = useState('')
+    const [token, setToken] = useState('')
 
     //  Refs for progress li's 
     const bizDeetsLi = useRef()
@@ -122,6 +123,7 @@ function JoinForm ( {locTypes} ) {
     const bathDeetsField = useRef()
     const marketingField = useRef()
     const reviewField = useRef()
+    const payField = useRef()
 
     // Validator
     const validator = new SimpleReactValidator()
@@ -208,9 +210,26 @@ function JoinForm ( {locTypes} ) {
         nextFieldRef.current.className='active-field'
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e, liRef, currentFieldRef, nextFieldRef) => {
         e.preventDefault()
-        console.log(formData)
+        // console.log(formData)
+        fetch(`${process.env.REACT_API_BASE_URL}/send_stripe_setup_token/${locId}`, {
+            method: 'POST',
+            headers: {'Content-Type' : 'application/json'}
+        })
+            .then(r => r.json())
+            .then(data => {
+                if (data.error) {
+                    setErrors(data.error)
+                } else {
+                    alert('Success! Stay on this page and check your primary contact email.')
+                    goForward(e, liRef, currentFieldRef, nextFieldRef)
+                }
+            })
+    }
+
+    const handleTokenSubmit = (e) => {
+        e.preventDefault()
     }
 
     return (
@@ -410,6 +429,7 @@ function JoinForm ( {locTypes} ) {
                         <option value={false}>No</option>
                     </select>
                 </InputSection>
+                {errors ? errors.map( (error) => <ErrorSpan key={error}>*{error}</ErrorSpan>) : null}
                 <ButtonView>
                     <BackButton onClick={(e) => goBackward(e, bathDeetsLi, bathDeetsField, bizDeetsField)}>Back</BackButton>
                     <NextButton onClick={(e) => handleNext(e, marketingPrefLi, bathDeetsField, marketingField)}>Next</NextButton>
@@ -485,7 +505,7 @@ function JoinForm ( {locTypes} ) {
                         value={formData.promotions[2]}
                     />
                 </InputSection>
-                
+                {errors ? errors.map( (error) => <ErrorSpan key={error}>*{error}</ErrorSpan>) : null}
                 <ButtonView>
                     <BackButton onClick={(e) => goBackward(e, marketingPrefLi, marketingField, bathDeetsField)}>Back</BackButton>
                     <NextButton onClick={(e) => handleNext(e, reviewLi, marketingField, reviewField)}>Next</NextButton>
@@ -498,7 +518,27 @@ function JoinForm ( {locTypes} ) {
                 <InputText>Take one more look at your answers before submitting! </InputText>
                 <ButtonView>
                     <BackButton onClick={(e) => goBackward(e, reviewLi, reviewField, marketingField)}>Back</BackButton>
-                    <NextButton onClick={(e) => handleSubmit(e)}>Submit</NextButton>
+                    <NextButton onClick={(e) => handleSubmit(e, payLi, reviewField, payField)}>Submit</NextButton>
+                </ButtonView>
+            </fieldset>
+
+            {/* Place for user to input the token that they received in the mail */}
+            <fieldset class='active-field' ref={payField}>
+                <FormTitle>Setup Payments (It's Free!)</FormTitle>
+                <InputText>Skip this step dif you don't want to accept payments</InputText>
+                <InputSection>
+                    <InputText>Token</InputText>
+                    <input
+                        class='join-input'
+                        type='text'
+                        placeholder='Token sent via email (check spam)'
+                        onChange={evt=> setToken(evt.target.value)}                        
+                        value={token}
+                    />
+                </InputSection>
+                <ButtonView>
+                    {/* <BackButton onClick={(e) => goBackward(e, reviewLi, reviewField, marketingField)}>Back</BackButton> */}
+                    <Button onClick={(e) => handleTokenSubmit(e)}>Confirm</Button>
                 </ButtonView>
             </fieldset>
         </Form>
