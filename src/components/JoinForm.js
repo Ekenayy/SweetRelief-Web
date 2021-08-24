@@ -110,6 +110,7 @@ function JoinForm ( {locTypes} ) {
     const [locId, setLocId] = useState('')
     const [formContent, setFormContent] = useState('')
     const [token, setToken] = useState('')
+    const [stripeLink, setStripeLink] = useState('')
 
     //  Refs for progress li's 
     const bizDeetsLi = useRef()
@@ -230,6 +231,19 @@ function JoinForm ( {locTypes} ) {
 
     const handleTokenSubmit = (e) => {
         e.preventDefault()
+
+        fetch(`${process.env.REACT_API_BASE_URL}/create_business_account`, {
+            method: 'POST',
+            headers: {'Content-Type' : 'application/json'},
+            body: JSON.stringify(token)
+        })
+            .then(r => r.json())
+            .then(data => {
+                setStripeLink(data.url)
+                alert('Taking you to stripe')
+                window.location.href = `${data.url}`
+            })
+
     }
 
     return (
@@ -538,7 +552,7 @@ function JoinForm ( {locTypes} ) {
                 </InputSection>
                 <ButtonView>
                     {/* <BackButton onClick={(e) => goBackward(e, reviewLi, reviewField, marketingField)}>Back</BackButton> */}
-                    <Button onClick={(e) => handleTokenSubmit(e)}>Confirm</Button>
+                    {stripeLink? <Button onClick={(e) => handleTokenSubmit(e)}>Confirm</Button> : <Button>Go to stripe</Button>}
                 </ButtonView>
             </fieldset>
         </Form>
