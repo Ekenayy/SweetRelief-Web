@@ -99,10 +99,7 @@ function JoinForm ( {locTypes} ) {
         payment_forms: [],
         marketing_link: '',
         price_cents: 0,
-        promotion_1: '',
-        promotion_2: '',
-        promotion_3: '',
-        promotions: ['suh baby', '', ''],
+        promotions: ['', '', ''],
         wheelchair_accessible: false,
         baby_changing_station: false,
         unisex: false,
@@ -209,9 +206,6 @@ function JoinForm ( {locTypes} ) {
         currentFieldRef.current.className='inactive-field'
         nextFieldRef.current.className='active-field'
     }
-
-    // const handlePromotions = (evt) => {
-    // }
 
     const handleSubmit = (e) => {
         e.preventDefault()
