@@ -232,10 +232,18 @@ function JoinForm ( {locTypes} ) {
     const handleTokenSubmit = (e) => {
         e.preventDefault()
 
+        let formBody = {
+            address,
+            zip_code,
+            city,
+            state,
+            token
+        }
+
         fetch(`${process.env.REACT_API_BASE_URL}/create_business_account`, {
             method: 'POST',
             headers: {'Content-Type' : 'application/json'},
-            body: JSON.stringify(token)
+            body: JSON.stringify(formBody)
         })
             .then(r => r.json())
             .then(data => {
