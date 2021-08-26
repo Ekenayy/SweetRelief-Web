@@ -4,7 +4,8 @@ import styled from 'styled-components';
 import logo from '../photos/WaterdropWordless1.png'
 import { useHistory, Link, NavLink } from "react-router-dom"
 // import {Link} from '../css/styles/Styles.js'
-
+// Calming color
+// #f3f4f8
 
 const Image = ({ className, children, id, src, alt, }) => (
         <img className={className} id={id} src={src}/>

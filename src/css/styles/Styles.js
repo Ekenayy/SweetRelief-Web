@@ -29,6 +29,14 @@ export const Link = ({ className, children, target, id, href, }) => (
     </a>
 );
 
+export const MyButton = ({className, id, type, children, onClick}) => {
+    return (
+        <button onClick={onClick} className={className} id={id} type={type}>
+            {children}
+        </button>
+    )
+}
+
 export const AllContentDiv = styled.div`
     display: flex;
     flex-direction: column;
@@ -91,7 +99,7 @@ export const DemoImage = styled(Image)`
     }
 `
 
-export const Button = styled.button`
+export const Button = styled(MyButton)`
         font-family: 'aileronregular', 'Roboto', sans-serif;
         text-transform: uppercase;
         outline: 0;

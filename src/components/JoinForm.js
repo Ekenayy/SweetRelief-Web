@@ -170,6 +170,7 @@ function JoinForm ( {locTypes} ) {
 
     const handleNext = (e, liRef, currentFieldRef, nextFieldRef) => {
         e.preventDefault()
+        setErrors('')
         fetch(`${process.env.REACT_APP_API_BASE_URL}/locations/${locId}`, {
             method: 'PATCH',
             headers: {'Content-Type' : 'application/json'},
@@ -214,7 +215,7 @@ function JoinForm ( {locTypes} ) {
     const handleSubmit = (e, liRef, currentFieldRef, nextFieldRef) => {
         e.preventDefault()
         // console.log(formData)
-        fetch(`${process.env.REACT_API_BASE_URL}/send_stripe_setup_token/${locId}`, {
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/send_stripe_setup_token/${locId}`, {
             method: 'POST',
             headers: {'Content-Type' : 'application/json'}
         })
@@ -230,6 +231,7 @@ function JoinForm ( {locTypes} ) {
     }
 
     const handleTokenSubmit = (e) => {
+        console.log(e)
         e.preventDefault()
 
         let formBody = {
@@ -240,22 +242,28 @@ function JoinForm ( {locTypes} ) {
             token
         }
 
-        fetch(`${process.env.REACT_API_BASE_URL}/create_business_account`, {
-            method: 'POST',
-            headers: {'Content-Type' : 'application/json'},
-            body: JSON.stringify(formBody)
-        })
-            .then(r => r.json())
-            .then(data => {
-                setStripeLink(data.url)
-                alert('Taking you to stripe')
-                window.location.href = `${data.url}`
+        if (token) {
+            fetch(`${process.env.REACT_APP_API_BASE_URL}/create_business_account`, {
+                method: 'POST',
+                headers: {'Content-Type' : 'application/json'},
+                body: JSON.stringify(formBody)
             })
+                .then(r => r.json())
+                .then(data => {
+                    setStripeLink(data.url)
+                    alert('Taking you to stripe')
+                    console.log(data.url)
+                    window.location.href = `${data.url}`
+                })
+        } else {
+            setErrors(['Token required'])
+        }
 
     }
 
+    console.log(formData, '---', locId, token)
     return (
-        <Form id='join-form'>
+        <Form id='join-form' >
             {/* <FormTitle>Join</FormTitle> */}
             <List id='progressbar'>
                 <li  ref={bizDeetsLi} className='active'>Business</li>
@@ -274,7 +282,7 @@ function JoinForm ( {locTypes} ) {
                         type='text'
                         placeholder='business name'
                         onChange={evt=> setFormData({...formData, name: evt.target.value})}
-                        value={formData.promotions[0]}
+                        value={formData.name}
                         onBlur={() => validator.showMessageFor('business_name')}
                     />
                     {validator.message('business_name', formData.name, 'required')}
@@ -551,6 +559,7 @@ function JoinForm ( {locTypes} ) {
                 <InputSection>
                     <InputText>Token</InputText>
                     <input
+                        name='token'
                         class='join-input'
                         type='text'
                         placeholder='Token sent via email (check spam)'
@@ -558,9 +567,10 @@ function JoinForm ( {locTypes} ) {
                         value={token}
                     />
                 </InputSection>
+                {errors ? errors.map( (error) => <ErrorSpan key={error}>*{error}</ErrorSpan>) : null}
                 <ButtonView>
                     {/* <BackButton onClick={(e) => goBackward(e, reviewLi, reviewField, marketingField)}>Back</BackButton> */}
-                    {stripeLink? <Button onClick={(e) => handleTokenSubmit(e)}>Confirm</Button> : <Button>Go to stripe</Button>}
+                    {stripeLink ? <Button type='button' onClick={(e) => handleTokenSubmit(e)}> Go to stripe</Button> : <Button type='button' onClick={(e) => handleTokenSubmit(e)}>Confirm</Button> }
                 </ButtonView>
             </fieldset>
         </Form>
