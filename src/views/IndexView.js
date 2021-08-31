@@ -88,7 +88,7 @@ class IndexView extends React.Component {
                   <div className="af-class-column-8 w-col w-col-6"><img src="images/PayMockSideways.png" loading="lazy" sizes="(max-width: 479px) 75vw, (max-width: 767px) 360px, (max-width: 1279px) 45vw, 450px" srcSet="images/PayMockSideways-p-500.png 500w, images/PayMockSideways-p-800.png 800w, images/PayMockSideways-p-1080.png 1080w, images/PayMockSideways-p-1600.png 1600w, images/PayMockSideways.png 1728w" alt className="af-class-image" /></div>
                   <div className="af-class-column-7 w-col w-col-6">
                     <p className="af-class-paragraph-3 af-class-purp-title">Pay</p>
-                    <p className="af-class-paragraph-4">No more scanning the menu for the cheapest item to buy!&nbsp;Pay for just the restroom. </p>
+                    <p className="af-class-paragraph-4">No more scanning the menu for the cheapest item to buy!&nbsp;Pay for just the restroom at participating businesses.</p>
                   </div>
                 </div>
               </div>
@@ -98,7 +98,7 @@ class IndexView extends React.Component {
                 <div className="af-class-columns-3 af-class-discover-column w-row">
                   <div className="af-class-column-10 w-col w-col-6">
                     <p className="af-class-paragraph-3 af-class-honeyd-title">Discover<br /></p>
-                    <p className="af-class-paragraph-4">Find exciting happy hours, events, and promotions at businesses you might never have heard of. </p>
+                    <p className="af-class-paragraph-4">Find exciting happy hours, events, and promotions at businesses you might never have visited.</p>
                   </div>
                   <div className="af-class-column-11 w-col w-col-6"><img src="images/DisoverStacked1.png" loading="lazy" sizes="(max-width: 767px) 79vw, (max-width: 1279px) 45vw, 457.5px" height={800} srcSet="images/DisoverStacked1-p-500.png 500w, images/DisoverStacked1-p-800.png 800w, images/DisoverStacked1-p-1080.png 1080w, images/DisoverStacked1.png 1728w" alt className="af-class-image-2" /></div>
                 </div>
@@ -109,7 +109,7 @@ class IndexView extends React.Component {
                 <div className="af-class-columns-3 w-row">
                   <div className="af-class-column-5 w-col w-col-6">
                     <p className="af-class-paragraph-3">Filter</p>
-                    <p className="af-class-paragraph-4">Easily sift through 600+&nbsp;real locations with filters designed to fit your needs. </p>
+                    <p className="af-class-paragraph-4">Easily sift through over 600&nbsp;real, free public restrooms and paid restrooms with filters designed to fit your needs. </p>
                   </div>
                   <div className="af-class-column-6 w-col w-col-6"><img src="images/testMain.png" loading="lazy" sizes="(max-width: 767px) 75vw, (max-width: 1279px) 43vw, 525px" srcSet="images/testMain-p-800.png 800w, images/testMain-p-1080.png 1080w, images/testMain-p-1600.png 1600w, images/testMain.png 1728w" alt className="af-class-image-3" /></div>
                 </div>

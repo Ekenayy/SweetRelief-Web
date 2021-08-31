@@ -259,7 +259,8 @@
 
 .af-view .af-class-paragraph-4 {
   font-family: Aileron, sans-serif;
-  font-size: 1rem;
+  font-size: 1.4rem;
+  line-height: 25px;
 }
 
 .af-view .af-class-columns-4 {
@@ -577,6 +578,11 @@
 
   .af-view .af-class-paragraph-3.af-class-coral-title {
     color: #333;
+  }
+
+  .af-view .af-class-paragraph-4 {
+    font-size: 1rem;
+    line-height: 20px;
   }
 
   .af-view .af-class-columns-4 {
