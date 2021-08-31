@@ -259,7 +259,8 @@
 
 .paragraph-4 {
   font-family: Aileron, sans-serif;
-  font-size: 1rem;
+  font-size: 1.4rem;
+  line-height: 25px;
 }
 
 .columns-4 {
@@ -577,6 +578,11 @@
 
   .paragraph-3.coral-title {
     color: #333;
+  }
+
+  .paragraph-4 {
+    font-size: 1rem;
+    line-height: 20px;
   }
 
   .columns-4 {
