@@ -46,7 +46,6 @@ function Header ( {location} ) {
 
     const history = useHistory()
 
-    console.log(location.pathname)
 
     const handleClick = () => {
         history.push({
@@ -55,26 +54,24 @@ function Header ( {location} ) {
         })
     }
 
-    let pathArr = ['/reset_password', '/pay']
+    let nowShowArr = ['/reset_password', '/pay']
 
-    // const location = {
-    //     pathname: '/',
-    //     page: 'Main'
-    // }
-
-    console.log(pathArr.includes(location.pathname))
+    const home = {
+        pathname: '/',
+        page: 'Main'
+    }
 
     const ConditionalHeader = () => {
-        switch (pathArr.includes(location.pathname)) {
+        switch (nowShowArr.includes(location.pathname)) {
             case true:
                 return null
             default:
                 return (
                     <MainDiv id='navbar'>
                         <LogoDiv onClick={() => console.log('clicked')}>
-                            {/* <NavLink to={location} className='nav-link'> */}
+                            <NavLink to={home} className='nav-link'>
                                 <Logo src={logo} alt="SweetRelief Logo"/>
-                            {/* </NavLink> */}
+                            </NavLink>
                         </LogoDiv>
                         <Navbar location={location}/>
                     </MainDiv>
