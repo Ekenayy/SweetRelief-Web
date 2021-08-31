@@ -12,30 +12,30 @@ import Header from './components/Header'
 
 function App( {location}  ) {
 
-  console.log(location.pathname)
 
   // Instead of doing it in the components just do it in the app based on the pathname
 
-  const ConditionalHeader = () => {
-    switch (location.pathname) {
-      case '/': 
-        return <Header page={'Main'}/>
-      case '/join':
-        return <Header page={'Join'}/>
-      case '/pay':
-        return null
-      case '/success':
-        return null
-      case '/reset_password':
-        return null
-      default:
-        return <Header page={'Main'}/>
-    }
-  }
+  // const ConditionalHeader = () => {
+  //   switch (location.pathname) {
+  //     case '/': 
+  //       return <Header location={location} page={'Main'}/>
+  //     case '/join':
+  //       return <Header location={location} page={'Join'}/>
+  //     case '/pay':
+  //       return null
+  //     case '/success':
+  //       return null
+  //     case '/reset_password':
+  //       return null
+  //     default:
+  //       return <Header location={location} page={'Main'}/>
+  //   }
+  // }
+
   return (
     <div className="App">
       <div id='body'>
-        <ConditionalHeader/>
+        <Header location={location}/>
         <Switch>
           <Route exact path='/reset_password' component={ResetPass}/>
           <Route exact path='/pay' component={Pay}/>

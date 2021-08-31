@@ -261,7 +261,7 @@ function JoinForm ( {locTypes} ) {
 
     }
 
-    console.log(formData, '---', locId, token)
+    // console.log(formData, '---', locId, token)
     return (
         <Form id='join-form' >
             {/* <FormTitle>Join</FormTitle> */}

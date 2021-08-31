@@ -101,7 +101,6 @@ function Join ( ) {
     // You'll get a notification from paypal or stripe 
     // Simply look at the receipt 
 
-    
     useEffect(() => {
         fetch(`${process.env.REACT_APP_API_BASE_URL}/location_types`)
             .then(r => r.json())

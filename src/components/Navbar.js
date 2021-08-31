@@ -50,7 +50,7 @@ import { useHistory, Link, NavLink } from "react-router-dom"
         }
     `
 
-function Navbar ( {page} ) {
+function Navbar ( {location} ) {
 
     const [selected, setSelected] = useState('')
 
@@ -80,10 +80,10 @@ function Navbar ( {page} ) {
     }
 
     const ConditionalComp = () => {
-        switch (page) {
-            case 'Main':
+        switch (location.pathname) {
+            case '/':
                 return <MainNav/>
-            case 'Join':
+            case '/join':
                 return (
                     <MainDiv>
                         <NavIcon>

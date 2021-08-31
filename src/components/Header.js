@@ -42,9 +42,11 @@ const Image = ({ className, children, id, src, alt, }) => (
         align-self: center;
     `
 
-function Header ( {page} ) {
+function Header ( {location} ) {
 
     const history = useHistory()
+
+    console.log(location.pathname)
 
     const handleClick = () => {
         history.push({
@@ -53,21 +55,44 @@ function Header ( {page} ) {
         })
     }
 
-    const location = {
-        pathname: '/',
-        page: 'Main'
+    let pathArr = ['/reset_password', '/pay']
+
+    // const location = {
+    //     pathname: '/',
+    //     page: 'Main'
+    // }
+
+    console.log(pathArr.includes(location.pathname))
+
+    const ConditionalHeader = () => {
+        switch (pathArr.includes(location.pathname)) {
+            case true:
+                return null
+            default:
+                return (
+                    <MainDiv id='navbar'>
+                        <LogoDiv onClick={() => console.log('clicked')}>
+                            {/* <NavLink to={location} className='nav-link'> */}
+                                <Logo src={logo} alt="SweetRelief Logo"/>
+                            {/* </NavLink> */}
+                        </LogoDiv>
+                        <Navbar location={location}/>
+                    </MainDiv>
+                )
+        }
     }
 
 
     return (
-        <MainDiv id='navbar'>
-            <LogoDiv onClick={() => console.log('clicked')}>
-                {/* <NavLink to={location} className='nav-link'> */}
-                    <Logo src={logo} alt="SweetRelief Logo"/>
-                {/* </NavLink> */}
-            </LogoDiv>
-            <Navbar page={page}/>
-        </MainDiv>
+        <ConditionalHeader/>
+        // <MainDiv id='navbar'>
+        //     <LogoDiv onClick={() => console.log('clicked')}>
+        //         {/* <NavLink to={location} className='nav-link'> */}
+        //             <Logo src={logo} alt="SweetRelief Logo"/>
+        //         {/* </NavLink> */}
+        //     </LogoDiv>
+        //     <Navbar location={location}/>
+        // </MainDiv>
     )
 }
 
