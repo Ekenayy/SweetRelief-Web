@@ -54,7 +54,7 @@ function Header ( {location} ) {
         })
     }
 
-    let nowShowArr = ['/reset_password', '/pay']
+    let nowShowArr = ['/reset_password', '/pay', '/stripe']
 
     const home = {
         pathname: '/',
