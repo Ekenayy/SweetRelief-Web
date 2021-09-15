@@ -150,3 +150,25 @@ export const GradientBg = styled.div`
             padding: 0px;
         }
 `
+
+export const NavItem = styled(Div)`
+        padding: 20px 30px;
+        display: block;
+        transition: all 0.3s ease;
+        border-radius: 5px;
+        margin: auto; 
+        font-size: 1.2rem;
+        color: #1C1C1C;
+        @media (max-width: 37.5em) {
+            padding: 10px 20px;
+            display: none;
+        }
+`
+
+export const NavIcon = styled(NavItem)`
+        display: none;
+        @media (max-width: 37.5em) {
+            display: block;
+        }
+        cursor: pointer;
+`

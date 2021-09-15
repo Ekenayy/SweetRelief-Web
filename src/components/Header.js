@@ -4,7 +4,9 @@ import styled from 'styled-components';
 import logo from '../photos/WaterdropWordless1.png'
 import { useHistory, Link, NavLink } from "react-router-dom"
 import backgroundGradient from '../photos/gradient.png'
-// import {Link} from '../css/styles/Styles.js'
+import {NavIcon} from '../css/styles/Styles.js'
+import ReorderIcon from '@material-ui/icons/Reorder';
+
 // Calming color
 // #f3f4f8
 
@@ -55,6 +57,11 @@ const Image = ({ className, children, id, src, alt, }) => (
         left: 0;
     `
 
+    const HeaderButton = styled(NavIcon)`
+        display: block;
+        align-self: flex-end;
+    `
+
 function Header ( {location} ) {
 
     const history = useHistory()
@@ -92,7 +99,15 @@ function Header ( {location} ) {
                             </LogoDiv>
                             <Navbar hidden={hidden} setHidden={setHidden} location={location}/>
                         </MainDiv>
-                        {hidden ? null : <HiddenNav></HiddenNav>}
+                        {hidden ? null : 
+                            <HiddenNav>
+                                {/* Need to put a navbar here and put the icon in */}
+                                <HeaderButton onClick={() => setHidden(!hidden)}>
+                                    <ReorderIcon />
+                                </HeaderButton>
+                                {/* Then need to put a body section where the links go */}
+                            </HiddenNav>
+                        }
                     </div>
                 )
         }
@@ -101,14 +116,6 @@ function Header ( {location} ) {
 
     return (
         <ConditionalHeader/>
-        // <MainDiv id='navbar'>
-        //     <LogoDiv onClick={() => console.log('clicked')}>
-        //         {/* <NavLink to={location} className='nav-link'> */}
-        //             <Logo src={logo} alt="SweetRelief Logo"/>
-        //         {/* </NavLink> */}
-        //     </LogoDiv>
-        //     <Navbar location={location}/>
-        // </MainDiv>
     )
 }
 
