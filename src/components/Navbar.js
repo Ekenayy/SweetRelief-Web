@@ -9,8 +9,8 @@ import { useHistory, Link, NavLink } from "react-router-dom"
             </a>
         );
 
-    const NewDiv = ({className, children, id}) => (
-        <div className={className} id={id}>
+    const NewDiv = ({className, children, id, onClick}) => (
+        <div className={className} id={id} onClick={onClick}>
             {children}
         </div>
     )
@@ -48,12 +48,11 @@ import { useHistory, Link, NavLink } from "react-router-dom"
         @media (max-width: 37.5em) {
             display: block;
         }
+        cursor: pointer;
     `
 
-function Navbar ( {location} ) {
-
-    const [selected, setSelected] = useState('')
-
+function Navbar ( {location, hidden, setHidden} ) {
+    
     const MainNav = () => {
         return (
             <MainDiv>
@@ -72,8 +71,8 @@ function Navbar ( {location} ) {
                         About
                     </StyledLink>
                 </NavItem>
-                <NavIcon>
-                    <ReorderIcon/>
+                <NavIcon onClick={() => setHidden(!hidden)}>
+                    <ReorderIcon />
                 </NavIcon>
             </MainDiv>
         )
