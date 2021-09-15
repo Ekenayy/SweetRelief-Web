@@ -68,7 +68,7 @@ function Header ( {location} ) {
             default:
                 return (
                     <MainDiv id='navbar'>
-                        <LogoDiv onClick={() => console.log('clicked')}>
+                        <LogoDiv>
                             <NavLink to={home} className='nav-link'>
                                 <Logo src={logo} alt="SweetRelief Logo"/>
                             </NavLink>
