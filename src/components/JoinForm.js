@@ -225,7 +225,7 @@ function JoinForm ( {locTypes} ) {
                 if (data.error) {
                     setErrors(data.error)
                 } else {
-                    alert('Success! Stay on this page and check your primary contact email.')
+                    alert("Success! Stay on this page and check your primary contact email fro an email titled 'Start receiving payments'.")
                     goForward(e, liRef, currentFieldRef, nextFieldRef)
                 }
             })
@@ -380,7 +380,7 @@ function JoinForm ( {locTypes} ) {
                     {validator.message('primary_contact_name', formData.primary_contact_name, 'required')}
                 </InputSection>
                 <InputSection>
-                    <InputText>Primary Contact Email (First and last)</InputText>
+                    <InputText>Primary Contact Email</InputText>
                     <input 
                         class='join-input'
                         type='text'
