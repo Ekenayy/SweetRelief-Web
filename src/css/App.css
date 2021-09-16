@@ -251,6 +251,17 @@ input, textarea {
 	color: white;
 }
 
+@media (max-width: 37.5em) {
+  #progressbar li:before {
+    width: 20px;
+  }
+  #progressbar li:after {
+  }
+  #progressbar li {
+    font-size: 8px;
+  }
+}
+
 #join-form fieldset {
   min-width: 80%;
   background: #777677;

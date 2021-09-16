@@ -18,8 +18,9 @@ const Form = styled.form`
         overflow: auto;
         @media screen and (max-width: 37.5em) {
             min-width: 80%;
-            max-width: 90%;
+            max-width: 95%;
             align-self: center;
+            padding: 10px;
         }
 `
 
