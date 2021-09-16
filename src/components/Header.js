@@ -49,7 +49,7 @@ const Image = ({ className, children, id, src, alt, }) => (
         background-image: url(${backgroundGradient});
         background-position: center;
         background-size: cover;
-        height: 100vh;
+        height: 150vh;
         width: 100vw;
         z-index: 30000;
         position: fixed;
@@ -73,7 +73,8 @@ const Image = ({ className, children, id, src, alt, }) => (
         align-items: center;
     `
 
-    const SmallP = styled.div`
+    const SmallP = styled.p`
+        padding: 10px 0px;
     `
 
     const HeaderButton = styled(NavIcon)`
@@ -81,6 +82,10 @@ const Image = ({ className, children, id, src, alt, }) => (
         margin: 0px;
         font-weight: 500;
         font-size: 1.7rem;
+
+        &:hover{
+            color: white;
+        }
     `
 
 function Header ( {location} ) {
@@ -128,7 +133,10 @@ function Header ( {location} ) {
                                 </HiddenNav>
                                 <HiddenBody>
                                     <HeaderButton onClick={() => handleClick('/')}>
-                                        <p>Home</p>
+                                        <SmallP>Home</SmallP>
+                                    </HeaderButton>
+                                    <HeaderButton onClick={() => handleClick('/join')}>
+                                        <SmallP>Join</SmallP>
                                     </HeaderButton>
                                 </HiddenBody>
                             </HiddenSection>
