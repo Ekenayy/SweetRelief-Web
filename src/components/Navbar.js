@@ -85,7 +85,7 @@ function Navbar ( {location, hidden, setHidden} ) {
             case '/join':
                 return (
                     <MainDiv>
-                        <NavIcon>
+                        <NavIcon onClick={() => setHidden(!hidden)}>
                             <ReorderIcon/>
                         </NavIcon>
                     </MainDiv>
