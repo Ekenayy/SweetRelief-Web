@@ -255,8 +255,6 @@ input, textarea {
   #progressbar li:before {
     width: 20px;
   }
-  #progressbar li:after {
-  }
   #progressbar li {
     font-size: 8px;
   }
