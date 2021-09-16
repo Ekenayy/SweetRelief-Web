@@ -159,6 +159,9 @@ export const NavItem = styled(Div)`
         margin: auto; 
         font-size: 1.2rem;
         color: #1C1C1C;
+        font-family: Aileron, sans-serif;
+        font-weight: 400;
+        text-decoration: none;
         @media (max-width: 37.5em) {
             padding: 10px 20px;
             display: none;

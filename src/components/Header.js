@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import logo from '../photos/WaterdropWordless1.png'
 import { useHistory, Link, NavLink } from "react-router-dom"
 import backgroundGradient from '../photos/gradient.png'
-import {NavIcon} from '../css/styles/Styles.js'
+import {NavIcon, StyledLink, NavItem} from '../css/styles/Styles.js'
 import ReorderIcon from '@material-ui/icons/Reorder';
 
 // Calming color
@@ -45,7 +45,7 @@ const Image = ({ className, children, id, src, alt, }) => (
         align-self: center;
     `
 
-    const HiddenNav = styled.div`
+    const HiddenSection = styled.div`
         background-image: url(${backgroundGradient});
         background-position: center;
         background-size: cover;
@@ -57,9 +57,30 @@ const Image = ({ className, children, id, src, alt, }) => (
         left: 0;
     `
 
+    const HiddenNav = styled.div`
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        padding: 0 1.5rem;
+        height: 7rem;
+        align-items: center;
+    `
+
+    const HiddenBody = styled.div`
+        margin-top: 12%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    `
+
+    const SmallP = styled.div`
+    `
+
     const HeaderButton = styled(NavIcon)`
-        display: block;
-        align-self: flex-end;
+        display: flex;
+        margin: 0px;
+        font-weight: 500;
+        font-size: 1.7rem;
     `
 
 function Header ( {location} ) {
@@ -70,11 +91,10 @@ function Header ( {location} ) {
 
     // create state variable here and pass down to navbar
 
-    const handleClick = () => {
-        history.push({
-            pathname: '/',
-            page: 'Main'
-        })
+    const handleClick = (pathName) => {
+        console.log('clicked')
+        setHidden(!hidden)
+        history.push(pathName)
     }
 
     let nowShowArr = ['/reset_password', '/pay', '/stripe']
@@ -100,13 +120,18 @@ function Header ( {location} ) {
                             <Navbar hidden={hidden} setHidden={setHidden} location={location}/>
                         </MainDiv>
                         {hidden ? null : 
-                            <HiddenNav>
-                                {/* Need to put a navbar here and put the icon in */}
-                                <HeaderButton onClick={() => setHidden(!hidden)}>
-                                    <ReorderIcon />
-                                </HeaderButton>
-                                {/* Then need to put a body section where the links go */}
-                            </HiddenNav>
+                            <HiddenSection>
+                                <HiddenNav>
+                                    <HeaderButton onClick={() => setHidden(!hidden)}>
+                                        <ReorderIcon />
+                                    </HeaderButton>
+                                </HiddenNav>
+                                <HiddenBody>
+                                    <HeaderButton onClick={() => handleClick('/')}>
+                                        <p>Home</p>
+                                    </HeaderButton>
+                                </HiddenBody>
+                            </HiddenSection>
                         }
                     </div>
                 )
