@@ -9,28 +9,9 @@ import Join from "./pages/Join"
 import Success from "./pages/Success"
 import StripePay from "./pages/StripePay"
 import Header from './components/Header'
+import Privacy from './pages/Privacy'
 
 function App( {location}  ) {
-
-
-  // Instead of doing it in the components just do it in the app based on the pathname
-
-  // const ConditionalHeader = () => {
-  //   switch (location.pathname) {
-  //     case '/': 
-  //       return <Header location={location} page={'Main'}/>
-  //     case '/join':
-  //       return <Header location={location} page={'Join'}/>
-  //     case '/pay':
-  //       return null
-  //     case '/success':
-  //       return null
-  //     case '/reset_password':
-  //       return null
-  //     default:
-  //       return <Header location={location} page={'Main'}/>
-  //   }
-  // }
 
   return (
     <div className="App">
@@ -42,6 +23,7 @@ function App( {location}  ) {
           <Route exact path='/stripe' component={StripePay}/>
           <Route exact path='/join' component={Join}/>
           <Route exact path='/success' component={Success}/>
+          <Route exact path='/privacy' component={Privacy}/>
           <Route exact path='/' component={Main}/>
         </Switch>
       </div>

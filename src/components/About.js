@@ -88,7 +88,7 @@ function About () {
                 <StyledLink href='/join'>
                     <LinkText>Terms of Service</LinkText>
                 </StyledLink>
-                <StyledLink>
+                <StyledLink href='/privacy'>
                     <LinkText>Privacy Policy</LinkText>
                 </StyledLink>
             </AboutItem>
