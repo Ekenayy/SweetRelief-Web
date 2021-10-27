@@ -42,6 +42,8 @@ const AboutText = styled.p`
 
 const LinkText = styled(AboutText)`
     color: #BEA7E5;
+    text-align: center;
+
 `
 
 const IconText = styled(LinkText)`
@@ -76,6 +78,15 @@ function About () {
                 <StyledLink href='mailto:info@sweetrelief.tech' target='blank'>
                     <LinkText>info@sweetrelief.tech</LinkText>
                     {/* <i class="fa fa-envelope"></i> */}
+                </StyledLink>
+            </AboutItem>
+            <AboutItem>
+                <TitleText>Legal</TitleText>
+                <StyledLink>
+                    <LinkText>Terms of Service</LinkText>
+                </StyledLink>
+                <StyledLink>
+                    <LinkText>Privacy Policy</LinkText>
                 </StyledLink>
             </AboutItem>
         </MainDiv>
