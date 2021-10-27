@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components';
 import {AllContentDiv, BigText, PicDiv, DemoImage, Link} from '../css/styles/Styles.js'
+import { useHistory } from "react-router-dom"
 
 const MainDiv = styled.div`
         display: flex;
@@ -67,6 +68,8 @@ const StyledLink = styled(Link)`
 `
 
 function About () {
+    const history = useHistory()
+
     return (
         <MainDiv id="About">
             <AboutItem>
@@ -82,7 +85,7 @@ function About () {
             </AboutItem>
             <AboutItem>
                 <TitleText>Legal</TitleText>
-                <StyledLink>
+                <StyledLink href='/join'>
                     <LinkText>Terms of Service</LinkText>
                 </StyledLink>
                 <StyledLink>
