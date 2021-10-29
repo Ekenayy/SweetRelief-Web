@@ -14,7 +14,7 @@ function Main () {
         <div id="Main">
             <IndexView/>
             <JoinCta/>
-            <About/>
+            {/* <About/> */}
         </div>
     )
 }

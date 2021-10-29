@@ -67,32 +67,46 @@ const StyledLink = styled(Link)`
         cursor: pointer;
 `
 
-function About () {
+function About ( {location} ) {
+
     const history = useHistory()
 
+    let nowShowArr = ['/reset_password', '/pay', '/stripe']
+
+    const ConditionalComponent = () => {
+        switch (nowShowArr.includes(location.pathname)) {
+            case true: 
+                return null
+            default:
+                return (
+                    <MainDiv id="About">
+                        <AboutItem>
+                            <TitleText>About SweetRelief</TitleText>
+                            <AboutText>Our goal is to increase access to restrooms while also helping small businesses reach new audiences. </AboutText>
+                        </AboutItem>
+                        <AboutItem>
+                            <TitleText>Contact</TitleText>
+                            <StyledLink href='mailto:info@sweetrelief.tech' target='blank'>
+                                <LinkText>info@sweetrelief.tech</LinkText>
+                                {/* <i class="fa fa-envelope"></i> */}
+                            </StyledLink>
+                        </AboutItem>
+                        <AboutItem>
+                            <TitleText>Legal</TitleText>
+                            <StyledLink href='/terms'>
+                                <LinkText>Terms of Service</LinkText>
+                            </StyledLink>
+                            <StyledLink href='/privacy'>
+                                <LinkText>Privacy Policy</LinkText>
+                            </StyledLink>
+                        </AboutItem>
+                    </MainDiv>
+                )
+        }
+    }
+
     return (
-        <MainDiv id="About">
-            <AboutItem>
-                <TitleText>About SweetRelief</TitleText>
-                <AboutText>Our goal is to increase access to restrooms while also helping small businesses reach new audiences. </AboutText>
-            </AboutItem>
-            <AboutItem>
-                <TitleText>Contact</TitleText>
-                <StyledLink href='mailto:info@sweetrelief.tech' target='blank'>
-                    <LinkText>info@sweetrelief.tech</LinkText>
-                    {/* <i class="fa fa-envelope"></i> */}
-                </StyledLink>
-            </AboutItem>
-            <AboutItem>
-                <TitleText>Legal</TitleText>
-                <StyledLink href='/join'>
-                    <LinkText>Terms of Service</LinkText>
-                </StyledLink>
-                <StyledLink href='/privacy'>
-                    <LinkText>Privacy Policy</LinkText>
-                </StyledLink>
-            </AboutItem>
-        </MainDiv>
+        <ConditionalComponent/>
     )
 }
 

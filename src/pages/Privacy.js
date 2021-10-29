@@ -83,7 +83,7 @@ This Service does not use these “cookies” explicitly. However, the app may u
                     </ContentDiv>
                 </MainDiv>
             </Body>
-            <About/>
+            {/* <About/> */}
         </div>
     )
 }
