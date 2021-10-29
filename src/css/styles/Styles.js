@@ -175,3 +175,19 @@ export const NavIcon = styled(NavItem)`
         }
         cursor: pointer;
 `
+
+// Privacy and Terms Page
+
+export const PrivacyHeaderDiv = styled.div`
+        display: flex;
+        padding: .5rem 3rem;
+        min-height: 60vh;
+        width: 100%;
+        flex-direction: column;
+        justify-content: flex-end;
+        background: #BEA7E5;
+        background: -webkit-radial-gradient(top left, #BEA7E5, #F4A261);
+        background: -moz-radial-gradient(top left, #BEA7E5, #F4A261);
+        background: radial-gradient(to bottom right, #BEA7E5, #F4A261);
+        z-index: -100;
+`
