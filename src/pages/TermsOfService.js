@@ -12,6 +12,9 @@ const Body = styled.div`
 `
 const HeaderText = styled(TitleText)`
     align-self: flex-start;
+    @media screen and (max-width: 37.5em) {
+        padding-right: 80px;
+    }
 `
 const ContentDiv = styled.div`
     padding: 1rem 2rem;
@@ -19,16 +22,29 @@ const ContentDiv = styled.div`
 
 const MainDiv = styled.div`
     padding: 3rem;
+    @media screen and (max-width: 37.5em) {
+        padding: .5rem;
+    }
 `
 
 const ContentText = styled(MedText)`
     margin-bottom: 2rem;
     line-height: 1.6;
     letter-spacing: .5px;
+    @media screen and (max-width: 37.5em) {
+        text-align: left;
+        font-size: 18px;
+    }
 `
 
 const StyledLi = styled.li`
     margin-bottom: 1.5rem;
+`
+
+const SectionTitleText = styled(BigText)`
+    @media screen and (max-width: 37.5em) {
+        font-weight: 600;
+    }
 `
 
 function TermsOfService () {
@@ -41,14 +57,14 @@ function TermsOfService () {
                 </PrivacyHeaderDiv>
                 <MainDiv>
                     <ContentDiv>
-                        <BigText>Terms and Conditions</BigText>
+                        <SectionTitleText>Terms and Conditions</SectionTitleText>
                         <ContentText>
                         By downloading or using the app, these terms will automatically apply to you – you should make sure therefore that you read them carefully before using the app. You’re not allowed to copy, or modify the app, any part of the app, or our trademarks in any way. You’re not allowed to attempt to extract the source code of the app, and you also shouldn’t try to translate the app into other languages, or make derivative versions. The app itself, and all the trade marks, copyright, database rights and other intellectual property rights related to it, still belong to Ekene Nkem-Mmekam.
 We are committed to ensuring that the app is as useful and efficient as possible. For that reason, we reserve the right to make changes to the app or to charge for its services, at any time and for any reason. We will never charge you for the app or its services without making it very clear to you exactly what you’re paying for.
                         </ContentText>
                     </ContentDiv>
                     <ContentDiv>
-                        <BigText>Data Security</BigText>
+                        <SectionTitleText>Data Security</SectionTitleText>
                         <ContentText>
                         The SweetRelief app stores and processes personal data that you have provided to us, in order to provide my Service. It’s your responsibility to keep your phone and access to the app secure. We therefore recommend that you do not jailbreak or root your phone, which is the process of removing software restrictions and limitations imposed by the official operating system of your device. It could make your phone vulnerable to malware/viruses/malicious programs, compromise your phone’s security features and it could mean that the SweetRelief app won’t work properly or at all.
 The app does use third party services that declare their own Terms and Conditions.
@@ -62,14 +78,14 @@ Link to Terms and Conditions of third party service providers used by the app:
                         </ContentText>
                     </ContentDiv>
                     <ContentDiv>
-                        <BigText>Access to Reliable Internet </BigText>
+                        <SectionTitleText>Access to Reliable Internet </SectionTitleText>
                         <ContentText>
                         Certain functions of the app will require the app to have an active internet connection. The connection can be Wi-Fi, or provided by your mobile network provider, but we cannot take responsibility for the app not working at full functionality if you don’t have access to Wi-Fi, and you don’t have any of your data allowance left.
 If you’re using the app outside of an area with Wi-Fi, you should remember that your terms of the agreement with your mobile network provider will still apply. As a result, you may be charged by your mobile provider for the cost of data for the duration of the connection while accessing the app, or other third party charges. In using the app, you’re accepting responsibility for any such charges, including roaming data charges if you use the app outside of your home territory (i.e. region or country) without turning off data roaming. If you are not the bill payer for the device on which you’re using the app, please be aware that we assume that you have received permission from the bill payer for using the app.
                         </ContentText>
                     </ContentDiv>
                     <ContentDiv>
-                        <BigText>App Performance</BigText>
+                        <SectionTitleText>App Performance</SectionTitleText>
                         <ContentText>
                         Along the same lines, we cannot always take responsibility for the way you use the app i.e. You need to make sure that your device stays charged – if it runs out of battery and you can’t turn it on to avail the Service, we cannot accept responsibility.
 With respect to our responsibility for your use of the app, when you’re using the app, it’s important to bear in mind that although we endeavour to ensure that it is updated and correct at all times, we do rely on third parties to provide information to us so that we can make it available to you. We accept no liability for any loss, direct or indirect, you experience as a result of relying wholly on this functionality of the app.
@@ -77,7 +93,7 @@ At some point, we may wish to update the app. The app is currently available on 
                         </ContentText>
                     </ContentDiv>
                     <ContentDiv>
-                        <BigText>SweetRelief Community Guidelines </BigText>
+                        <SectionTitleText>SweetRelief Community Guidelines </SectionTitleText>
                         <ContentText>
                         SweetRelief operates on the belief that a strong, well-intentioned community can help others find reliable restrooms and uplift local businesses. If the basic tenants of trust, cooperation, and empathy are undermined, SweetRelief cannot possibly operate at its full potential. Due to this, we’ve felt the need to put forth the following basic guidelines: 
                         <ul>
@@ -105,14 +121,14 @@ At some point, we may wish to update the app. The app is currently available on 
                         </ContentText>
                     </ContentDiv>
                     <ContentDiv>
-                        <BigText>Changes to This Terms and Conditions</BigText>
+                        <SectionTitleText>Changes to This Terms and Conditions</SectionTitleText>
                         <ContentText>
                         We may update our Terms and Conditions from time to time. Thus, you are advised to review this page periodically for any changes. We will notify you of any changes by posting the new Terms and Conditions on this page.
 These terms and conditions are effective as of 2021-10-27
                         </ContentText>
                     </ContentDiv>
                     <ContentDiv>
-                        <BigText>Contact Us</BigText>
+                        <SectionTitleText>Contact Us</SectionTitleText>
                         <ContentText>
                         If you have any questions or suggestions about my Terms and Conditions, do not hesitate to contact us at 
                         <br/><a href='mailto:support@sweetrelief.com'>support@sweetrelief.com.</a>
